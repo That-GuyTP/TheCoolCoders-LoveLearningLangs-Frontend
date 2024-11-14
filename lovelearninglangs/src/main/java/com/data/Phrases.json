@@ -1,0 +1,52 @@
+[
+    {
+        "phraseWords": "[1a2b3c4d-1234-5678-9abc-123def456abc, 9a1e1e92-0a88-44a0-a046-c49c67b1ff6c]",
+        "phrase": "A dog",
+        "id": "1.0"
+    },
+    {
+        "phraseWords": "[1a2b3c4d-1234-5678-9abc-123def456abc, 9a1e1e92-0a88-44a0-a046-c38c67b1ab6c]",
+        "phrase": "A cat",
+        "id": "1.0"
+    },
+    {
+        "phraseWords": "[0b1e1e92-0a88-44a0-a046-c38c67b1ff6c, 9a1e1e92-0a88-44a0-a046-c49c67b1ff6c]",
+        "phrase": "Good dog",
+        "id": "1.0"
+    },
+    {
+        "phraseWords": "[3a1e1e92-0a88-44a0-a046-c38c67b1ff6c, c65e3df8-93bc-4cb9-b55f-9c834eab63f7]",
+        "phrase": "Run fast",
+        "id": "1.0"
+    },
+    {
+        "phraseWords": "[9a1e1e92-0a88-44a0-a046-c39c67b1ff6c, 9a1e1e92-0a88-44a0-a047-c38c67b1ff6c, 9a1e1e92-0a88-44a0-a046-c38c67b2ff6c]",
+        "phrase": "How are you?",
+        "id": "2.0"
+    },
+    {
+        "phraseWords": "[9a3e1e92-0a88-44a0-a046-c38c67b1ff6c, 9a1e1e92-0a88-44a0-a046-c38c67c1ff6c, 9a1e1e92-0a88-44a0-a046-c38c67b1ff6d, b65e3df8-93bc-4cb9-b55f-9c834eab63f7]",
+        "phrase": "What is your name?",
+        "id": "2.0"
+    },
+    {
+        "phraseWords": "[9a1e1e92-0a88-44a0-a056-c38c67b1ff6c, 9a1e1e92-0a88-44a0-a046-c38c67c1ff6c, a99d33d7-1c3c-45b2-b8c3-40b04507b9ed, 9a1e1e92-0a88-44a0-a046-c49c67b1ff6c]",
+        "phrase": "Where is the dog?",
+        "id": "2.0"
+    },
+    {
+        "phraseWords": "[a99d33d7-1c3c-45b2-b8c3-40b04507b9ed, f2b84df3-6340-4199-8a1f-f4c774391e02, 70b8a885-65a3-4db2-b74f-5b9de8b1df48, c1ea9a7e-5886-4810-9a72-cb7934e8f43a]",
+        "phrase": "The philosophy of innovation",
+        "id": "3.0"
+    },
+    {
+        "phraseWords": "[a2b84df3-6340-4199-8a4f-f4c774391e02, 9a1e1e92-0a99-44a0-a046-c38c67b1ff6c, f2b84df3-6340-4199-8a1f-f4c794391e02]",
+        "phrase": "Constitution and sustainability",
+        "id": "3.0"
+    },
+    {
+        "phraseWords": "[a99d33d7-1c3c-45b2-b8c3-40b04507b9ed, 5e8dc4e3-289b-4f74-9e4a-9c6c3d4e367f, 70b8a885-65a3-4db2-b74f-5b9de8b1df48, e0c45a14-1a06-4c2f-a5c1-fbc82523d8ab]",
+        "phrase": "The revolution of technology",
+        "id": "3.0"
+    }
+]
