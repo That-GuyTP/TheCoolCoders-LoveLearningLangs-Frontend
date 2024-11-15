@@ -15,8 +15,8 @@ Currently it's set to #switchToLogin
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LoginSubmit">
     <children>
         <Label text="Login Info" />
-      <TextField promptText="Username" />
-      <TextField promptText="Password" />
+      <TextField fx:id="usernameField" promptText="Username" />
+      <TextField fx:id="passwordField" promptText="Password" />
         <Button fx:id="loginSubmit" onAction="#switchToHomePage" text="Submit" />
     </children>
     <padding>

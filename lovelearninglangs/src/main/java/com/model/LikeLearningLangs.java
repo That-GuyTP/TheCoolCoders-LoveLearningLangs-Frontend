@@ -38,13 +38,15 @@ public class LikeLearningLangs {
         }
     }
 
-    public void login(String username, String password){
+    public boolean login(String username, String password){
         for(User user: users.getUsers()){
             if(user.getUsername().equals(username) && user.getPassword().equals(password)){
                 this.currentUser = user;
                 isLoggedIn = true;
+                return true;
             }
         }
+        return false;
         
     }
 
