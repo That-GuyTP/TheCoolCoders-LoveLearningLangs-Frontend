@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("startup"), 640, 480);
         stage.setScene(scene);
         stage.show();
     }
@@ -35,4 +35,11 @@ public class App extends Application {
         launch();
     }
 
+    /* @Author Thomas Peterson
+     * A method to close the app when needed.
+     */
+    public static void close() {
+        System.out.println("Goodbye!");
+        System.exit(0);
+    }
 }
