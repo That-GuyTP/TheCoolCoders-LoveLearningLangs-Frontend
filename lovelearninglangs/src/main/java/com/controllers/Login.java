@@ -15,8 +15,12 @@ public class Login {
     
     @FXML
     private void switchToLoginSubmit() throws IOException {
-        System.out.println("You clicked the login button!");
-        Narrator.playSound("Hallo Thomas! Wie gehts?");
         App.setRoot("login");
+    }
+
+    @FXML
+    private void playASound() throws IOException {
+        System.out.println("You clicked the login button!");
+        Narrator.playSound("Hello World! We are the Cool Coders! Hallo Grader! Wie gehts?");
     }
 }
