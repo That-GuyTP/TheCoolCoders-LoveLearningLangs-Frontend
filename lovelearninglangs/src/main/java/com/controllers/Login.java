@@ -2,25 +2,51 @@ package com.controllers;
 
 import java.io.IOException;
 import com.application.App;
+import com.model.LikeLearningLangs;
+
 import javafx.fxml.FXML;
-import com.narration.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
 public class Login {
 
-    /* When you click the login button from the startup.fxml, it will
-    1. Print to the terminal "You clicked in the login button"
-    2. Wait while it plays through the Narrator
-    3. And then switch to login.fxml
-    */
-    
+    /* When you click the LoginSubmit button it will:
+     1. Print to the console, "This is the submit button! Taking you back to homepage page!"
+     2. Switch back to the homepage page.
+
+     Alex, I believe this is where you will input the logic for checking a user's information is correct and confirming them logging in so that the app switches to the homepage.
+     */
+    @FXML 
+    private TextField usernameField;
     @FXML
-    private void switchToLoginSubmit() throws IOException {
-        App.setRoot("login");
-    }
+    private TextField passwordField;
+
+
 
     @FXML
-    private void playASound() throws IOException {
-        System.out.println("You clicked the login button!");
-        Narrator.playSound("Hello World! We are the Cool Coders! Hallo Grader! Wie gehts?");
+    private void switchToHomePage() throws IOException {
+        System.out.println("This is the submit button! Taking you to the homepage page!");
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        if(checkLogin(username, password)){
+            App.setRoot("homepage");
+        }
+        else{
+            showError("Invalid Username or Password");
+        }
+    }
+
+    private boolean checkLogin(String username, String password){
+        LikeLearningLangs langs = new LikeLearningLangs();
+        return langs.login(username, password);
+    }
+    
+
+    private void showError(String errorMessage){
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setContentText(errorMessage);
+        alert.showAndWait();
     }
 }

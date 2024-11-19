@@ -13,7 +13,7 @@ Currently when the login button is clicked it runs Login.java and switches to lo
 The register button does not work.
  -->
 
-<VBox alignment="CENTER" prefHeight="369.0" prefWidth="349.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.Login">
+<VBox alignment="CENTER" prefHeight="369.0" prefWidth="349.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.Startup">
    <children>
       <Text fill="#f21717" strokeType="OUTSIDE" strokeWidth="0.0" text="Love Learning Langs">
          <font>
@@ -21,7 +21,7 @@ The register button does not work.
          </font>
       </Text>
       <Label text="Click this button to play a sound and go to the login page" />
-      <Button fx:id="loginButton" onAction="#switchToLoginSubmit" text="Login" />
+      <Button fx:id="loginButton" onAction="#switchToLogin" text="Login" />
       <Button fx:id="registerButton" mnemonicParsing="false" text="Register (WIP)" />
       <Button fx:id="soundTest" onAction="#playASound" text="Test Narrator" />
    </children>

@@ -12,7 +12,7 @@ It's where the user will input their information (username and password) before 
 Currently it's set to #switchToLogin
 -->
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LoginSubmit">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.Login">
     <children>
         <Label text="Login Info" />
       <TextField fx:id="usernameField" promptText="Username" />
