@@ -18,6 +18,10 @@ public class Startup {
         App.setRoot("login");
     }
 
+    @FXML
+    private void switchToRegister() throws IOException {
+        App.setRoot("register");
+    }
 
     @FXML
     private void playASound() throws IOException {
