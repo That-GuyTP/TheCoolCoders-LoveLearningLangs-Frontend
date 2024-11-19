@@ -5,19 +5,23 @@ import com.application.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
-import com.model.Course;
+import com.model.Language;
+import com.model.LikeLearningLangs;
 
 public class CourseController {
 
     @FXML
     private TextArea langaugeChoice;
 
-    public Course userCourse = new Course();
+    public LikeLearningLangs langs = new LikeLearningLangs();
 
     @FXML 
     private void selectLangauge() throws IOException {
-        String language = langaugeChoice.getText();
-        
+        String inputText = langaugeChoice.getText().trim();
+        System.out.println(inputText); // DEBUG
+        Language language = Language.valueOf(inputText.toUpperCase());
+        System.out.println(language); // DEBUG
+        langs.getCourse(language);
     }
     
     @FXML 

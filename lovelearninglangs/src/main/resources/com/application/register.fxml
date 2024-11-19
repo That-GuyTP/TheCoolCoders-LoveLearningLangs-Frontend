@@ -20,7 +20,8 @@ Currently it's set to #switchToLogin
       <TextField fx:id="firstNameField" promptText="First Name" />
       <TextField fx:id="lastNameField" promptText="Last Name" />
       <TextField fx:id="emailField" promptText="Email" />
-        <Button fx:id="loginSubmit" onAction="#switchToHomePage" text="Submit" />
+        <Button fx:id="loginSubmit" onAction="#switchToLogin" text="Submit" />
+        <Button fx:id="backButton" onAction="#back" text="Back" />
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

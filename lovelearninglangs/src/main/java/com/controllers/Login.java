@@ -33,12 +33,6 @@ public class Login {
         System.out.println("You've clicked the submit button");
         String username = usernameField.getText();
         String password = passwordField.getText();
-        
-        //DEBUG
-        System.out.println("usernameField: " + usernameField);
-        System.out.println("passwordField: " + passwordField);
-        System.out.println("username: " + username);
-        System.out.println("password: " + password);
 
         if(checkLogin(username, password)){
             System.out.println("Inputs accepted. Logging you in");
@@ -50,8 +44,8 @@ public class Login {
     }
 
     private boolean checkLogin(String username, String password){
-        return "tap".equals(username) && "tp3".equals(password);
-        //return langs.login(username, password);
+        langs = LikeLearningLangs.getInstance();
+        return langs.login(username, password);
     }
     
 
@@ -65,4 +59,11 @@ public class Login {
     private void exitApp() throws IOException {
         App.close();
     }
+
+    /*
+    @FXML
+    private void back() throws IOException {
+        App.back();
+    }
+     */
 }

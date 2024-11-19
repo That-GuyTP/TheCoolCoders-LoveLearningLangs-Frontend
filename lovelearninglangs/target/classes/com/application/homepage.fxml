@@ -6,18 +6,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<!--
-This is the login page of the app.
-It's where the user will input their information (username and password) before clicking the submit button
-Currently it's set to #switchToLogin
--->
-
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.Homepage">
     <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Congrats! You've made it to the home page. This is as far as we need to go for now." />
-        <Button fix:id="profileButton" onAction="#switchToProfile" text="Profile" />
-        <Button fix:id="courseButton" onAction="#switchToCourse" text="Course" />
-        <Label text="Click this button to close the application" />
+        <Button fx:id="profileButton" onAction="#switchToProfile" text="Profile" />
+        <Button fx:id="courseButton" onAction="#switchToCourse" text="Course" />
         <Button fx:id="exitButton" onAction="#exitApp" text="Exit App" />
     </children>
     <padding>
