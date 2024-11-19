@@ -15,14 +15,11 @@ The register button does not work.
 
 <VBox alignment="CENTER" prefHeight="369.0" prefWidth="349.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.Startup">
    <children>
-      <Text fill="#f21717" strokeType="OUTSIDE" strokeWidth="0.0" text="Love Learning Langs">
-         <font>
-            <Font name="Futura Md BT Medium" size="26.0" />
-         </font>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Love Learning Langs">
       </Text>
       <Label text="Click this button to play a sound and go to the login page" />
       <Button fx:id="loginButton" onAction="#switchToLogin" text="Login" />
-      <Button fx:id="registerButton" mnemonicParsing="false" text="Register (WIP)" />
+      <Button fx:id="registerButton" onAction="#switchToRegister" mnemonicParsing="false" text="Register" />
       <Button fx:id="soundTest" onAction="#playASound" text="Test Narrator" />
    </children>
    <padding>

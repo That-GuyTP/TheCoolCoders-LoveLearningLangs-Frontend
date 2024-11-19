@@ -18,6 +18,11 @@ public class Startup {
         App.setRoot("login");
     }
 
+    @FXML
+    private void switchToRegister() throws IOException {
+        System.out.println("You clicked the register button!");
+        App.setRoot("register");
+    }
 
     @FXML
     private void playASound() throws IOException {
