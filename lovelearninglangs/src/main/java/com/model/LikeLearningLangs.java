@@ -11,7 +11,7 @@ public class LikeLearningLangs {
     private static LikeLearningLangs instance;
 
     private User currentUser;
-    private Users users;
+    private static Users users;
     private ArrayList<Phrase> phrases;
     private ArrayList<Word> words;
     private Language currentLanguage;
@@ -48,7 +48,7 @@ public class LikeLearningLangs {
     }
 
     public boolean login(String username, String password){
-        for(User user: users.getUsers()){
+        for(User user : Users.getUsers()){
             if(user.getUsername().equals(username) && user.getPassword().equals(password)){
                 this.currentUser = user;
                 isLoggedIn = true;

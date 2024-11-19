@@ -12,7 +12,7 @@ It's where the user will input their information (username and password) before 
 Currently it's set to #switchToLogin
 -->
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.Exit">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.Homepage">
     <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Congrats! You've made it to the home page. This is as far as we need to go for now." />
         <Label text="Click this button to close the application" />
