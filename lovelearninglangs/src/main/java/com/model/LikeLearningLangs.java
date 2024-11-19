@@ -20,7 +20,7 @@ public class LikeLearningLangs {
     public boolean isLoggedIn;
     public static final Scanner kb = new Scanner(System.in);
 
-    private LikeLearningLangs() {
+    public LikeLearningLangs() {
         users = Users.getInstance();
         this.currentUser = new User();
         Phrases.getInstance();
