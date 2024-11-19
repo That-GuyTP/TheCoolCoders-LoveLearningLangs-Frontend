@@ -39,7 +39,7 @@ public class Login {
     }
 
     private boolean checkLogin(String username, String password){
-        LikeLearningLangs langs = new LikeLearningLangs();
+        LikeLearningLangs langs = LikeLearningLangs.getInstance();
         return langs.login(username, password);
     }
     
