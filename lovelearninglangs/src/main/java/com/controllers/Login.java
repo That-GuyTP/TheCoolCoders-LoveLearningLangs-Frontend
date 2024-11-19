@@ -41,10 +41,6 @@ public class Login {
     }
 
     private boolean checkLogin(String username, String password){
-<<<<<<< HEAD
-=======
-        LikeLearningLangs langs = LikeLearningLangs.getInstance();
->>>>>>> 6c9dd2424e00c8bf600d96ce8c35794328a335d0
         return langs.login(username, password);
     }
     
