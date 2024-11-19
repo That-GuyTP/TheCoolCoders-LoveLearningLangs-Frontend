@@ -14,7 +14,7 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
-    private static Scene previousScene;
+    //private static Scene previousScene;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -24,7 +24,7 @@ public class App extends Application {
     }
 
     public static void setRoot(String fxml) throws IOException {
-        previousScene = new Scene(scene.getRoot(), scene.getWidth(), scene.getHeight() );
+        //previousScene = new Scene(scene.getRoot(), scene.getWidth(), scene.getHeight() );
         scene.setRoot(loadFXML(fxml));
     }
 

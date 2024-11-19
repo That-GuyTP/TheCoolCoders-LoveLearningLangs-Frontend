@@ -52,11 +52,10 @@ public class Register {
         alert.showAndWait();
     }
 
-    /*
     @FXML
     private void back() throws IOException {
-        App.back();
+        App.setRoot("startup");
     }
-     */
+
 
 }

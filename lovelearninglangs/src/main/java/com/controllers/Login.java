@@ -59,11 +59,8 @@ public class Login {
     private void exitApp() throws IOException {
         App.close();
     }
-
-    /*
     @FXML
     private void back() throws IOException {
-        App.back();
+        App.setRoot("startup");
     }
-     */
 }
