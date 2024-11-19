@@ -20,7 +20,6 @@ public class Startup {
 
     @FXML
     private void switchToRegister() throws IOException {
-        System.out.println("You clicked the register button!");
         App.setRoot("register");
     }
 

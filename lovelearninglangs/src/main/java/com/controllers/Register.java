@@ -1,7 +1,6 @@
 package com.controllers;
 
 import java.io.IOException;
-
 import com.application.App;
 
 import javafx.fxml.FXML;
