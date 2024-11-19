@@ -18,7 +18,7 @@ public class Users {
      * Default Constructor that is only used if there isn't a current instance of the userlist being used.
      */
     private Users(){
-        this.users = DataLoader.getUsers();
+        users = DataLoader.getUsers();
         user = new User();
     }
 
@@ -104,7 +104,7 @@ public class Users {
 
     public User getUser(User user) {
         for (User check : users ) {
-            if (user.equals(user)) {
+            if (check.equals(user)) {
                 return user;
             }
         }
