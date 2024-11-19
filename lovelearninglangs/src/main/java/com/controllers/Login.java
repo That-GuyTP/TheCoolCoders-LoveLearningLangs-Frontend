@@ -17,19 +17,26 @@ public class Login {
 
      Alex, I believe this is where you will input the logic for checking a user's information is correct and confirming them logging in so that the app switches to the homepage.
      */
+    @FXML
     private TextField usernameField;
+
+    @FXML
     private TextField passwordField;
     LikeLearningLangs langs = new LikeLearningLangs();
 
     @FXML
     private void switchToHomePage() throws IOException {
+        login();
+    }
+
+    private void login() throws IOException {
         System.out.println("You've clicked the submit button");
         String username = usernameField.getText();
         String password = passwordField.getText();
         
         //DEBUG
         System.out.println("usernameField: " + usernameField);
-        System.out.println("passwordField: " + usernameField);
+        System.out.println("passwordField: " + passwordField);
         System.out.println("username: " + username);
         System.out.println("password: " + password);
 
