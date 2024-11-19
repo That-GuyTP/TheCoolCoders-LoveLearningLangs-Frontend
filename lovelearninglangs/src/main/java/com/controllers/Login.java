@@ -22,24 +22,25 @@ public class Login {
     @FXML
     private TextField passwordField;
 
-
+    LikeLearningLangs langs = new LikeLearningLangs();
 
     @FXML
     private void switchToHomePage() throws IOException {
-        System.out.println("This is the submit button! Taking you to the homepage page!");
+        System.out.println("You've clicked the submit button");
         String username = usernameField.getText();
         String password = passwordField.getText();
+        System.out.println(username);
+        System.out.println(password);
 
         if(checkLogin(username, password)){
             App.setRoot("homepage");
         }
-        else{
+        else {
             showError("Invalid Username or Password");
         }
     }
 
     private boolean checkLogin(String username, String password){
-        LikeLearningLangs langs = new LikeLearningLangs();
         return langs.login(username, password);
     }
     

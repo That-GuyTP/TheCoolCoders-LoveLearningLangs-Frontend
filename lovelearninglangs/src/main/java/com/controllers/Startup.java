@@ -25,7 +25,7 @@ public class Startup {
 
     @FXML
     private void playASound() throws IOException {
-        System.out.println("You clicked the login button!");
+        System.out.println("You clicked the playASound button!");
         Narrator.playSound("Hola World! Vosotros los Cool Coders! Hola Grader! Como estas?");
     }
 }
