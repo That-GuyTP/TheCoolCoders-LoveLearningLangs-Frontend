@@ -8,6 +8,8 @@ import java.util.Random;
 
 public class LikeLearningLangs {
     
+    private static LikeLearningLangs instance;
+
     private User currentUser;
     private Users users;
     private ArrayList<Phrase> phrases;
@@ -25,6 +27,13 @@ public class LikeLearningLangs {
         course = new Course();
     }
 
+    public static LikeLearningLangs getInstance(){
+        if(instance == null){
+            instance = new LikeLearningLangs();
+        }
+        return instance;
+    }
+
     /**
      * calls login method from User.java
      */
@@ -38,13 +47,15 @@ public class LikeLearningLangs {
         }
     }
 
-    public void login(String username, String password){
+    public boolean login(String username, String password){
         for(User user: users.getUsers()){
             if(user.getUsername().equals(username) && user.getPassword().equals(password)){
                 this.currentUser = user;
                 isLoggedIn = true;
+                return true;
             }
         }
+        return false;
         
     }
 
@@ -69,6 +80,16 @@ public class LikeLearningLangs {
         DataWriter.saveWords();
         currentUser = null;
     }
+
+    public boolean doesAccountExist(String username){
+        for(User user: Users.getUsers()){
+            if(user.getUsername().equals(username)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     /**
      * calls viewAccount method from User.java
