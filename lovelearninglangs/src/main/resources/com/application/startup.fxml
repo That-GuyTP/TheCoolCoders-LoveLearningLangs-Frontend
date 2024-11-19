@@ -23,6 +23,7 @@ The register button does not work.
       <Label text="Click this button to play a sound and go to the login page" />
       <Button fx:id="loginButton" onAction="#switchToLoginSubmit" text="Login" />
       <Button fx:id="registerButton" mnemonicParsing="false" text="Register (WIP)" />
+      <Button fx:id="soundTest" onAction="#playASound" text="Test Narrator" />
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

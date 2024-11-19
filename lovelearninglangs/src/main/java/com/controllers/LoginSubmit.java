@@ -14,8 +14,6 @@ public class LoginSubmit {
     /* When you click the LoginSubmit button it will:
      1. Print to the console, "This is the submit button! Taking you back to homepage page!"
      2. Switch back to the homepage page.
-
-     Alex, I believe this is where you will input the logic for checking a user's information is correct and confirming them logging in so that the app switches to the homepage.
      */
     @FXML 
     private TextField usernameField;
@@ -39,10 +37,9 @@ public class LoginSubmit {
     }
 
     private boolean checkLogin(String username, String password){
-        LikeLearningLangs langs = new LikeLearningLangs();
+        LikeLearningLangs langs = LikeLearningLangs.getInstance();
         return langs.login(username, password);
         }
-    
 
     private void showError(String errorMessage){
         Alert alert = new Alert(AlertType.ERROR);
