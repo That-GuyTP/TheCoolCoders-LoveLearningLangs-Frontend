@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import com.model.LikeLearningLangs;
 
 
-public class RegisterSubmit {
+public class Register {
     @FXML
     private TextField usernameField;
     @FXML
