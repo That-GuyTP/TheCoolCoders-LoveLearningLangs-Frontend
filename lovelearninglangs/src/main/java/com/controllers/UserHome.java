@@ -4,18 +4,19 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-import com.model.*;
+
+import com.model.Language;
+import com.model.LikeLearningLangs;
+import com.model.User;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
 public class UserHome implements Initializable{
 
@@ -50,7 +51,7 @@ public class UserHome implements Initializable{
 
             userLanguageList.add(hBox, i, 0);
 
-            hBox.getChildren().add(image);
+            /*hBox.getChildren().add(image);*/
 
             i++;
         }
