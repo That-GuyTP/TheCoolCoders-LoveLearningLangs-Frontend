@@ -23,4 +23,7 @@ Currently it's set to #switchToLogin
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
+    <stylesheet>
+    <UML value = "@styles.cc" />
+    <stylesheet>
 </VBox>
