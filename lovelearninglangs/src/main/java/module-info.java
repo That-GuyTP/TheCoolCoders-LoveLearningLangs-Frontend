@@ -12,6 +12,7 @@ module com {
     requires org.slf4j.simple;
     requires software.amazon.awssdk.awscore;
     requires software.amazon.eventstream;
+    requires javafx.graphics;
 
     opens com.application to javafx.fxml;
     exports com.application;
