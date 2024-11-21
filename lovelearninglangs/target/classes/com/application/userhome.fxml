@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="31.0" layoutY="26.0" prefHeight="61.0" prefWidth="339.0" text="Lets get Started, ">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <VBox fx:id="userlanguagelist" layoutX="43.0" layoutY="88.0" prefHeight="411.0" prefWidth="379.0" />
+      <Button fx:id="addlanguagebutton" layoutX="54.0" layoutY="499.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="357.0" text=" Add Language" />
+      <ImageView fx:id="profileimage" fitHeight="61.0" fitWidth="62.0" layoutX="390.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/profileImage.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

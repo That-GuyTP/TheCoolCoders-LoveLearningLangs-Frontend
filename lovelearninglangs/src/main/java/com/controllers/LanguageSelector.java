@@ -9,8 +9,6 @@ import com.application.App;
 import com.controllers.CourseController;
 import com.model.Language;
 
-
-
 public class LanguageSelector {
     @FXML
     private TextArea languageButton;

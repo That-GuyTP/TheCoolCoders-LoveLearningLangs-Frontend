@@ -29,4 +29,14 @@ public abstract class DataConstants {
     protected static final String WORD_PARTOFSPEECH = "partOfSpeech";
     protected static final String WORD_GENDER = "gender";
     protected static final String WORD_LANGUAGE = "language";
+
+    public static boolean isJUnitTest() {  
+		for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
+		  if (element.getClassName().startsWith("org.junit.")) {
+			return true;
+		  }           
+		}
+		return false;
+	  }
+      
 }
