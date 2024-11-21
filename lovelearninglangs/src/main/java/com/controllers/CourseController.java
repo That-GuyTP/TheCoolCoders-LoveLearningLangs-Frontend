@@ -14,7 +14,7 @@ public class CourseController {
     private String langaugeChoice;
     private Language language;
 
-    public LikeLearningLangs langs = new LikeLearningLangs();
+    public LikeLearningLangs langs = LikeLearningLangs.getInstance();
     public void selectLangauge(Language languageInput) {
         Language language = languageInput;
 
