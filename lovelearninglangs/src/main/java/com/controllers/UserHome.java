@@ -87,4 +87,8 @@ public class UserHome implements Initializable{
         App.setRoot("addlanguage");
     }
     
+    @FXML
+    private void switchToProfile() throws IOException{
+        App.setRoot("profile");
+    }
 }
