@@ -17,21 +17,22 @@ public class Login {
 
      Alex, I believe this is where you will input the logic for checking a user's information is correct and confirming them logging in so that the app switches to the homepage.
      */
+    @FXML
     private TextField usernameField;
+
+    @FXML
     private TextField passwordField;
     LikeLearningLangs langs = new LikeLearningLangs();
 
     @FXML
     private void switchToHomePage() throws IOException {
+        login();
+    }
+
+    private void login() throws IOException {
         System.out.println("You've clicked the submit button");
         String username = usernameField.getText();
         String password = passwordField.getText();
-        
-        //DEBUG
-        System.out.println("usernameField: " + usernameField);
-        System.out.println("passwordField: " + usernameField);
-        System.out.println("username: " + username);
-        System.out.println("password: " + password);
 
         if(checkLogin(username, password)){
             System.out.println("Inputs accepted. Logging you in");
@@ -43,8 +44,8 @@ public class Login {
     }
 
     private boolean checkLogin(String username, String password){
-        return "tap".equals(username) && "tp3".equals(password);
-        //return langs.login(username, password);
+        langs = LikeLearningLangs.getInstance();
+        return langs.login(username, password);
     }
     
 
@@ -57,5 +58,9 @@ public class Login {
     @FXML
     private void exitApp() throws IOException {
         App.close();
+    }
+    @FXML
+    private void back() throws IOException {
+        App.setRoot("startup");
     }
 }

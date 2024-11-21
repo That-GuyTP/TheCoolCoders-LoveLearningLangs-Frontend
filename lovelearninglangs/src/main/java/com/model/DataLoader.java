@@ -42,8 +42,8 @@ public class DataLoader extends DataConstants {
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
         try {
-            InputStream inputStream = DataLoader.class.getResourceAsStream(USERS_JSON_FILE);
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+            InputStream in = Files.newInputStream(Paths.get(USERS_JSON_FILE));
+            InputStreamReader inputStreamReader = new InputStreamReader(in, StandardCharsets.UTF_8);
             BufferedReader reader = new BufferedReader(inputStreamReader);
 
             JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
@@ -90,8 +90,8 @@ public class DataLoader extends DataConstants {
         // Only Reading in WORDS from json file
         ArrayList<Word> words = new ArrayList<>();
         try {
-            InputStream inputStream = DataLoader.class.getResourceAsStream(WORDS_JSON_FILE);
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+            InputStream in = Files.newInputStream(Paths.get(WORDS_JSON_FILE));
+            InputStreamReader inputStreamReader = new InputStreamReader(in, StandardCharsets.UTF_8);
             BufferedReader reader = new BufferedReader(inputStreamReader);
             JSONArray wordsJSON = (JSONArray) new JSONParser().parse(reader);
 
@@ -137,8 +137,8 @@ public class DataLoader extends DataConstants {
     public static ArrayList<Phrase> getPhrases() {
         ArrayList<Phrase> phrases = new ArrayList<>();
         try {
-            InputStream inputStream = DataLoader.class.getResourceAsStream(PHRASES_JSON_FILE);
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+            InputStream in = Files.newInputStream(Paths.get(PHRASES_JSON_FILE));
+            InputStreamReader inputStreamReader = new InputStreamReader(in, StandardCharsets.UTF_8);
             BufferedReader reader = new BufferedReader(inputStreamReader);
             JSONArray phrasesJSON = (JSONArray) new JSONParser().parse(reader);
 
