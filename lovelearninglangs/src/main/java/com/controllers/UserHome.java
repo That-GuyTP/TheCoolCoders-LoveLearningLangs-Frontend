@@ -1,28 +1,45 @@
 package com.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
-import com.model.*;
 
+import com.application.App;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import com.model.*;
 
 public class UserHome implements Initializable{
 
     private LikeLearningLangs lll;
     private User currentUser;
     @FXML private Label welcomeLabel;
-    @FXML private GridPane userLanguageList;
+    @FXML private ImageView profileImage;
+    @FXML private VBox userLanguageList;
+    @FXML private Button addLanguageButton;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         lll = LikeLearningLangs.getInstance();
@@ -44,19 +61,30 @@ public class UserHome implements Initializable{
             languageImage.setFitHeight(50);
             languageImage.setPreserveRatio(true);
             hBox.getChildren().add(languageImage);
-            Button languageButton = new Button();
-            languageButton.setText(language.label);
-            hBox.getChildren().add(languageButton);
 
-            userLanguageList.add(hBox, i, 0);
+            userLanguageList.getChildren.add(hBox, i, 0);
 
             hBox.getChildren().add(image);
-
+            languageButton.setOnMouseClicked(new EventHandler<MouseEvent>()){
+                @Override
+                public void handle(MouseEvent event){
+                    lll.getCourse(language);
+                    switchToCourse();
+                }
+                
+            }
             i++;
         }
+    }
 
+    @FXML
+    private void switchToCourse() throws IOException{
+        App.setRoot("course");
+    }
 
-
+    @FXML
+    private void switchToAddLanguage() throws IOException{
+        App.setRoot("addlanguage");
     }
     
 }
