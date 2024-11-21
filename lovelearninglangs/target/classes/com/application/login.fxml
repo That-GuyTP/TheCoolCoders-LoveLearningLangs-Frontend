@@ -17,7 +17,7 @@ Currently it's set to #switchToLogin
         <Label text="Login Info" />
         <TextField fx:id="usernameField" promptText="Username" />
         <TextField fx:id="passwordField" promptText="Password" />
-        <Button fx:id="loginSubmit" onAction="#switchToHomePage" text="Submit" />
+        <Button fx:id="loginSubmit" onAction="#login" text="Submit" />
         <Button fx:id="backButton" onAction="#back" text="Back" />
     </children>
     <padding>
