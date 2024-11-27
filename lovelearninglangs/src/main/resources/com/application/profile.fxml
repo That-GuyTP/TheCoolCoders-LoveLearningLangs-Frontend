@@ -30,12 +30,12 @@
                   <Image url="@images/profileImage.png" />
                </image>
             </ImageView>
-            <Label fx:id="useFullName" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="151.0" text="Name" textAlignment="CENTER">
+            <Label fx:id="userFullNameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="151.0" text="Name" textAlignment="CENTER">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label fx:id="userUsername" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="151.0" text="Username" textAlignment="CENTER">
+            <Label fx:id="userUsernameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="151.0" text="Username" textAlignment="CENTER">
                <font>
                   <Font size="22.0" />
                </font>
@@ -49,7 +49,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <TextField editable="false" text="User First Name">
+            <TextField fx:id="userFirstName" editable="false" text="User First Name">
                <font>
                   <Font size="17.0" />
                </font>
@@ -59,7 +59,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <TextField editable="false" text="User Last Name">
+            <TextField fx:id="userLastName" editable="false" text="User Last Name">
                <font>
                   <Font size="17.0" />
                </font>
@@ -69,7 +69,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <TextField editable="false" text="Username">
+            <TextField fx:id="userUsername" editable="false" text="Username">
                <font>
                   <Font size="17.0" />
                </font>
@@ -79,7 +79,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <TextField editable="false" text="User Email">
+            <TextField fx:id="userEmail" editable="false" text="User Email">
                <font>
                   <Font size="17.0" />
                </font>
@@ -91,7 +91,7 @@
             </Label>
             <HBox prefHeight="35.0" prefWidth="306.0">
                <children>
-                  <PasswordField prefHeight="27.0" prefWidth="276.0" text="User Password">
+                  <PasswordField fx:id="userPassword" prefHeight="27.0" prefWidth="276.0" text="User Password">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -101,7 +101,7 @@
             </HBox>
          </children>
       </VBox>
-      <Button layoutX="62.0" layoutY="582.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="80.0" text="Save" />
-      <Button layoutX="236.0" layoutY="582.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="76.0" text="Sign Out" />
+      <Button fx:id="saveButton" layoutX="62.0" layoutY="582.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="80.0" text="Save" />
+      <Button fx:id="signUpButton" layoutX="236.0" layoutY="582.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="76.0" text="Sign Out" />
    </children>
 </AnchorPane>
