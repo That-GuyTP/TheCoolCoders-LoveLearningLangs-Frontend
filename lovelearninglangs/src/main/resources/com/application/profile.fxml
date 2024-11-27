@@ -9,72 +9,99 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="667" prefWidth="375" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <!-- Background -->
-    <AnchorPane styleClass="background-pane">
-        <!-- Back Button -->
-        <Button fx:id="backButton" layoutX="10" layoutY="10" prefHeight="37.0" prefWidth="31.0" styleClass="back-button">
-            <Graphic>
-                <ImageView>
-                    <Image url="@images/back_image.png" />
-                </ImageView>
-            </Graphic>
-        </Button>
 
-        <!-- Profile Section -->
-        <VBox alignment="CENTER" layoutX="0" layoutY="50" prefWidth="375" spacing="10">
-            <ImageView fx:id="profileImage" fitHeight="100" fitWidth="100" styleClass="profile-image">
-                <Image url="@images/profile_image.png" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="373.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="backButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="38.0">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/back_image.png" />
+               </image>
             </ImageView>
-            <VBox spacing="5">
-                <Text fx:id="nameLabel" styleClass="profile-name" text="John Smith" />
-                <Text fx:id="usernameLabel" styleClass="profile-username" text="jsmith1992" />
-            </VBox>
-        </VBox>
-
-       
-        <VBox layoutX="30.0" layoutY="238.0" prefWidth="315" spacing="15">
-            <!-- First Name -->
-            <HBox spacing="5">
-                <Label styleClass="label" text="First Name:" />
-                <TextField fx:id="firstNameField" promptText="First Name" />
+         </graphic>
+      </Button>
+      <VBox alignment="TOP_CENTER" layoutX="62.0" layoutY="53.0" prefHeight="177.0" prefWidth="250.0">
+         <children>
+            <ImageView fitHeight="106.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/profileImage.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="useFullName" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="151.0" text="Name" textAlignment="CENTER">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="userUsername" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="151.0" text="Username" textAlignment="CENTER">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="34.0" layoutY="241.0" prefHeight="313.0" prefWidth="306.0">
+         <children>
+            <Label text="First Name">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField editable="false" text="User First Name">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+            <Label text="Last Name">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField editable="false" text="User Last Name">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+            <Label text="Username">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField editable="false" text="Username">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+            <Label text="Email">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField editable="false" text="User Email">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+            <Label text="Password">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="35.0" prefWidth="306.0">
+               <children>
+                  <PasswordField prefHeight="27.0" prefWidth="276.0" text="User Password">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </PasswordField>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="40.0" textAlignment="RIGHT" />
+               </children>
             </HBox>
-            <!-- Last Name -->
-            <HBox spacing="5">
-                <Label styleClass="label" text="Last Name:" />
-                <TextField fx:id="lastNameField" promptText="Last Name" />
-            </HBox>
-            <!-- Username -->
-            <HBox spacing="5">
-                <Label styleClass="label" text="Username:" />
-                <TextField fx:id="usernameField" promptText="Username" />
-            </HBox>
-            <!-- Email -->
-            <HBox spacing="5">
-                <Label styleClass="label" text="Email:" />
-                <TextField fx:id="emailField" promptText="Email" />
-            </HBox>
-
-            <!-- Password -->
-            <HBox spacing="5">
-                <Label styleClass="label" text="Password:" />
-                <PasswordField fx:id="passwordField" promptText="Password" />
-                <Button styleClass="eye-icon">
-                    <Graphic>
-                        <ImageView>
-                            <Image url="@images/eye_icon.png" />
-                        </ImageView>
-                    </Graphic>
-                </Button>
-            </HBox>
-        </VBox>
-
-        <!-- Buttons -->
-        <HBox alignment="CENTER" layoutX="30" layoutY="550" prefWidth="315" spacing="20">
-            <Button fx:id="saveButton" styleClass="save-button" text="Save" />
-            <Button fx:id="signOutButton" styleClass="signout-button" text="Sign Out" />
-        </HBox>
-    </AnchorPane>
+         </children>
+      </VBox>
+      <Button layoutX="62.0" layoutY="582.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="80.0" text="Save" />
+      <Button layoutX="236.0" layoutY="582.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="76.0" text="Sign Out" />
+   </children>
 </AnchorPane>
