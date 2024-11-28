@@ -8,20 +8,63 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+AnchorPane xmlns:fx="http://javafx.com/fxml" prefWidth="375" prefHeight="667"
+    <AnchorPane>
+        <Button fx:id="backButton" layoutX="10" layoutY="10" styleClass="profile-button">
+            <Graphic>
+                <ImageView>
+                    <Image url="@/back_icon.png" />
+                </ImageView>
+            </Graphic>
+        </Button>
+        <VBox alignment="CENTER" layoutX="0" layoutY="50" prefWidth="375" spacing="10">
+            <ImageView>
+                <Image url="@/profile_image.png" />
+            </ImageView>
+            <VBox spacing="5">
+                <Text fx:id="nameLabel" text="Name" styleClass="profile-name" />
+                <Text fx:id="usernameLabel" text="Username" styleClass="profile-username" />
+            </VBox>
+        </VBox>
+        <VBox layoutX="30" layoutY="200" prefWidth="315" spacing="15">
+            <HBox spacing="5">
+                <Label text="First Name:" styleClass="label" />
+                <TextField fx:id="firstNameField" promptText="First Name" />
+            </HBox>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label layoutX="31.0" layoutY="26.0" prefHeight="61.0" prefWidth="339.0" text="Lets get Started, ">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <VBox fx:id="userlanguagelist" layoutX="43.0" layoutY="88.0" prefHeight="411.0" prefWidth="379.0" />
-      <Button fx:id="addlanguagebutton" layoutX="54.0" layoutY="499.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="357.0" text=" Add Language" />
-      <ImageView fx:id="profileimage" fitHeight="61.0" fitWidth="62.0" layoutX="390.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/profileImage.png" />
-         </image>
-      </ImageView>
-   </children>
+            <HBox spacing="5">
+                <Label text="Last Name:" styleClass="label" />
+                <TextField fx:id="lastNameField" promptText="Last Name" />
+            </HBox>
+
+            <HBox spacing="5">
+                <Label text="Username:" styleClass="label" />
+                <TextField fx:id="usernameField" promptText="Username" />
+            </HBox>
+
+            <HBox spacing="5">
+                <Label text="Email:" styleClass="label" />
+                <TextField fx:id="emailField" promptText="Email" />
+            </HBox>
+
+            <!-- Password -->
+            <HBox spacing="5">
+                <Label text="Password:" styleClass="label" />
+                <PasswordField fx:id="passwordField" promptText="Password" />
+                <Button fx:id="showPasswordButton" styleClass="eye-icon">
+                    <Graphic>
+                        <ImageView>
+                            <Image url="@images/eye_icon.png" />
+                        </ImageView>
+                    </Graphic>
+                </Button>
+            </HBox>
+        </VBox>
+
+        <!-- Bottom Buttons -->
+        <HBox layoutX="30" layoutY="550" prefWidth="315" spacing="20" alignment="CENTER">
+            <Button fx:id="saveButton" text="Save" styleClass="profile-button" />
+            <Button fx:id="signOutButton" text="Sign Out" styleClass="profile-button" />
+        </HBox>
+    </AnchorPane>
 </AnchorPane>

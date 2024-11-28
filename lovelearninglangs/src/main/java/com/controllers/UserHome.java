@@ -30,6 +30,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import com.model.*;
+import java.util.HashMap;
 
 public class UserHome implements Initializable{
 
@@ -53,7 +54,6 @@ public class UserHome implements Initializable{
         HashMap<Language, Double> userProgress = currentUser.getProgress();
         ArrayList<Language> userLanguages = new ArrayList<>();
         for(Language language: userProgress.keySet()){
-            int i = 0;
             userLanguages.add(language);
             HBox hBox = new HBox();
             Image image = new Image(getClass().getResourceAsStream("/images/" + language.label + ".jpg"));
@@ -62,18 +62,22 @@ public class UserHome implements Initializable{
             languageImage.setPreserveRatio(true);
             hBox.getChildren().add(languageImage);
 
-            userLanguageList.getChildren.add(hBox, i, 0);
+            userLanguageList.getChildren().add(hBox);
 
-            hBox.getChildren().add(image);
-            languageButton.setOnMouseClicked(new EventHandler<MouseEvent>()){
+            Button languageButton = new Button(language.toString());
+            hBox.getChildren().add(languageImage);
+            languageButton.setOnMouseClicked(new EventHandler<MouseEvent>(){
                 @Override
                 public void handle(MouseEvent event){
                     lll.getCourse(language);
-                    switchToCourse();
+                    try {
+                        switchToCourse();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
                 
-            }
-            i++;
+            });
         }
     }
 
