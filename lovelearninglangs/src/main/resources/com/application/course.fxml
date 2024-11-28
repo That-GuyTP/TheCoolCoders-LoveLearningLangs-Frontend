@@ -2,19 +2,22 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
 
 <!--
-This is the login page of the app.
-It's where the user will input their information (username and password) before clicking the submit button
-Currently it's set to #switchToLogin
+this is the course fxml of the app.
+It handles the following features
+ * Selecting a course level
+ * Switching to Learn
 -->
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.CourseController">
+<VBox alignment="CENTER" prefHeight="412.0" prefWidth="222.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.CourseController">
     <children>
-        <Button fx:id="exitButton" onAction="#switchToExercise" text="Exercise" />
+      <Button mnemonicParsing="false" onAction="#switchToHome" text="Icon (Return to Language Select)" />
+      <Button mnemonicParsing="false" onAction="#switchToLearn" text="Learn" />
+        <Button fx:id="exitButton" onAction="#switchToLevel1" text="Level 1" />
+      <Button fx:id="exitButton1" onAction="#switchToLevel2" text="Level 2" />
+      <Button fx:id="exitButton11" onAction="#switchToLevel3" text="Level 3" />
         <Button fx:id="exitButton" onAction="#exitApp" text="Exit App" />
     </children>
     <padding>

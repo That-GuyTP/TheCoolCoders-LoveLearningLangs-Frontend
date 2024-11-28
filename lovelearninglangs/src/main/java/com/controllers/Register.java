@@ -23,7 +23,7 @@ public class Register {
     @FXML
     private TextField emailField;
 
-    LikeLearningLangs langs = new LikeLearningLangs();
+    LikeLearningLangs langs = LikeLearningLangs.getInstance();
 
     @FXML
     private void switchToLogin() throws IOException {
