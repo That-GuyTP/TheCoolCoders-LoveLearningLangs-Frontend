@@ -36,10 +36,9 @@ public class UserHome implements Initializable{
 
     private LikeLearningLangs lll;
     private User currentUser;
+    
     @FXML private Label welcomeLabel;
-    @FXML private ImageView profileImage;
     @FXML private VBox userLanguageList;
-    @FXML private Button addLanguageButton;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
