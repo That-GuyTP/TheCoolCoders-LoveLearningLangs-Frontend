@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import com.application.App;
 import com.model.LikeLearningLangs;
-import com.controllers.CourseController;
+//import com.controllers.CourseController;
 import com.model.Phrase;
 import com.model.Phrases;
 import com.narration.*;
@@ -71,7 +71,7 @@ public class LearnController {
 
     @FXML
     private void setText() throws IOException {
-        learnText.setText((english + " is pronounced, \"" + translation));
+        learnText.setText(("\"" + english + "\" is pronounced, \"" + translation + "\""));
     }
 
     @FXML

@@ -28,14 +28,27 @@ public class ExerciseController {
     public ExerciseController(Language language, Double progress) {
         exercise = new Exercise(language, progress);
         currentProgress = progress;
+        startExercise();
     }
 
+    /**
+     * calls the generateQuestions method from our exercise model and creates a list of questions based off that.
+     * 
+     * @return arrayList<Question> questions
+     */
     public ArrayList<Question> generateQuestions() {
         questions = exercise.generateQuestions();
         return questions;
     }
 
+    /**
+     * startExercise is what will run when the exercise controller starts. It calls the creation of the questions, compares the types of each question, and changes to
+     * a question type based off the type. It also sets the values of each questions' question string, correct answer, and a progress value.
+     * 
+     * @return double Arruracy
+     */
     public double startExercise() {
+        generateQuestions();
         for (int i = 0; i < questions.size(); i++) {
             Question question = questions.get(i);
             if(question instanceof trueOrFalse) {
