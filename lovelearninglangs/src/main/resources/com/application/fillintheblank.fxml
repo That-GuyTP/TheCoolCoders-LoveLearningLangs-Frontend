@@ -5,19 +5,26 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <!-- This is the fill in the blank question field.-->
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.FillInTheBlank">
+<VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #FCE6E9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.FillInTheBlank">
     <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Love Learning Langs" wrappingWidth="109.3363037109375" />
-        <Label text="Fill in the blank." />
+      <Text fill="#4b0808" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-font-family: family;" text="Level 1      1/10" wrappingWidth="109.3363037109375">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Text>
+        <Label prefHeight="27.0" prefWidth="186.0" style="-fx-text-alignment: left;" text="Fill in the blank." textFill="#e30220">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font></Label>
       <Label text="Example Question" />
         <Lable text="Example question" />
         <!--Create a field that the user can input text into-->
         <TextField fx:id="fillInField" promptText="Answer" />
-      <Button id="nextButton" mnemonicParsing="false" text="-&gt;" />
+      <Button id="nextButton" mnemonicParsing="false" style="-fx-background-color: #e30220;" text="-&gt;" />
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
