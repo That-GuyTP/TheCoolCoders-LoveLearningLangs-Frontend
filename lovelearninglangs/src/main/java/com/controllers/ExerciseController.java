@@ -19,10 +19,10 @@ public class ExerciseController {
     private Exercise exercise;
     private ArrayList<Question> questions;
     private Double currentProgress;
-    private com.model.FillInTheBlank fitb;
-    private com.model.Matching mtch;
-    private com.model.MultipleChoice mc;
-    private com.model.trueOrFalse tof;
+    private com.controllers.FillInTheBlank fitb;
+    //private com.controllers.Matching mtch;
+    private com.controllers.MultipleChoice mc;
+    private com.controllers.TrueOrFalse tof;
 
     //Constructor
     public ExerciseController(Language language, Double progress) {
@@ -39,19 +39,23 @@ public class ExerciseController {
         for (int i = 0; i < questions.size(); i++) {
             Question question = questions.get(i);
             if(question instanceof trueOrFalse) {
-                tof.setProgressLevel(currentProgress);
-                tof.setQuestion(question.getQuestion());
-                tof.setAnswer(question.getAnswer());
-                App.launch("trueorfalse");
+                tof.setQuestion(question.getQuestion(), null, i);
+                tof.setCorrectAnswer(question.getAnswer());
+                tof.setProgress(currentProgress.intValue());
+                App.setRoot("trueorfalse");
             } else if (question instanceof FillInTheBlank) {
-                fitb = (FillInTheBlank) question;
-                App.launch("fillintheblank");
+                fitb.setQuestion(question.getQuestion());
+                fitb.setCorrectAnswer(question.getAnswer());
+                fitb.setProgress(currentProgress.intValue());
+                App.setRoot("fillintheblank");
             } else if (question instanceof MultipleChoice) {
-                mc = (MultipleChoice) question;
-                App.launch("multiplechoice");
-            } else if (question instanceof Matching) {
+                mc.setQuestion(question.getQuestion());
+                mc.setCorrectAnswer(question.getAnswer());
+                mc.setProgress(currentProgress.intValue());
+                App.setRoot("multiplechoice");
+            /*} else if (question instanceof Matching) {
                 mtch = (Matching) question;
-                App.launch("matching");
+                App.launch("matching"); */
             }
         }
         return exercise.calcAccuracy();
