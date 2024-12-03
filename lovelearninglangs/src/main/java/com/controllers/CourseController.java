@@ -5,6 +5,7 @@ import com.application.App;
 import javafx.fxml.FXML;
 import com.model.Language;
 import com.model.LikeLearningLangs;
+import com.model.Course;
 import com.model.User;
 
 public class CourseController {
@@ -12,16 +13,36 @@ public class CourseController {
     //Instance Variables
     private Language language;
     public LikeLearningLangs langs = LikeLearningLangs.getInstance();
+    public Course c = new Course();
 
     //Default Constructor
-    public void selectLangauge(Language languageInput, User user) {
+    public CourseController() {
+        c = new Course(langs.getCurrentUser());
+    }
+
+    //Select a Language
+    public void selectLangauge(Language languageInput) {
         language = languageInput;
-        langs.setCurrentUser(user);
     }
 
     //Get Course Value
     public void getCourse() throws IOException {
         langs.getCourse(language);
+    }
+
+    //Get Selected Language
+    public Language getLanguage() {
+        return language;
+    }
+
+    //Get Current User
+    public User getUser() {
+        return langs.getCurrentUser();
+    }
+
+    //Get Language Progress
+    public Double getProgress() {
+        return c.getCourseProg(language);
     }
     
     //Switch to Home
@@ -35,6 +56,7 @@ public class CourseController {
     @FXML
     private void switchToLearn() throws IOException {
         System.out.println("You've clicked the learn button. Switching to learn page.");
+        
         App.launch("learn");
     }
 
