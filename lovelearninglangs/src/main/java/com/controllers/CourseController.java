@@ -56,7 +56,6 @@ public class CourseController {
     @FXML
     private void switchToLearn() throws IOException {
         System.out.println("You've clicked the learn button. Switching to learn page.");
-        
         App.launch("learn");
     }
 
