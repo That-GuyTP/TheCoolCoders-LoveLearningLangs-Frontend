@@ -25,7 +25,7 @@ public class ExerciseController {
 
     //Constructor
     public ExerciseController(Language language, Double progress) {
-        exercise = new Exercise();
+        exercise = new Exercise(language, progress);
     }
 
     public ArrayList<Question> generateQuestions() {
