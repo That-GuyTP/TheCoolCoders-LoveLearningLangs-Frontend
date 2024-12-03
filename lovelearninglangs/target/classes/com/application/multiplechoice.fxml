@@ -20,21 +20,14 @@
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font></Label>
-<<<<<<< HEAD
       <Label fx:id="questionLabel" />
-=======
-      <Label text="Filler Question" />
->>>>>>> 7909fe20d30bae9f3732643f880a1a899b777327
-      <Button fx:id="optionA" onAction="#switchToHomepage" style="-fx-background-color: #e30220;" text="A. Example" />
-      <Button fx:id="optionB" onAction="#switchToHomepage" style="-fx-background-color: #e30220;" text="B. Example" />
-      <Button fx:id="optionC" onAction="#switchToHomepage" style="-fx-background-color: #e30220;" text="C. Example" />
-      <Button fx:id="optionD" onAction="#switchToHomepage" style="-fx-background-color: #e30220;" text="D. Example" />
-<<<<<<< HEAD
+      <Button fx:id="optionA" style="-fx-background-color: #e30220;" text="A. Example" />
+      <Button fx:id="optionB" style="-fx-background-color: #e30220;" text="B. Example" />
+      <Button fx:id="optionC" style="-fx-background-color: #e30220;" text="C. Example" />
+      <Button fx:id="optionD" style="-fx-background-color: #e30220;" text="D. Example" />
       <Label text="Progress:" />
       <Label fx:id="progressLabel" />
       <Label fx:id = "scoreLabel" />
-=======
->>>>>>> 7909fe20d30bae9f3732643f880a1a899b777327
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

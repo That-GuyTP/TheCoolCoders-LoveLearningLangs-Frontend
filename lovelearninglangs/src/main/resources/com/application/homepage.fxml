@@ -11,6 +11,7 @@
         <Button fx:id="profileButton" onAction="#switchToProfile" text="Profile" />
         <Button fx:id="courseButton" onAction="#switchToCourse" text="Course" />
         <Button fx:id="exitButton" onAction="#exitApp" text="Exit App" />
+        <Button fx:id="showCurrentUser" onAction="#displayUserInfo" text="Show Current User" />
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

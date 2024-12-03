@@ -11,9 +11,12 @@
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.TrueOrFalse">
     <children>
         <Label text="True or False" />
-        <Label text="Example Question" />
+        <Label fx:id="trueOrFalseQ"/>
         <Button fx:id="trueButton" mnemonicParsing="false" text="True" />
         <Button fx:id="falseButton" mnemonicParsing="false" text="False" />
+        <Label text="Progress:" />
+        <Label fx:id="progressLabel" />
+        <Label fx:id = "scoreLabel" />
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

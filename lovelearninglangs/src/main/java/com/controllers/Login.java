@@ -12,6 +12,10 @@ import javafx.scene.control.Alert.AlertType;
 
 public class Login {
     LikeLearningLangs langs = new LikeLearningLangs();
+
+    public Login () {
+        langs = LikeLearningLangs.getInstance();
+    }
     
     @FXML
     private TextField usernameField;
@@ -35,7 +39,6 @@ public class Login {
     }
 
     private boolean checkLogin(String username, String password){
-        langs = LikeLearningLangs.getInstance();
         return langs.login(username, password);
     }
 
