@@ -19,27 +19,28 @@ public class LearnController {
     //Instance Variables
     LikeLearningLangs lll = new LikeLearningLangs();
     CourseController cc = new CourseController();
+    Random random = new Random();
     Double progress = 0.0;
+    String english = "";
+    String translation = "";
+    int temp = 0;
     private ArrayList<Phrase> phrases;
 
+    //Default Const
     public LearnController() {
         lll = LikeLearningLangs.getInstance();
         progress = 0.0;
     }
 
-    public void setProgress(Double x) {
-        this.progress = x;
-    }
-
+    //Get Progress
     public Double getProgress() {
         return this.progress;
     }
 
+    //Get Review Phrases
     public HashMap<String, String> getReviewPhrases() {
         phrases = Phrases.getPhrases(Math.floor(cc.getProgress()));
         HashMap<String, String> reviewPhrases = new HashMap<>();
-        Random random = new Random();
-
         if (phrases.isEmpty()) {
             System.out.println("No Phrases available for review.");
             return reviewPhrases;
@@ -51,18 +52,32 @@ public class LearnController {
         return reviewPhrases;
     }
 
+    //Pick a random phrase
+    public void setPhrase() {
+        int index = random.nextInt(phrases.size() + 1);
+        boolean pause = false;
+        while (pause != true) {
+            if (temp != index) {
+                english = phrases.get(index).getPhrase();
+                translation = phrases.get(index).getTranslatedPhrase(cc.getLanguage());
+            } else {
+                pause = true;
+            }
+        }
+    }
+
     @FXML
     private Text learnText;
 
     @FXML
     private void setText() throws IOException {
-        int temp = 0;
+        learnText.setText((english + " is pronounced, \"" + translation));
     }
 
     @FXML
     private void playSound() throws IOException {
         System.out.println("You clicked the playASound button!");
-        Narrator.playSound("Hola World! Vosotros los Cool Coders! Hola Grader! Como estas?");
+        Narrator.playSound(learnText.toString());
     }
 
     @FXML
