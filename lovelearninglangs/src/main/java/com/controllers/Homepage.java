@@ -34,7 +34,8 @@ public class Homepage {
 
     @FXML
     private void displayUserInfo() throws IOException {
-        System.out.println("This is the current user's information: " + currentUser.toString());
+        System.out.println("This is the current user's information: ");
+        currentUser.viewAccount();
     }
 
     @FXML
