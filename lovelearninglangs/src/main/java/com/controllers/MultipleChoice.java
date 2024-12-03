@@ -73,4 +73,37 @@ public class MultipleChoice {
     private void back() throws IOException {
         App.setRoot("startup");
     }
+
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
+
+    public void setCurrent(int current) {
+        this.current = current;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public void setCorrectAnswer(int correctAnswer) {
+        this.correctAnswer = correctAnswer;
+    }
+
+    public int getProgress() {
+        return progress;
+    }
+
+    public int getCurrent() {
+        return current;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public int getCorrectAnswer() {
+        return correctAnswer;
+    }
+
 }

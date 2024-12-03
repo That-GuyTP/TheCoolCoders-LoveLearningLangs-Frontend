@@ -7,17 +7,18 @@ import com.application.App;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
-public class TrueOrFalse {
+public class FillInTheBlank {
+    
+    @FXML
+    private Label fillInTheBlankQ;
 
     @FXML
-    private Label trueOrFalseQ;
+    private TextField fillInField;
 
     @FXML
-    private Button trueButton;
-
-    @FXML
-    private Button falseButton;
+    private Button submitButton;
 
     @FXML
     private Label progressLabel;
@@ -25,28 +26,24 @@ public class TrueOrFalse {
     @FXML
     private Label scoreLabel;
 
-    private int correctAnswer;
+    private String correctAnswer;
     private int progress = 0;
     private int current = 0;
     private int total = 10;
 
-    public void TrueOrFalse(){
+    public void FillInTheBlank(){
         
     }
-     public void setQuestion(String question, List<String> options, int correctIndex) {
-        trueOrFalseQ.setText(question);
-        correctAnswer = correctIndex;
+     public void setQuestion(String question, String correctAnswer) {
+        fillInTheBlankQ.setText(question);
+        this.correctAnswer = correctAnswer;
         current++;
 
-        trueButton.setText("True");
-        falseButton.setText("False");
+        submitButton.setOnAction(event -> checkAnswer());
+    }
 
-        trueButton.setOnAction(event -> checkAnswer(0));
-        falseButton.setOnAction(event -> checkAnswer(1));
-    }  
-    
-    private void checkAnswer(int selectedIndex) {
-        if (selectedIndex == correctAnswer) {
+    private void checkAnswer() {
+        if (fillInField.getText().equals(correctAnswer)) {
             System.out.println("Correct!");
             progress++;
         } else {
@@ -61,7 +58,7 @@ public class TrueOrFalse {
     }
 
     public void setScoreLabel() {
-        scoreLabel.setText("Score: " + progress);
+        scoreLabel.setText("Score: " + progress + "/" + total);
     }
 
     public void setProgress(int progress) {
@@ -76,7 +73,7 @@ public class TrueOrFalse {
         this.total = total;
     }
 
-    public void setCorrectAnswer(int correctAnswer) {
+    public void setCorrectAnswer(String correctAnswer) {
         this.correctAnswer = correctAnswer;
     }
 
@@ -92,10 +89,8 @@ public class TrueOrFalse {
         return total;
     }
 
-    public int getCorrectAnswer() {
+    public String getCorrectAnswer() {
         return correctAnswer;
     }
 
-
-    
 }

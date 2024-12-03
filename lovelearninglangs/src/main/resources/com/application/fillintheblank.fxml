@@ -20,11 +20,12 @@
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font></Label>
-      <Label text="Example Question" />
-        <Lable text="Example question" />
-        <!--Create a field that the user can input text into-->
+      <Label fx:id="fillInTheBlankQ" />
         <TextField fx:id="fillInField" promptText="Answer" />
-      <Button id="nextButton" mnemonicParsing="false" style="-fx-background-color: #e30220;" text="-&gt;" />
+      <Button id="submitButton" mnemonicParsing="false" style="-fx-background-color: #e30220;" text="submit" />
+      <Label text="Progress:" />
+      <Label fx:id="progressLabel" />
+      <Label fx:id = "scoreLabel" />
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
