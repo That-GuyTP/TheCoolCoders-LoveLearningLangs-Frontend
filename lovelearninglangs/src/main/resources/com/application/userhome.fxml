@@ -8,20 +8,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="373.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="31.0" layoutY="26.0" prefHeight="61.0" prefWidth="339.0" text="Lets get Started, ">
+      <ImageView fitHeight="58.0" fitWidth="79.0" layoutX="165.0" layoutY="14.0" pickOnBounds="true"
+                 preserveRatio="true">
+         <Image url="@images/LLL_Logo.png"/>
+      </ImageView>
+      <Button fx:id="backButton" layoutX="315.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="38.0">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@images/profileImage.png"/>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="welcomeLabel" alignment="TOP_LEFT" layoutX="25.0" layoutY="103.0" lineSpacing="1.0" prefHeight="103.0" prefWidth="290.0" text="Lets get started, " wrapText="true">
          <font>
-            <Font size="19.0" />
+            <Font size="34.0" />
          </font>
       </Label>
-      <VBox fx:id="userlanguagelist" layoutX="43.0" layoutY="88.0" prefHeight="411.0" prefWidth="379.0" />
-      <Button fx:id="addlanguagebutton" layoutX="54.0" layoutY="499.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="357.0" text=" Add Language" />
-      <ImageView fx:id="profileimage" fitHeight="61.0" fitWidth="62.0" layoutX="390.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/profileImage.png" />
-         </image>
-      </ImageView>
+      <VBox fx:id="userLanguageList" layoutX="19.0" layoutY="220.0" prefHeight="404.0" prefWidth="335.0" />
    </children>
 </AnchorPane>

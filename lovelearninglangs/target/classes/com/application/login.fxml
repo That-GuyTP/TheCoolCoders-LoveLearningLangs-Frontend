@@ -12,18 +12,18 @@ It's where the user will input their information (username and password) before 
 Currently it's set to #switchToLogin
 -->
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.Login">
+<VBox alignment="CENTER" prefHeight="320.0" prefWidth="230.0" spacing="20.0" style="-fx-background-color: FCE6E9; -fx-border-color: black;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.Login">
     <children>
         <Label text="Login Info" />
         <TextField fx:id="usernameField" promptText="Username" />
         <TextField fx:id="passwordField" promptText="Password" />
-        <Button fx:id="loginSubmit" onAction="#switchToHomePage" text="Submit" />
+        <Button fx:id="loginSubmit" onAction="#login" text="Submit" />
         <Button fx:id="backButton" onAction="#back" text="Back" />
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-    <stylesheet>
-    <UML value = "@styles.css" />
-    <stylesheet>
+    <stylesheets>
+        <UML value = "@styles.css" />
+    </stylesheets>
 </VBox>
