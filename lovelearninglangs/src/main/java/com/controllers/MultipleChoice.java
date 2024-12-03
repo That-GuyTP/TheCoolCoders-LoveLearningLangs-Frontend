@@ -32,10 +32,16 @@ public class MultipleChoice {
 
     private int correctAnswer;
     private int progress = 0;
+    private int current = 0;
+    private int total = 10;
 
+    public void MultipleChoice(){
+        
+    }
      public void setQuestion(String question, List<String> options, int correctIndex) {
         questionLabel.setText(question);
         correctAnswer = correctIndex;
+        current++;
 
         optionA.setText("A. " + options.get(0));
         optionB.setText("B. " + options.get(1));
@@ -55,6 +61,7 @@ public class MultipleChoice {
         } else {
             System.out.println("Incorrect!");
         }
+        setProgress(current,total);
     }
 
     private void setProgress(int current, int total) {

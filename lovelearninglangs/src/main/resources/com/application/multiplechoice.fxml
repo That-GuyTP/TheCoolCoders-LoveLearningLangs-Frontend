@@ -21,10 +21,10 @@
             <Font name="Arial Bold" size="24.0" />
          </font></Label>
       <Label fx:id="questionLabel" />
-      <Button fx:id="optionA" onAction="#switchToHomepage" style="-fx-background-color: #e30220;" text="A. Example" />
-      <Button fx:id="optionB" onAction="#switchToHomepage" style="-fx-background-color: #e30220;" text="B. Example" />
-      <Button fx:id="optionC" onAction="#switchToHomepage" style="-fx-background-color: #e30220;" text="C. Example" />
-      <Button fx:id="optionD" onAction="#switchToHomepage" style="-fx-background-color: #e30220;" text="D. Example" />
+      <Button fx:id="optionA" style="-fx-background-color: #e30220;" text="A. Example" />
+      <Button fx:id="optionB" style="-fx-background-color: #e30220;" text="B. Example" />
+      <Button fx:id="optionC" style="-fx-background-color: #e30220;" text="C. Example" />
+      <Button fx:id="optionD" style="-fx-background-color: #e30220;" text="D. Example" />
       <Label text="Progress:" />
       <Label fx:id="progressLabel" />
       <Label fx:id = "scoreLabel" />
