@@ -8,52 +8,43 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class MultipleChoice {
+public class TrueOrFalse {
 
     @FXML
-    private Label questionLabel;
+    private Label trueOrFalseQ;
 
     @FXML
-    private Button optionA;
+    private Button trueButton;
 
     @FXML
-    private Button optionB;
-
-    @FXML
-    private Button optionC;
-
-    @FXML
-    private Button optionD;
+    private Button falseButton;
 
     @FXML
     private Label progressLabel;
 
-    @FXML Label scoreLabel;
+    @FXML
+    private Label scoreLabel;
 
     private int correctAnswer;
     private int progress = 0;
     private int current = 0;
     private int total = 10;
 
-    public void MultipleChoice(){
+    public void TrueOrFalse(){
         
     }
      public void setQuestion(String question, List<String> options, int correctIndex) {
-        questionLabel.setText(question);
+        trueOrFalseQ.setText(question);
         correctAnswer = correctIndex;
         current++;
 
-        optionA.setText("A. " + options.get(0));
-        optionB.setText("B. " + options.get(1));
-        optionC.setText("C. " + options.get(2));
-        optionD.setText("D. " + options.get(3));
+        trueButton.setText("True");
+        falseButton.setText("False");
 
-        optionA.setOnAction(event -> checkAnswer(0));
-        optionB.setOnAction(event -> checkAnswer(1));
-        optionC.setOnAction(event -> checkAnswer(2));
-        optionD.setOnAction(event -> checkAnswer(3));
-    }
-
+        trueButton.setOnAction(event -> checkAnswer(0));
+        falseButton.setOnAction(event -> checkAnswer(1));
+    }  
+    
     private void checkAnswer(int selectedIndex) {
         if (selectedIndex == correctAnswer) {
             System.out.println("Correct!");
@@ -61,17 +52,16 @@ public class MultipleChoice {
         } else {
             System.out.println("Incorrect!");
         }
-        setProgress(current,total);
+        setProgressLabel();
     }
 
-    private void setProgress(int current, int total) {
+    public void setProgressLabel() {
         progressLabel.setText("Question " + current + " of " + total);
-        scoreLabel.setText("Score: " + progress + "/" + current);
-        
+        setScoreLabel();
     }
 
-    private void back() throws IOException {
-        App.setRoot("startup");
+    public void setScoreLabel() {
+        scoreLabel.setText("Score: " + progress);
     }
 
     public void setProgress(int progress) {
@@ -106,4 +96,6 @@ public class MultipleChoice {
         return correctAnswer;
     }
 
+
+    
 }

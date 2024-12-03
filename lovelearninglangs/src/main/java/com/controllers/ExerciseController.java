@@ -18,14 +18,16 @@ public class ExerciseController {
     //Instance variables
     private Exercise exercise;
     private ArrayList<Question> questions;
-    private FillInTheBlank fitb;
-    private Matching mtch;
-    private MultipleChoice mc;
-    private trueOrFalse tof;
+    private Double currentProgress;
+    private com.model.FillInTheBlank fitb;
+    private com.model.Matching mtch;
+    private com.model.MultipleChoice mc;
+    private com.model.trueOrFalse tof;
 
     //Constructor
     public ExerciseController(Language language, Double progress) {
         exercise = new Exercise(language, progress);
+        currentProgress = progress;
     }
 
     public ArrayList<Question> generateQuestions() {
@@ -37,7 +39,9 @@ public class ExerciseController {
         for (int i = 0; i < questions.size(); i++) {
             Question question = questions.get(i);
             if(question instanceof trueOrFalse) {
-                tof = (trueOrFalse) question;
+                tof.setProgressLevel(currentProgress);
+                tof.setQuestion(question.getQuestion());
+                tof.setAnswer(question.getAnswer());
                 App.launch("trueorfalse");
             } else if (question instanceof FillInTheBlank) {
                 fitb = (FillInTheBlank) question;
