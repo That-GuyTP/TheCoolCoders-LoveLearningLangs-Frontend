@@ -32,8 +32,8 @@ public class Profile {
     @FXML
     private void showName(MouseEvent event) throws IOException {
         // Change label text to user's name but not replacing it entirely
-        userFirstName.setText(rInfo.getName());
-        System.out.println(rInfo.getName());
+        // userFirstName.setText(rInfo.getName()); // Supposed method for getting the name that was used to login (from the Register or Login class)
+        // System.out.println(rInfo.getName());
         // Supposed to be a "hover over and reveal" type of label
         // Problem 1: Name is null, but profile page is viewable
     }
