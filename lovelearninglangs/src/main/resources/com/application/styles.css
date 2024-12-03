@@ -1,9 +1,9 @@
 .root {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    -fx-font-size = ;
+    -font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-background: #FCE6E9; 
 }
 
 .button {
-    background-color: black;
-    color: red;
+    -fx-background-color: red;
+    -fx-text-fill: white;
 }
