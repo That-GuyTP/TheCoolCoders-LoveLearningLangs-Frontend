@@ -6,18 +6,45 @@ import com.application.App;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 public class Profile {
 
-    public Register rInfo = new Register();
+    @FXML
+    private void back() throws IOException {
+        App.setRoot("homepage");
+    }
 
     @FXML
-    private Label userFirstName;
+    private Button saveButton;
 
     @FXML
-    private Label userUsername;
+    private Button signOutButton;
+
+    @FXML
+    private TextField userEmail;
+
+    @FXML
+    private TextField userFirstName;
+
+    @FXML
+    private Label userFullNameLabel;
+
+    @FXML
+    private TextField userLastName;
+
+    @FXML
+    private PasswordField userPassword;
+
+    @FXML
+    private TextField userUsername;
+
+    @FXML
+    private Label userUsernameLabel;
 
     @FXML
     private void signOut(ActionEvent event) throws IOException {
@@ -30,22 +57,13 @@ public class Profile {
     }
 
     @FXML
-    private void showName(MouseEvent event) throws IOException {
-        // Change label text to user's name but not replacing it entirely
-        // userFirstName.setText(rInfo.getName()); // Supposed method for getting the name that was used to login (from the Register or Login class)
-        // System.out.println(rInfo.getName());
-        // Supposed to be a "hover over and reveal" type of label
-        // Problem 1: Name is null, but profile page is viewable
-    }
-
-    @FXML
-    private void showUsername(MouseEvent event) throws IOException {
-
-    }
-
-    @FXML
     private void returnToHome(MouseEvent event) throws IOException {
         App.setRoot("homepage");
+    }
+
+    private void setTextFields() {
+        // Would update the text fields like first name, last name, etc.
+        // Ex.: userUsername
     }
 
 }
