@@ -55,16 +55,19 @@ public class ExerciseController {
                 tof.setQuestion(question.getQuestion(), null, i);
                 tof.setCorrectAnswer(question.getAnswer());
                 tof.setProgress(currentProgress.intValue());
+                //tof.trueOrFlase(question.getQuestion(), question.getAnswer(), currentProgress.intValue())
                 App.setRoot("trueorfalse");
             } else if (question instanceof FillInTheBlank) {
                 fitb.setQuestion(question.getQuestion());
                 fitb.setCorrectAnswer(question.getAnswer());
                 fitb.setProgress(currentProgress.intValue());
+                //fitb.FillInTheBlank(question.getQuestion(), question.getAnswer(), currentProgress.intValue())
                 App.setRoot("fillintheblank");
             } else if (question instanceof MultipleChoice) {
                 mc.setQuestion(question.getQuestion());
                 mc.setCorrectAnswer(question.getAnswer());
                 mc.setProgress(currentProgress.intValue());
+                //mc.MultipleChoice(question.getQuestion(), question.getAnswer(), currentProgress.intValue())
                 App.setRoot("multiplechoice");
             /*} else if (question instanceof Matching) {
                 mtch = (Matching) question;
