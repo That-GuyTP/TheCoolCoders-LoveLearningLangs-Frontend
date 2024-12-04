@@ -11,10 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="373.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="38.0">
+      <Button fx:id="backButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="38.0" style="-fx-background-color: white;">
          <graphic>
             <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -49,7 +48,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="userFirstName" editable="false" text="User First Name">
+            <TextField fx:id="userFirstName" text="User First Name">
                <font>
                   <Font size="17.0" />
                </font>
@@ -59,7 +58,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="userLastName" editable="false" text="User Last Name">
+            <TextField fx:id="userLastName" text="User Last Name">
                <font>
                   <Font size="17.0" />
                </font>
@@ -69,7 +68,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="userUsername" editable="false" text="Username">
+            <TextField fx:id="userUsername" text="Username">
                <font>
                   <Font size="17.0" />
                </font>
@@ -79,7 +78,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="userEmail" editable="false" text="User Email">
+            <TextField fx:id="userEmail" text="User Email">
                <font>
                   <Font size="17.0" />
                </font>
@@ -96,12 +95,14 @@
                         <Font size="17.0" />
                      </font>
                   </PasswordField>
-                  <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="40.0" textAlignment="RIGHT" />
                </children>
             </HBox>
          </children>
       </VBox>
-      <Button fx:id="saveButton" layoutX="62.0" layoutY="582.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="80.0" text="Save" />
+      <Button fx:id="saveButton" layoutX="62.0" layoutY="582.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="80.0" style="-fx-background-color: brown;" text="Save" />
       <Button fx:id="signUpButton" layoutX="236.0" layoutY="582.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="76.0" text="Sign Out" />
    </children>
+   <stylesheets>
+        
+    </stylesheets>
 </AnchorPane>

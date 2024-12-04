@@ -130,6 +130,20 @@ public class Exercise {
     }
 
     /**
+     * getQuestion method that returns the current question index's question string.
+     * 
+     * @param questionIndex
+     * @return Question String
+     */
+    public String getQuestion(int questionIndex) {
+        if (!questions.isEmpty()) {
+            return questions.get(questionIndex).getQuestion();
+        } else {
+            return "Error! Failed to retrieve question";
+        }
+    }
+
+    /**
      * getAnswer method that returns the answer for the question at the index inputed.
      * 
      * @param questionIndex
@@ -142,7 +156,16 @@ public class Exercise {
             return "ERROR! Failed to retrieve answer";
         }
     }
- 
+    
+    /**
+     * returns the progress of the questions.
+     * 
+     * @return double Progress
+     */
+    public Double getProgress() {
+        return this.progress;
+    }
+
     /**
      * checkAnswer method that returns whether the user got the correct answer or not.
      * If they did get it correct, it increases the correctAnswers value by 1;

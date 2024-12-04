@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="373.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="58.0" fitWidth="79.0" layoutX="165.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/LLL_Logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="welcomeLabel" alignment="CENTER" layoutX="41.0" layoutY="101.0" lineSpacing="1.0" prefHeight="58.0" prefWidth="290.0" text="Add Language" wrapText="true">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Button fx:id="backButton" layoutX="24.0" layoutY="30.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="38.0">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/back_image.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <VBox fx:id="addableLanguages" layoutX="19.0" layoutY="166.0" prefHeight="455.0" prefWidth="333.0" />
+      <Button fx:id="backButton1" layoutX="309.0" layoutY="30.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="38.0">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/profileImage.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
