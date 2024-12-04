@@ -29,12 +29,12 @@
                   <Image url="@images/profileImage.png" />
                </image>
             </ImageView>
-            <Label fx:id="userFullNameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="151.0" text="Name" textAlignment="CENTER">
+            <Label fx:id="fullNameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="151.0" text="Name" textAlignment="CENTER">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label fx:id="userUsernameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="151.0" text="Username" textAlignment="CENTER">
+            <Label fx:id="usernameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="151.0" text="Username" textAlignment="CENTER">
                <font>
                   <Font size="22.0" />
                </font>
