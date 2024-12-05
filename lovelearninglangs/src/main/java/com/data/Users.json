@@ -24,10 +24,7 @@
         "firstName": "Thomas",
         "lastName": "Peterson",
         "password": "tp3",
-        "language": {
-            "SPANISH": 2.0,
-            "GERMAN": 3.0
-        },
+        "language": {},
         "id": "61ab8a0a-39a3-4479-8e8b-62a8a4fefd36",
         "email": "tapemail@gmail.com",
         "username": "tap"
@@ -67,10 +64,7 @@
         "firstName": "Jim",
         "lastName": "Smith",
         "password": "password123",
-        "language": {
-            "SPANISH": 1.0,
-            "GERMAN": 1.0
-        },
+        "language": {},
         "id": "224c0682-f289-415c-a77c-d0abdbe32dc5",
         "email": "jsmith1@gmail.com",
         "username": "jSmith2"
@@ -84,5 +78,15 @@
         "id": "4fcc2b3b-d178-4721-8e71-718828903b0e",
         "email": "TESTEMAIL@EMAIL.COM",
         "username": "TestUsername"
+    },
+    {
+        "courseProg": {},
+        "firstName": "Coolest",
+        "lastName": "Dude",
+        "password": "cdpw",
+        "language": {},
+        "id": "16e33bf1-d909-4c4c-97cf-7cfd5a6e68cd",
+        "email": "cooldude31isawesome@gmail.com",
+        "username": "cooldude31"
     }
 ]
