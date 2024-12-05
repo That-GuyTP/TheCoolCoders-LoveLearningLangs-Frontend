@@ -73,6 +73,11 @@ public class ProfileController implements Initializable{
         App.setRoot("login");
         lll.setCurrentUser(null);
     }
+
+    @FXML
+    private void switchToUserHome() throws IOException{
+        App.setRoot("userhome");
+    }
     
 
 }

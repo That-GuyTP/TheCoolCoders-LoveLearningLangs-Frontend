@@ -9,30 +9,30 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#back" prefHeight="647.0" prefWidth="373.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.ProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="styles.css" prefHeight="647.0" prefWidth="373.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.ProfileController">
    <children>
       <Button fx:id="backButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToUserHome" prefHeight="33.0" prefWidth="38.0" style="-fx-background-color: white;">
          <graphic>
-            <ImageView fitHeight="34.0" fitWidth="28.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/back_image.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <VBox alignment="TOP_CENTER" layoutX="62.0" layoutY="53.0" prefHeight="177.0" prefWidth="250.0" stylesheets="@styles.css">
+      <VBox alignment="TOP_CENTER" layoutX="36.0" layoutY="56.0" prefHeight="177.0" prefWidth="306.0">
          <children>
             <ImageView fitHeight="106.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/profileImage.png" />
                </image>
             </ImageView>
-            <Label fx:id="fullNameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="151.0" text="Name" textAlignment="CENTER">
+            <Label fx:id="fullNameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="296.0" text="Name" textAlignment="CENTER">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label fx:id="usernameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="151.0" text="Username" textAlignment="CENTER">
+            <Label fx:id="usernameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="292.0" text="Username" textAlignment="CENTER">
                <font>
                   <Font size="22.0" />
                </font>
@@ -93,7 +93,10 @@
             </TextField>
          </children>
       </VBox>
-      <Button fx:id="saveButton" layoutX="62.0" layoutY="582.0" mnemonicParsing="false" onAction="#saveToUser" onMouseClicked="#updateProfile" prefHeight="38.0" prefWidth="80.0" style="-fx-background-color: brown;" text="Save" />
+      <Button fx:id="saveButton" layoutX="62.0" layoutY="582.0" mnemonicParsing="false" onAction="#saveToUser" prefHeight="38.0" prefWidth="80.0" style="-fx-background-color: brown;" text="Save" />
       <Button fx:id="signOutButton" layoutX="236.0" layoutY="582.0" mnemonicParsing="false" onAction="#signOut" prefHeight="38.0" prefWidth="76.0" text="Sign Out" />
    </children>
+   <stylesheets>
+        
+    </stylesheets>
 </AnchorPane>
