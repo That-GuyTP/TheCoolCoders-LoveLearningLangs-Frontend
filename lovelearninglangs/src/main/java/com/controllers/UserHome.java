@@ -121,7 +121,7 @@ public class UserHome implements Initializable {
     }
 
     @FXML
-    private void switchToStartup() throws IOException {
+    private void back() throws IOException {
         App.setRoot("startup");
     }
 }

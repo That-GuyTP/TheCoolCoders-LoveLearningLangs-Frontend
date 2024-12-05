@@ -45,7 +45,7 @@ public class AddLanguageController implements Initializable {
                 continue;
             }
             HBox hBox = new HBox();
-            Image image = new Image(getClass().getResourceAsStream("/images/" + language.label + ".jpg"));
+            Image image = new Image(getClass().getResourceAsStream("/images/language_flags" + language.label.toLowerCase() + ".png"));
             ImageView languageImage = new ImageView(image);
             languageImage.setFitHeight(50);
             languageImage.setFitWidth(70);
