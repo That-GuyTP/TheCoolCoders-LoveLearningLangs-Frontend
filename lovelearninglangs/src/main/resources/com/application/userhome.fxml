@@ -13,7 +13,16 @@
       <ImageView fitHeight="58.0" fitWidth="79.0" layoutX="165.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@images/LLL_Logo.png" />
       </ImageView>
-      <Button fx:id="backButton" layoutX="315.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToStartup" prefHeight="33.0" prefWidth="38.0">
+      <Button fx:id="backButton1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToStartup" prefHeight="33.0" prefWidth="38.0" style="-fx-background-color: white;">
+         <graphic>
+            <ImageView fx:id="backButton" fitHeight="34.0" fitWidth="28.0" onMouseClicked="#switchToStartup" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/back_image.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="backButton" layoutX="315.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToProfile" prefHeight="33.0" prefWidth="38.0">
          <graphic>
             <ImageView fx:id="profileButton" fitHeight="34.0" fitWidth="28.0" onMouseClicked="#switchToProfile" pickOnBounds="true" preserveRatio="true">
                <Image url="@images/profileImage.png" />
@@ -26,14 +35,5 @@
          </font>
       </Label>
       <VBox fx:id="userLanguageList" layoutX="19.0" layoutY="220.0" prefHeight="404.0" prefWidth="335.0" />
-      <Button fx:id="backButton1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="38.0" style="-fx-background-color: white;">
-         <graphic>
-            <ImageView fx:id="backButton" fitHeight="34.0" fitWidth="28.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/back_image.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
    </children>
 </AnchorPane>
