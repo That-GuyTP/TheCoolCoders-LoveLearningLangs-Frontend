@@ -44,16 +44,4 @@ public class App extends Application {
         System.out.println("Goodbye!");
         System.exit(0);
     }
-
-    /*
-    public static void back() {
-        if (previousScene != null) {
-            scene.setRoot(previousScene.getRoot());
-            previousScene = null;
-        } else {
-            System.out.println("Previous scene could not be set");
-        }
-        
-    }
-         */
 } 
