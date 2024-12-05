@@ -72,6 +72,7 @@ public class ExerciseController {
             /*} else if (question instanceof Matching) {
                 mtch = (Matching) question;
                 App.launch("matching"); */
+                // TEST TEST TEST TEST
             }
         }
         return exercise.calcAccuracy();
