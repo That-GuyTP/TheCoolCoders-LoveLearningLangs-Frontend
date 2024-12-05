@@ -78,5 +78,15 @@
         "id": "4fcc2b3b-d178-4721-8e71-718828903b0e",
         "email": "TESTEMAIL@EMAIL.COM",
         "username": "TestUsername"
+    },
+    {
+        "courseProg": {},
+        "firstName": "Coolest",
+        "lastName": "Dude",
+        "password": "cdpw",
+        "language": {},
+        "id": "16e33bf1-d909-4c4c-97cf-7cfd5a6e68cd",
+        "email": "cooldude31isawesome@gmail.com",
+        "username": "cooldude31"
     }
 ]
