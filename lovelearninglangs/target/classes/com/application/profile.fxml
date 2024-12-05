@@ -2,16 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#back" prefHeight="647.0" prefWidth="373.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#back" prefHeight="647.0" prefWidth="373.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.ProfileController">
    <children>
       <Button fx:id="backButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="38.0" style="-fx-background-color: white;">
          <graphic>
@@ -88,19 +86,15 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <HBox prefHeight="35.0" prefWidth="306.0">
-               <children>
-                  <PasswordField fx:id="userPassword" prefHeight="27.0" prefWidth="276.0" text="User Password">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </PasswordField>
-               </children>
-            </HBox>
+            <TextField fx:id="userPassword" text="User Password">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
          </children>
       </VBox>
-      <Button fx:id="saveButton" layoutX="62.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#updateProfile" prefHeight="38.0" prefWidth="80.0" style="-fx-background-color: brown;" text="Save" />
-      <Button fx:id="signOutButton" layoutX="236.0" layoutY="582.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="76.0" text="Sign Out" />
+      <Button fx:id="saveButton" layoutX="62.0" layoutY="582.0" mnemonicParsing="false" onAction="#saveToUser" onMouseClicked="#updateProfile" prefHeight="38.0" prefWidth="80.0" style="-fx-background-color: brown;" text="Save" />
+      <Button fx:id="signOutButton" layoutX="236.0" layoutY="582.0" mnemonicParsing="false" onAction="#signOut" prefHeight="38.0" prefWidth="76.0" text="Sign Out" />
    </children>
    <stylesheets>
         
