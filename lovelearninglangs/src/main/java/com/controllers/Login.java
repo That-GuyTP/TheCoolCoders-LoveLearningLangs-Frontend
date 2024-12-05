@@ -17,10 +17,6 @@ public class Login implements Initializable {
 
     private LikeLearningLangs lll;
 
-    public Login() {
-        lll = LikeLearningLangs.getInstance();
-    }
-
     @FXML
     private TextField usernameField;
 
@@ -29,15 +25,11 @@ public class Login implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
             lll = LikeLearningLangs.getInstance();
-            login();
-        } catch (IOException ex) {
-        }
         
     }
 
-    
+    @FXML
     private void login() throws IOException {
         System.out.println("You've clicked the submit button");
         String username = usernameField.getText();
