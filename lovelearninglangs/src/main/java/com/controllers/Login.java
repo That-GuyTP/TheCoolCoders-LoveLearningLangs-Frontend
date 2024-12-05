@@ -65,4 +65,8 @@ public class Login implements Initializable {
     private void back() throws IOException {
         App.setRoot("startup");
     }
+
+    private void bugTest(){
+        
+    }
 }
