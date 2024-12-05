@@ -23,7 +23,7 @@ Currently it's set to #switchToLogin
       </ImageView>
         <Label text="Login Info" />
         <TextField fx:id="usernameField" promptText="Username" />
-        <TextField fx:id="passwordField" promptText="Password" />
+        <TextField fx:id="passwordField" promptText="Password" onKeyPressed="#handleEnterPressed" />
         <Button fx:id="loginSubmit" onAction="#login" text="Submit" />
         <Button fx:id="backButton" onAction="#back" text="Back" />
     </children>

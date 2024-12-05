@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.control.TextField;
 
 public class Login implements Initializable {
@@ -50,6 +52,13 @@ public class Login implements Initializable {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setContentText(errorMessage);
         alert.showAndWait();
+    }
+
+    @FXML
+    public void handleEnterPressed(KeyEvent event) throws IOException{
+        if (event.getCode() == KeyCode.ENTER) {
+            login();
+        }
     }
 
     @FXML
