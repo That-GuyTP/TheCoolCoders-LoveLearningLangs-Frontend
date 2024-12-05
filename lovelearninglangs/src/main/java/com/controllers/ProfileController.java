@@ -67,6 +67,12 @@ public class ProfileController implements Initializable{
         showUserInfo();
 
     }
+
+    @FXML
+    private void signOut() throws IOException{
+        App.setRoot("login");
+        lll.setCurrentUser(null);
+    }
     
 
 }

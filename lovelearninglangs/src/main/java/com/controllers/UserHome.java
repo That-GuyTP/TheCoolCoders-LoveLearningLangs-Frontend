@@ -10,7 +10,6 @@ import com.model.Language;
 import com.model.LikeLearningLangs;
 import com.model.User;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -39,7 +38,6 @@ public class UserHome implements Initializable {
             try {
                 switchToStartup();
             } catch (IOException e) {
-                e.printStackTrace();
             }
         }
         currentUser = lll.getCurrentUser();
@@ -67,17 +65,12 @@ public class UserHome implements Initializable {
             languageButton.setPrefHeight(50);
             hBox.getChildren().add(languageButton);
 
-            languageButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    lll.getCourse(language);
-                    try {
-                        switchToHomepage();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+            languageButton.setOnMouseClicked((MouseEvent event) -> {
+                lll.getCourse(language);
+                try {
+                    switchToHomepage();
+                } catch (IOException e) {
                 }
-
             });
         }
 
@@ -86,16 +79,11 @@ public class UserHome implements Initializable {
         addLanguageButton.setPrefHeight(50);
 
         userLanguageList.getChildren().add(addLanguageButton);
-        addLanguageButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    switchToAddLanguage();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        addLanguageButton.setOnMouseClicked((MouseEvent event) -> {
+            try {
+                switchToAddLanguage();
+            } catch (IOException e) {
             }
-
         });
 
         HBox addLanguageHBox = new HBox();
@@ -116,6 +104,7 @@ public class UserHome implements Initializable {
     }
 
     @FXML
+    @SuppressWarnings("unused")
     private void switchToProfile() throws IOException {
         App.setRoot("profile");
     }
