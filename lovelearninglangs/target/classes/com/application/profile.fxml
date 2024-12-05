@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="styles.css" prefHeight="647.0" prefWidth="373.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.ProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="373.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.ProfileController">
    <children>
       <Button fx:id="backButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToUserHome" prefHeight="33.0" prefWidth="38.0" style="-fx-background-color: white;">
          <graphic>
@@ -96,7 +96,4 @@
       <Button fx:id="saveButton" layoutX="62.0" layoutY="582.0" mnemonicParsing="false" onAction="#saveToUser" prefHeight="38.0" prefWidth="80.0" style="-fx-background-color: brown;" text="Save" />
       <Button fx:id="signOutButton" layoutX="236.0" layoutY="582.0" mnemonicParsing="false" onAction="#signOut" prefHeight="38.0" prefWidth="76.0" text="Sign Out" />
    </children>
-   <stylesheets>
-        
-    </stylesheets>
 </AnchorPane>
