@@ -24,7 +24,10 @@
         "firstName": "Thomas",
         "lastName": "Peterson",
         "password": "tp3",
-        "language": {},
+        "language": {
+            "SPANISH": 2.0,
+            "GERMAN": 3.0
+        },
         "id": "61ab8a0a-39a3-4479-8e8b-62a8a4fefd36",
         "email": "tapemail@gmail.com",
         "username": "tap"
@@ -64,7 +67,10 @@
         "firstName": "Jim",
         "lastName": "Smith",
         "password": "password123",
-        "language": {},
+        "language": {
+            "SPANISH": 1.0,
+            "GERMAN": 1.0
+        },
         "id": "224c0682-f289-415c-a77c-d0abdbe32dc5",
         "email": "jsmith1@gmail.com",
         "username": "jSmith2"
