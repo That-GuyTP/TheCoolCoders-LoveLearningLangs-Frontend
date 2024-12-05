@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 
 <!--
 this is the course fxml of the app.
@@ -15,6 +16,7 @@ It handles the following features
     <children>
       <Button mnemonicParsing="false" onAction="#switchToHome" text="Icon (Return to Language Select)" />
       <Button mnemonicParsing="false" onAction="#switchToLearn" text="Learn" />
+      <Circle fill="#ff1f1f" radius="33.0" stroke="#ff3c00" strokeType="INSIDE" style="-fx-translate-x: -50;" text="Level 1"/>
         <Button fx:id="exitButton" onAction="#switchToLevel1" text="Level 1" />
       <Button fx:id="exitButton1" onAction="#switchToLevel2" text="Level 2" />
       <Button fx:id="exitButton11" onAction="#switchToLevel3" text="Level 3" />

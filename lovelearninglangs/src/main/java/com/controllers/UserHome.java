@@ -2,35 +2,25 @@ package com.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import com.application.App;
+import com.model.Language;
+import com.model.LikeLearningLangs;
+import com.model.User;
+
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import com.model.*;
-import java.util.HashMap;
 
 public class UserHome implements Initializable {
 
@@ -63,7 +53,7 @@ public class UserHome implements Initializable {
         userLanguageList.getChildren().clear();
         for (Language language : userProgress.keySet()) {
             HBox hBox = new HBox();
-            Image image = new Image(getClass().getResourceAsStream("/images/" + language.label + ".jpg"));
+            Image image = new Image(getClass().getResourceAsStream("/images/language_flags/" + language.label.toLowerCase() + ".png"));
             ImageView languageImage = new ImageView(image);
             languageImage.setFitHeight(50);
             languageImage.setFitWidth(70);

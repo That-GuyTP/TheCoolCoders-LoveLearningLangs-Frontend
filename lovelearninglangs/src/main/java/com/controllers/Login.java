@@ -25,8 +25,7 @@ public class Login implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-            lll = LikeLearningLangs.getInstance();
-        
+        lll = LikeLearningLangs.getInstance();
     }
 
     @FXML

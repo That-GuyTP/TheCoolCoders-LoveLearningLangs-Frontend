@@ -1,12 +1,12 @@
 package com.application;
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 /**
  * JavaFX App
@@ -44,16 +44,4 @@ public class App extends Application {
         System.out.println("Goodbye!");
         System.exit(0);
     }
-
-    /*
-    public static void back() {
-        if (previousScene != null) {
-            scene.setRoot(previousScene.getRoot());
-            previousScene = null;
-        } else {
-            System.out.println("Previous scene could not be set");
-        }
-        
-    }
-         */
 } 
