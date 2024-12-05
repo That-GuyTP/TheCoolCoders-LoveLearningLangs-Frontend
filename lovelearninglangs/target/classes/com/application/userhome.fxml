@@ -34,6 +34,6 @@
             <Font size="34.0" />
          </font>
       </Label>
-      <VBox fx:id="userLanguageList" layoutX="19.0" layoutY="220.0" prefHeight="404.0" prefWidth="335.0" />
+      <VBox fx:id="userLanguageList" layoutX="19.0" layoutY="220.0" prefHeight="404.0" prefWidth="335.0" stylesheets="@styles.css" />
    </children>
 </AnchorPane>
