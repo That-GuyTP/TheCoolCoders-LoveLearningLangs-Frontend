@@ -45,7 +45,7 @@ public class Login implements Initializable {
 
         if (checkLogin(username, password)) {
             System.out.println("Inputs accepted. Logging you in");
-            App.setRoot("homepage");
+            App.setRoot("userhome");
         } else {
             showError("Invalid Username or Password");
         }
