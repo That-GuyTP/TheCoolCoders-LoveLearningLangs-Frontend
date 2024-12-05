@@ -36,6 +36,7 @@ public class AddLanguageController implements Initializable {
             }
         }
         currentUser = lll.getCurrentUser();
+        displayAddableLanguages();
     }
    
     private void displayAddableLanguages(){

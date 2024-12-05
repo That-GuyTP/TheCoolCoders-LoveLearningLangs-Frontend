@@ -53,7 +53,6 @@ public class UserHome implements Initializable {
             }
         }
         currentUser = lll.getCurrentUser();
-
         welcomeLabel.setText("Lets get Started, " + currentUser.getFirstName());
         displayUserItems();
     }
@@ -83,7 +82,7 @@ public class UserHome implements Initializable {
                 public void handle(MouseEvent event) {
                     lll.getCourse(language);
                     try {
-                        switchToCourse();
+                        switchToHomepage();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -117,8 +116,8 @@ public class UserHome implements Initializable {
     }
 
     @FXML
-    private void switchToCourse() throws IOException {
-        App.setRoot("course");
+    private void switchToHomepage() throws IOException {
+        App.setRoot("homepage");
     }
 
     @FXML
