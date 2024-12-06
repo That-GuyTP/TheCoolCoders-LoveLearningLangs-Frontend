@@ -9,6 +9,7 @@ import com.application.App;
 import com.model.Language;
 import com.model.LikeLearningLangs;
 import com.model.User;
+import com.model.Course;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -64,7 +65,7 @@ public class UserHome implements Initializable {
 
             languageButton.setOnAction(event -> {
                 try {
-                    switchToHomepage();
+                    switchToCourse(language);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -93,7 +94,8 @@ public class UserHome implements Initializable {
     }
 
     @FXML
-    private void switchToHomepage() throws IOException {
+    private void switchToCourse(Language lang) throws IOException {
+        Course course = new Course();
         App.setRoot("homepage");
     }
 
