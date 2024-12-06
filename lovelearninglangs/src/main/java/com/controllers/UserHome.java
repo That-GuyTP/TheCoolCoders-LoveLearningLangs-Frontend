@@ -14,8 +14,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -50,12 +48,12 @@ public class UserHome implements Initializable {
         userLanguageList.getChildren().clear();
         for (Language language : userProgress.keySet()) {
             HBox hBox = new HBox();
-            Image image = new Image(getClass().getResourceAsStream("/images/language_flags/" + language.label.toLowerCase() + ".png"));
-            ImageView languageImage = new ImageView(image);
-            languageImage.setFitHeight(50);
-            languageImage.setFitWidth(70);
-            languageImage.setPreserveRatio(true);
-            hBox.getChildren().add(languageImage);
+            // Image image = new Image(getClass().getResourceAsStream("/images/language_flags/" + language.label.toLowerCase() + ".png"));
+            // ImageView languageImage = new ImageView(image);
+            // languageImage.setFitHeight(50);
+            // languageImage.setFitWidth(70);
+            // languageImage.setPreserveRatio(true);
+            // hBox.getChildren().add(languageImage);
 
             userLanguageList.getChildren().add(hBox);
 
@@ -67,7 +65,6 @@ public class UserHome implements Initializable {
             languageButton.setOnAction(event -> {
                 try {
                     switchToHomepage();
-                    System.out.println("Clicked Add Language button");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

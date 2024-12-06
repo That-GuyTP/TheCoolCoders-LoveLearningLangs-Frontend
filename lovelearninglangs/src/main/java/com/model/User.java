@@ -66,7 +66,6 @@ public class User {
      */
     public void addLanguage(Language language){
         progress.putIfAbsent(language, 1.0);
-        users.updateUser(currentUser);
     }
 
     /**
