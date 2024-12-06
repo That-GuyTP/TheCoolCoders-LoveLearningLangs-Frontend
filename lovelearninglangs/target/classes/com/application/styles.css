@@ -8,6 +8,11 @@
     -fx-text-fill: white;
 }
 
+<<<<<<< HEAD
+-multiplechoice .root{
+    font-size: 200px;
+    -fx-font-size: 200px;
+=======
 .circle {
     -fx-shape: "M 50, 50 m -50, 0 a 50,50 0 1,0 100,0 a 50,50 0 1,0 -100,0";
     -fx-pref-width: 100px;
@@ -17,4 +22,5 @@
     -fx-border-radius: 50%;
     -fx-wrap-text: true;
     -fx-content-display: center;
+>>>>>>> c980a93ea9907e935262b1d8786e444bddc8cf06
 }
