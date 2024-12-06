@@ -53,12 +53,15 @@ public class ExerciseController {
             Question question = questions.get(i);
             if(question instanceof trueOrFalse) {
                 tof.setQuestion(question.getQuestion(), null, i);
-                tof.setCorrectAnswer(question.getAnswer());
+                if (question.getAnswer() == "true") {
+                    tof.setCorrectAnswer(0);
+                } else if (question.getAnswer() == "false") {
+                    tof.setCorrectAnswer(1);
+                }
                 tof.setProgress(currentProgress.intValue());
-                //tof.trueOrFlase(question.getQuestion(), question.getAnswer(), currentProgress.intValue()) - Based of current para const for tof
                 App.setRoot("trueorfalse");
             } else if (question instanceof FillInTheBlank) {
-                fitb.setQuestion(question.getQuestion());
+                fitb.setQuestion(null, null);
                 fitb.setCorrectAnswer(question.getAnswer());
                 fitb.setProgress(currentProgress.intValue());
                 //fitb.FillInTheBlank(question.getQuestion(), question.getAnswer(), currentProgress.intValue()) - Based of current para const for fitb
