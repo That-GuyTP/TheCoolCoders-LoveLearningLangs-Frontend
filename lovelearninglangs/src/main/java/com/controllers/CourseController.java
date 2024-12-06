@@ -21,8 +21,8 @@ public class CourseController {
     }
 
     //Select a Language
-    public void selectLangauge(Language languageInput) {
-        language = languageInput;
+    public void selectLangauge(String languageInput) {
+        language = Language.valueOf(languageInput.toUpperCase());
     }
 
     //Get Course Value
@@ -47,7 +47,7 @@ public class CourseController {
     
     //Switch to Home
     @FXML
-    private void switchToHome() throws IOException {
+    private void switchToUserHome() throws IOException {
         System.out.println("You clicked the icon. Switching to user home");
         App.setRoot("userhome");
     }
