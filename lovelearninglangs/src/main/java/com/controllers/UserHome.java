@@ -16,7 +16,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -65,11 +64,12 @@ public class UserHome implements Initializable {
             languageButton.setPrefHeight(50);
             hBox.getChildren().add(languageButton);
 
-            languageButton.setOnMouseClicked((MouseEvent event) -> {
-                lll.getCourse(language);
+            languageButton.setOnAction(event -> {
                 try {
                     switchToHomepage();
+                    System.out.println("Clicked Add Language button");
                 } catch (IOException e) {
+                    e.printStackTrace();
                 }
             });
         }
@@ -79,10 +79,12 @@ public class UserHome implements Initializable {
         addLanguageButton.setPrefHeight(50);
 
         userLanguageList.getChildren().add(addLanguageButton);
-        addLanguageButton.setOnMouseClicked((MouseEvent event) -> {
+        addLanguageButton.setOnAction(event -> {
             try {
+                System.out.println("Clicked Add Language button");
                 switchToAddLanguage();
             } catch (IOException e) {
+                e.printStackTrace();
             }
         });
 

@@ -1,6 +1,7 @@
 package com.controllers;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,43 +10,43 @@ import com.model.Language;
 import com.model.LikeLearningLangs;
 import com.model.User;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-
 
 public class AddLanguageController implements Initializable {
 
     private LikeLearningLangs lll;
     private User currentUser;
 
+    @FXML
+    private VBox addableLanguages;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         lll = LikeLearningLangs.getInstance();
-        if (!lll.isLoggedIn) {
-            try {
-                switchToLogin();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
         currentUser = lll.getCurrentUser();
         displayAddableLanguages();
     }
-   
-    private void displayAddableLanguages(){
-        for(Language language : Language.values()){
-            if(currentUser.getProgress().containsKey(language)){
+
+    private void displayAddableLanguages() {
+        for (Language language : Language.values()) {
+            if (currentUser.getProgress().containsKey(language)) {
                 continue;
             }
             HBox hBox = new HBox();
-            Image image = new Image(getClass().getResourceAsStream("/images/language_flags" + language.label.toLowerCase() + ".png"));
+            System.out.println();
+            InputStream imageStream = getClass().getResourceAsStream("src\\main\\resources\\com\\application\\images\\language_flags\\english.png" + language.label.toLowerCase() + ".png");
+            if (imageStream == null) {
+                System.out.println("Image not found for language: " + language.label);
+                imageStream = getClass().getResourceAsStream("/images/language_flags/default.png");
+            }
+            Image image = new Image(imageStream);
             ImageView languageImage = new ImageView(image);
             languageImage.setFitHeight(50);
             languageImage.setFitWidth(70);
@@ -56,23 +57,20 @@ public class AddLanguageController implements Initializable {
             languageButton.setFont(new Font(18));
             languageButton.setPrefHeight(50);
             hBox.getChildren().add(languageButton);
-            languageButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
+            languageButton.setOnAction(event -> {
+                try {
                     lll.addLanguage(language);
-                    try {
-                        switchToUserhome();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    switchToUserhome();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-
             });
+            addableLanguages.getChildren().add(hBox);
         }
     }
 
     @FXML
-    public void switchToLogin() throws IOException{
+    public void switchToLogin() throws IOException {
         App.setRoot("login");
     }
 
@@ -86,4 +84,3 @@ public class AddLanguageController implements Initializable {
         App.setRoot("userhome");
     }
 }
-
