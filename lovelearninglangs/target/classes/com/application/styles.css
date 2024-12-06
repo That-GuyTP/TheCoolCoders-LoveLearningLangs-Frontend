@@ -7,3 +7,8 @@
     -fx-background-color: red;
     -fx-text-fill: white;
 }
+
+-multiplechoice .root{
+    font-size: 200px;
+    -fx-font-size: 200px;
+}

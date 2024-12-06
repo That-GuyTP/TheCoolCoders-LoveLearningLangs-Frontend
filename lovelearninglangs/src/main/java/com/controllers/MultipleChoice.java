@@ -38,7 +38,7 @@ public class MultipleChoice {
     public void MultipleChoice(){
         
     }
-     public void setQuestion(String question, List<String> options, int correctIndex) {
+     public void setQuestion(String question, List<String> options, int correctIndex, double progress, Language language) {
         questionLabel.setText(question);
         correctAnswer = correctIndex;
         current++;
