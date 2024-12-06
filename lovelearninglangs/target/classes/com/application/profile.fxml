@@ -94,6 +94,7 @@
          </children>
       </VBox>
       <Button fx:id="saveButton" layoutX="62.0" layoutY="582.0" mnemonicParsing="false" onAction="#saveToUser" prefHeight="38.0" prefWidth="80.0" style="-fx-background-color: brown;" text="Save" />
+      <Label fx:id="confirmationLabel" text="" style="-fx-font-size: 20px; -fx-text-fill: green; -fx-padding: 10px; -fx-alignment: center;"/>
       <Button fx:id="signOutButton" layoutX="236.0" layoutY="582.0" mnemonicParsing="false" onAction="#signOut" prefHeight="38.0" prefWidth="76.0" text="Sign Out" />
    </children>
 </AnchorPane>
