@@ -23,7 +23,7 @@ public class Homepage {
     
     @FXML
     private void switchToProfile() throws IOException {
-        App.setRoot(null/* INSERT PROFILE FXML NAME HERE */);
+        App.setRoot("profile");
     }
 
     @FXML

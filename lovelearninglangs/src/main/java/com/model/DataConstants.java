@@ -5,7 +5,8 @@ public abstract class DataConstants {
 
     //Changed the old File Path "Narration\\speak\\src\\main\\java\\com\\narration\\json\\Users.json."
     //User Details
-    protected static final String USERS_JSON_FILE = "src/main/java/com/data/Users.json";
+    protected static final String USERS_JSON_FILE = "src\\main\\java\\com\\data\\Users.json";
+
     protected static final String USER = "username";
     protected static final String USER_EMAIL = "email";
     protected static final String USER_FIRST_NAME = "firstName";

@@ -3,8 +3,6 @@ package com.model;
 public enum Language {
     ENGLISH("english"),
     SPANISH("spanish"),
-    GREEK("greek"),
-    FRENCH("french"),
     GERMAN("german");
     //More languages could be added
 

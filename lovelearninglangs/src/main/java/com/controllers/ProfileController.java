@@ -13,8 +13,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class ProfileController implements Initializable{
+public class ProfileController implements Initializable {
 
+    @FXML
+    private Label confirmationLabel;
+    
     @FXML
     private Label fullNameLabel, usernameLabel;
 
@@ -42,9 +45,7 @@ public class ProfileController implements Initializable{
         App.setRoot("startup");
     }
 
-
-
-    private void showUserInfo(){
+    private void showUserInfo() {
         String fullName = currentUser.getFirstName() + " " + currentUser.getLastName();
         fullNameLabel.setText(fullName);
         usernameLabel.setText(currentUser.getUsername());
@@ -58,15 +59,28 @@ public class ProfileController implements Initializable{
 
     @FXML
     @SuppressWarnings("unused")
-    private void saveToUser(){
+    private void saveToUser() {
         currentUser.setFirstName(userFirstName.getText());
         currentUser.setLastName(userLastName.getText());
         currentUser.setUsername(userUsername.getText());
         currentUser.setEmail(userEmail.getText());
         currentUser.setPassword(userPassword.getText());
         showUserInfo();
-
+        // Save confirmation popup
+        confirmationLabel.setLayoutX(100);
+        confirmationLabel.setLayoutY(0);
+        confirmationLabel.setText("Save Successful!");
     }
-    
+
+    @FXML
+    private void signOut() throws IOException {
+        App.setRoot("login");
+        lll.setCurrentUser(null);
+    }
+
+    @FXML
+    private void switchToUserHome() throws IOException {
+        App.setRoot("userhome");
+    }
 
 }

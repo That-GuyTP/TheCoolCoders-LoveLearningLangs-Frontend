@@ -10,14 +10,10 @@ import com.model.Language;
 import com.model.LikeLearningLangs;
 import com.model.User;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -39,7 +35,6 @@ public class UserHome implements Initializable {
             try {
                 switchToStartup();
             } catch (IOException e) {
-                e.printStackTrace();
             }
         }
         currentUser = lll.getCurrentUser();
@@ -53,12 +48,12 @@ public class UserHome implements Initializable {
         userLanguageList.getChildren().clear();
         for (Language language : userProgress.keySet()) {
             HBox hBox = new HBox();
-            Image image = new Image(getClass().getResourceAsStream("/images/language_flags/" + language.label.toLowerCase() + ".png"));
-            ImageView languageImage = new ImageView(image);
-            languageImage.setFitHeight(50);
-            languageImage.setFitWidth(70);
-            languageImage.setPreserveRatio(true);
-            hBox.getChildren().add(languageImage);
+            // Image image = new Image(getClass().getResourceAsStream("/images/language_flags/" + language.label.toLowerCase() + ".png"));
+            // ImageView languageImage = new ImageView(image);
+            // languageImage.setFitHeight(50);
+            // languageImage.setFitWidth(70);
+            // languageImage.setPreserveRatio(true);
+            // hBox.getChildren().add(languageImage);
 
             userLanguageList.getChildren().add(hBox);
 
@@ -67,17 +62,12 @@ public class UserHome implements Initializable {
             languageButton.setPrefHeight(50);
             hBox.getChildren().add(languageButton);
 
-            languageButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    lll.getCourse(language);
-                    try {
-                        switchToHomepage();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+            languageButton.setOnAction(event -> {
+                try {
+                    switchToHomepage();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-
             });
         }
 
@@ -86,16 +76,13 @@ public class UserHome implements Initializable {
         addLanguageButton.setPrefHeight(50);
 
         userLanguageList.getChildren().add(addLanguageButton);
-        addLanguageButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    switchToAddLanguage();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        addLanguageButton.setOnAction(event -> {
+            try {
+                System.out.println("Clicked Add Language button");
+                switchToAddLanguage();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
         });
 
         HBox addLanguageHBox = new HBox();
@@ -116,6 +103,7 @@ public class UserHome implements Initializable {
     }
 
     @FXML
+    @SuppressWarnings("unused")
     private void switchToProfile() throws IOException {
         App.setRoot("profile");
     }

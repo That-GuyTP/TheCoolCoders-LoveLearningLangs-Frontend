@@ -1,10 +1,10 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.UUID;
-import java.util.ArrayList;
-import java.util.Random;
 
 public class LikeLearningLangs {
     
@@ -138,6 +138,7 @@ public class LikeLearningLangs {
      */
     public void addLanguage(Language language) {
         currentUser.addLanguage(language);
+        updateUser(currentUser);
     }
 
     /**
@@ -176,5 +177,9 @@ public class LikeLearningLangs {
     public void updateProgress(Double progress){
         //Users.getInstance().updateUser(currentUser);
         this.currentUser.getProgress().put(currentLanguage, progress);
+    }
+
+    public void updateUser(User user){
+        users.updateUser(user);
     }
 }

@@ -6,7 +6,6 @@ package com.model;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
-import java.util.HashMap;
 
 public class Users {
     private static Users aUsers;
@@ -160,5 +159,7 @@ public class Users {
     public void saveUsers() {
         DataWriter.saveUsers();
     }
+
+
 
 }
