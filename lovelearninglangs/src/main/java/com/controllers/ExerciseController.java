@@ -16,14 +16,16 @@ import javafx.fxml.FXML;
 public class ExerciseController {
 
     //Instance variables
+    CourseController cc = CourseController.getInstance();
     private Exercise exercise;
     private ArrayList<Question> questions;
     private Double progress;
-    CourseController cc = CourseController.getInstance();
+    private int progressLabelValue;
+    private int scoreLabelValue;
     private static ExerciseController instance;
     private com.controllers.FillInTheBlank fitb;
     //private com.controllers.Matching mtch;
-    private com.controllers.MultipleChoice mc;
+    private com.controllers.MultipleChoiceController mc;
     private com.controllers.TrueOrFalse tof;
 
 
@@ -68,18 +70,30 @@ public class ExerciseController {
                 App.setRoot("fillintheblank");
             } else if (question instanceof MultipleChoice) {
                 App.setRoot("multiplechoice");
-                mc = new MultipleChoice();
-                mc.setQuestion(question.getQuestion(), 
-                              ((MultipleChoice) question).getChoices(),
-                              ((MultipleChoice) question).getCorrectAnswerIndex(), 
-                              progress,
-                              cc.getLanguage());
+                mc = new MultipleChoiceController();
+                mc.setQuestion((MultipleChoice) question, i, questions.size());
             /*} else if (question instanceof Matching) {
                 mtch = (Matching) question;
                 App.launch("matching"); */
             }
         }
         return exercise.calcAccuracy();
+    }
+
+    public void setProgressLabelValue(int x) {
+        progressLabelValue = x;
+    }
+
+    public int getProgressLabelValue() {
+        return progressLabelValue;
+    }
+
+    public void setScoreLabelValue(int x) {
+        scoreLabelValue = x;
+    }
+
+    public int getScoreLabelValue() {
+        return progressLabelValue;
     }
 
     @FXML
