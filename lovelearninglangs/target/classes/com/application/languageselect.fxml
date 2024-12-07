@@ -21,7 +21,7 @@ Currently it's set to #switchToLogin
          </image>
       </ImageView>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Congrats! You've made it to the home page. This is as far as we need to go for now." />
-        <Button fx:id="langaugeButton" onAction="#selectLanguage" text="Spanish" />
+        <Button fx:id="langaugeButton" onAction="#selectLanguage" text="Spanish"/>
         <Button fx:id="languageButton" onAction="#selectLanguage" text="German" />
     </children>
     <padding>
