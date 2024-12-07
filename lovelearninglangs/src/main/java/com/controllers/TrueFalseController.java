@@ -1,8 +1,8 @@
 package com.controllers;
 import java.io.IOException;
+
 import com.application.App;
-import com.controllers.ExerciseController;
-import com.model.TrueFalse;
+import com.model.trueOrFalse;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -25,7 +25,7 @@ public class TrueFalseController {
     @FXML
     private Label scoreLabel;
 
-    private TrueFalse currentQuestion;
+    private trueOrFalse currentQuestion;
     private int currentQuestionIndex;
     private int correctAnswers;
     private int totalQuestions;
@@ -35,7 +35,7 @@ public class TrueFalseController {
         exerciseController = ExerciseController.getInstance();
     }
 
-    public void setQuestion(TrueFalse question, int currentIndex, int total) {
+    public void setQuestion(trueOrFalse question, int currentIndex, int total) {
         this.currentQuestion = question;
         this.currentQuestionIndex = currentIndex;
         this.totalQuestions = total;
@@ -60,7 +60,7 @@ public class TrueFalseController {
     }
 
     private void checkAnswer(boolean selectedAnswer) {
-        boolean isCorrect = currentQuestion.checkAnswer(selectedAnswer);
+        boolean isCorrect = currentQuestion.checkAnswer(selectedAnswer ? 1 : 0);
         if (isCorrect) {
             correctAnswers++;
             System.out.println("Correct!");
