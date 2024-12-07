@@ -51,8 +51,9 @@ public class MultipleChoiceController {
         this.currentQuestion = question;
         this.currentQuestionIndex = currentIndex;
         this.totalQuestions = total;
-
+        System.out.println("Loading question " + currentIndex + " of " + totalQuestions);
         displayQuestion();
+        
     }
 
     private void displayQuestion() {

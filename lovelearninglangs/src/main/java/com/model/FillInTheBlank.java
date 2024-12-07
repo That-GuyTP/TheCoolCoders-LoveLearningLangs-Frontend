@@ -67,6 +67,7 @@ public class FillInTheBlank implements Question {
     }
 
     public boolean checkAnswer(String userAnswer){
-        return userAnswer.toLowerCase().equals(this.answer.toLowerCase());
+        System.out.println("In model trueOrFalse.java the correct answer for this question is set to: " + this.answer);
+        return userAnswer.trim().toLowerCase().equalsIgnoreCase(this.answer);
     }
 }

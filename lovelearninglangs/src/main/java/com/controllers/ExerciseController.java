@@ -78,16 +78,17 @@ public class ExerciseController {
         currentQuestionIndex = 0;
         loadQuestion(currentQuestionIndex);
     }
+
     private void loadQuestion(int index) throws IOException {
-        System.out.println("Current question index: " + currentQuestionIndex);
-        System.out.println("Total questions: " + questions.size());
+        System.out.println("Current question index: " + questions.get(index) + ", Total questions: " + questions.size()); // Debug
+        System.out.println("Current score: " + score); // Debug
         if (index >= questions.size()) { // If no more questions, finish exercise.
             exerciseComplete();
             return;
         }
-        App.setRoot("exercise"); // Debugg Testing
-        for (int i = 0; i < questions.size(); i++) {
-            Question question = questions.get(i);
+        // App.setRoot("exercise"); // Debug Testing to see if it would fix solution.
+        Question question = questions.get(index);
+        //for (int i = 0; i < questions.size(); i++) { Commented out to test solutions.
             if(question instanceof trueOrFalse) {
                 //App.setRoot("trueorfalse");
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("trueorfalse.fxml"));
@@ -115,7 +116,7 @@ public class ExerciseController {
                 App.launch("matching"); 
             */
             }
-        }
+        //}
     }
 
     public void loadNextQuestion() throws IOException {
@@ -171,6 +172,7 @@ public class ExerciseController {
 
     public void incrementScore() {
         score++;
+        System.out.println("Scre incremented to: " + score);
     }
 
     @FXML

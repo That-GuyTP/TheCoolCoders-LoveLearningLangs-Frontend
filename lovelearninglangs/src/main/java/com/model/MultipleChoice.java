@@ -99,11 +99,8 @@ public class MultipleChoice implements Question {
         choices.add(correctWord.getTranslation(lang)); // Add correct answer
         while (choices.size() < 4) {
             Word randomWord = getRandomWord();
-            if (randomWord != null) {
-                String translation = randomWord.getTranslation(lang);
-                if (!choices.contains(translation)) {
-                    choices.add(translation);  // Add incorrect option
-                }
+            if (randomWord != null && !choices.contains(randomWord.getTranslation(lang))) {
+                choices.add(randomWord.getTranslation(lang));
             }
         }
         shuffleChoices();
@@ -114,12 +111,8 @@ public class MultipleChoice implements Question {
         choices.add(correctPhrase.getTranslatedPhrase(lang));  // Add correct answer
         while (choices.size() < 4) {
             Phrase randomPhrase = getRandomPhrase();
-            if (randomPhrase != null) {
-                String phrase = randomPhrase.getPhrase();
-                String phraseChoice = randomPhrase.getTranslatedPhrase(lang);
-                if (!choices.contains(phraseChoice)) {
-                    choices.add(phraseChoice);  // Add incorrect option
-                }
+            if (randomPhrase != null && !choices.contains(randomPhrase.getTranslatedPhrase(lang))) {
+                choices.add(randomPhrase.getTranslatedPhrase(lang));  // Add incorrect option
             }
         }
         shuffleChoices();
@@ -158,7 +151,8 @@ public class MultipleChoice implements Question {
     }
 
     public boolean checkAnswer(int userAnswer) {
-        return userAnswer - 1 == correctAnswerIndex;
+        System.out.println("In model trueOrFalse.java the correct answer for this question is set to: " + correctAnswerIndex);
+        return userAnswer == correctAnswerIndex;
     }
 
 

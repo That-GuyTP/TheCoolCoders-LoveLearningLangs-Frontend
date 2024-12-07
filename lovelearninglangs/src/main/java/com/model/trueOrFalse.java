@@ -103,24 +103,12 @@ public class trueOrFalse implements Question {
         boolean isWord = rand.nextBoolean();
         if (isWord) {
             word = getRandomWord();
-            if(word != null){
-                wordTranslation = getWordTranslation();
-                if (wordTranslation == word.getTranslation(language)) {
-                    correctAnswer = 1;
-                } else {
-                    correctAnswer = 2;
-                }
-            }
+            wordTranslation = getWordTranslation();
+            correctAnswer = wordTranslation.equals(word.getTranslation(language)) ? 1 : 2;
         } else {
             phrase = getRandomPhrase();
-            if(phrase != null){
-                phraseTranslation = getPhraseTranslation();
-                if (phraseTranslation == phrase.getTranslatedPhrase(language)) {
-                    correctAnswer = 1;
-                } else {
-                    correctAnswer = 2;
-                }
-            }
+            phraseTranslation = getPhraseTranslation();
+            correctAnswer = phraseTranslation.equals(phrase.getTranslatedPhrase(language)) ? 1 : 2;
         }
     }
 
@@ -192,6 +180,7 @@ public class trueOrFalse implements Question {
     }
 
     public boolean checkAnswer(int userAnswer) {
+        System.out.println("In model trueOrFalse.java the correct answer for this question is set to: " + correctAnswer);
         return userAnswer == correctAnswer;
     }
     
