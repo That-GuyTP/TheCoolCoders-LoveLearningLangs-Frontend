@@ -76,6 +76,7 @@ public class MultipleChoiceController {
     }
 
     private void checkAnswer(int selectedIndex) {
+        System.out.println("You chose index: " + selectedIndex);
         boolean isCorrect = currentQuestion.checkAnswer(selectedIndex);
         if (isCorrect) {
             correctAnswers++;

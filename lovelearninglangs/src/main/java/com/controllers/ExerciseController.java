@@ -85,6 +85,7 @@ public class ExerciseController {
             exerciseComplete();
             return;
         }
+        App.setRoot("exercise"); // Debugg Testing
         for (int i = 0; i < questions.size(); i++) {
             Question question = questions.get(i);
             if(question instanceof trueOrFalse) {
@@ -93,21 +94,21 @@ public class ExerciseController {
                 Parent root = loader.load();
                 tof = loader.getController();
                 App.scene.setRoot(root);
-                tof.setQuestion((trueOrFalse) question, i, questions.size());
+                tof.setQuestion((trueOrFalse) question, currentQuestionIndex, questions.size());
             } else if (question instanceof MultipleChoice) {
                 //App.setRoot("multiplechoice");
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("multiplechoice.fxml"));
                 Parent root = loader.load();
                 mc = loader.getController();
                 App.scene.setRoot(root);
-                mc.setQuestion((MultipleChoice) question, i, questions.size());
+                mc.setQuestion((MultipleChoice) question, currentQuestionIndex, questions.size());
             } else if (question instanceof FillInTheBlank) {
                 //App.setRoot("fillintheblank");
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("fillintheblank.fxml"));
                 Parent root = loader.load();
                 fitb = loader.getController();
                 App.scene.setRoot(root);
-                fitb.setQuestion((FillInTheBlank) question, i, questions.size());
+                fitb.setQuestion((FillInTheBlank) question, currentQuestionIndex, questions.size());
             /*
             } else if (question instanceof Matching) {
                 mtch = (Matching) question;

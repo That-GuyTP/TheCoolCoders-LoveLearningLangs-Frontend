@@ -88,6 +88,7 @@ public class MultipleChoice implements Question {
 
         // Ensure there are phrases to choose from
         if (filteredPhrases.isEmpty()) {
+            System.out.println("No phrases found for the given progress.");
             return null;  // Handle case where no phrases match the progress level
         }
 

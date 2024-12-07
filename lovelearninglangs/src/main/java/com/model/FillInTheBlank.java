@@ -27,7 +27,7 @@ public class FillInTheBlank implements Question {
         }
         if (filteredPhrases.isEmpty()) {
             System.out.println("No phrases found for the given progress.");
-            return new Phrase();
+            return null;
         }
         int randomIndex = (int) (Math.random() * filteredPhrases.size());
         return filteredPhrases.get(randomIndex);

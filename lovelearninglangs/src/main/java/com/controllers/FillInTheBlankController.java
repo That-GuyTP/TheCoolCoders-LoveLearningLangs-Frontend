@@ -82,7 +82,9 @@ public class FillInTheBlankController {
         } else {
             System.out.println("Incorrect! The correct answer was: " + currentQuestion.getAnswer());
         }
-
+        progressLabel.setText("Question " + (currentQuestionIndex + 1) + "/" + totalQuestions);
+        scoreLabel.setText("Score: " + correctAnswers);
+        
         // Notify the ExerciseController and move to the next question
         try {
             System.out.println("Loading ec.loadNextQuestion: ");
