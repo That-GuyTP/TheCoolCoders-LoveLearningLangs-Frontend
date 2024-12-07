@@ -26,14 +26,14 @@ public class TrueOrFalse {
     private Label scoreLabel;
 
     private int correctAnswer;
-    private int progress = 0;
+    private double progress = 0;
     private int current = 0;
     private int total = 10;
 
     public void TrueOrFalse(){
         
     }
-     public void setQuestion(String question, List<String> options, int correctIndex) {
+     public void setQuestion(String question, List<String> options, int correctIndex,double progress) {
         trueOrFalseQ.setText(question);
         correctAnswer = correctIndex;
         current++;
@@ -41,6 +41,7 @@ public class TrueOrFalse {
         trueButton.setText("True");
         falseButton.setText("False");
 
+        setProgress(progress);
         trueButton.setOnAction(event -> checkAnswer(0));
         falseButton.setOnAction(event -> checkAnswer(1));
     }  
@@ -64,7 +65,7 @@ public class TrueOrFalse {
         scoreLabel.setText("Score: " + progress);
     }
 
-    public void setProgress(int progress) {
+    public void setProgress(double progress) {
         this.progress = progress;
     }
 
@@ -80,7 +81,7 @@ public class TrueOrFalse {
         this.correctAnswer = correctAnswer;
     }
 
-    public int getProgress() {
+    public double getProgress() {
         return progress;
     }
 

@@ -6,8 +6,9 @@
 
 <VBox alignment="CENTER" prefHeight="412.0" prefWidth="222.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LearnController">
    <children>
-      <Text fx:id="learnText" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;x&quot; is pronounced &quot;y&quot;" />
+      <Text fx:id="learnText" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
       <Button mnemonicParsing="false" onAction="#playSound" text="Play Sound" />
+      <Button mnemonicParsing="false" onAction="#generateNewText" text="Next" />
       <Button mnemonicParsing="false" onAction="#back" text="BACK" />
    </children>
 </VBox>

@@ -20,7 +20,7 @@ It handles the following features
             <Image url="@images/LLL_Logo.png" />
          </image>
       </ImageView>
-      <Button mnemonicParsing="false" onAction="#switchToHome" onMouseClicked="#selectLanguage" text="Change Langauge" />
+      <Button mnemonicParsing="false" onAction="#switchToUserHome" onMouseClicked="#switchToUserHome" text="Change Langauge" />
       <Button mnemonicParsing="false" onAction="#switchToLearn" styleClass="circle" text="Learn" />
         <Button fx:id="exitButton" accessibleText="Level 1 button" ellipsisString="" onAction="#switchToLevel1" style="-fx-background-radius: 100; -fx-background-size: 150;" styleClass="circle" text="Level 1" />
       <Button fx:id="exitButton1" onAction="#switchToLevel2" styleClass="circle" text="Level 2" />
