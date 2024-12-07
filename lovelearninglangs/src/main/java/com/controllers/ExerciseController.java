@@ -21,6 +21,7 @@ public class ExerciseController {
     private ArrayList<Question> questions;
     private Double progress;
     private int progressLabelValue;
+    private int score = 0;
     private int scoreLabelValue;
     private static ExerciseController instance;
     private com.controllers.FillInTheBlank fitb;
@@ -31,7 +32,7 @@ public class ExerciseController {
 
 
     //Constructor
-    private ExerciseController() {
+    public ExerciseController() {
         exercise = new Exercise(cc.getLanguage(), cc.getProgress());
         progress = cc.getProgress();
     }
@@ -60,8 +61,8 @@ public class ExerciseController {
      * @return double Arruracy
      * @throws IOException 
      */
-        public double startExercise() throws IOException {
-        generateQuestions();
+        public void startExercise(int level) throws IOException {
+        questions = exercise.generateQuestions(level, 10);
         for (int i = 0; i < 10; i++) {
             Question question = questions.get(i);
             if(question instanceof trueOrFalse) {
@@ -77,7 +78,21 @@ public class ExerciseController {
                 App.launch("matching"); */
             }
         }
-        return exercise.calcAccuracy();
+        exerciseComplete();
+        
+    }
+
+    public void exerciseComplete() throws IOException {
+        double accuracy = (double) score / 10.0 * 100.0;
+        if (accuracy >= 70.0) {
+            System.out.println("Score above 70%. Updating progress...");
+            cc.getUser().(cc.getLanguage(), cc.getProgress() + 1);
+        } else {
+            System.out.println("Score below 70%. Progress not updated.");
+        }
+
+        // Navigate back to the course page
+        App.setRoot("course");
     }
 
     public void setProgressLabelValue(int x) {
@@ -94,6 +109,18 @@ public class ExerciseController {
 
     public int getScoreLabelValue() {
         return progressLabelValue;
+    }
+
+    public void setExerciseScore(int x) {
+        score = x;
+    }
+
+    public int getExerciseScore() {
+        return score;
+    }
+
+    public void incrementScore() {
+        score++;
     }
 
     @FXML
