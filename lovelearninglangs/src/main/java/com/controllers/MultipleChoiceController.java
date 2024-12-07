@@ -38,10 +38,13 @@ public class MultipleChoiceController {
     private int currentQuestionIndex;
     private int correctAnswers;
     private int totalQuestions;
-    private ExerciseController ec;
+    private ExerciseController ec = new ExerciseController();
 
-    public void MultipleChoice(){
+    public MultipleChoiceController(){
         ec = ExerciseController.getInstance();
+        if (ec == null) { // DEBUG
+            System.out.println("Error: ExerciseController instance is null");
+        }
     }
 
     public void setQuestion(MultipleChoice question, int currentIndex, int total) {
@@ -78,24 +81,15 @@ public class MultipleChoiceController {
             correctAnswers++;
             System.out.println("Correct!");
             ec.incrementScore();
-            ec.setExerciseScore(selectedIndex);
         } else {
             System.out.println("Incorrect! The correct answer was: " + currentQuestion.getAnswer());
         }
 
         // Notify the ExerciseController and move to the next question
-        if (currentQuestionIndex + 1 < totalQuestions) {
-            try {
-                App.setRoot("exercise"); // Move to the next question
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                ExerciseController.getInstance().exerciseComplete();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            ec.loadNextQuestion();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

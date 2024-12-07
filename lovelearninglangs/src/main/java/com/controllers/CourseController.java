@@ -37,7 +37,7 @@ public class CourseController {
     public void selectLangauge(String languageInput) {
         try {
             language = Language.valueOf(languageInput.toUpperCase());
-            System.out.println("Language successfully set to: " + language);
+            // System.out.println("Language successfully set to: " + language); debug
         } catch (IllegalArgumentException e) {
             System.out.println("Error: Invalid language input.");
         }
@@ -75,7 +75,7 @@ public class CourseController {
     //Switch to Home
     @FXML
     private void switchToUserHome() throws IOException {
-        System.out.println("You clicked the icon. Switching to user home");
+        //System.out.println("You clicked the icon. Switching to user home"); debug
         App.setRoot("userhome");
     }
 
@@ -83,10 +83,10 @@ public class CourseController {
     @FXML
     private void switchToLearn() throws IOException {
         CourseController cc = CourseController.getInstance();
-        System.out.println("You've clicked the learn button. Switching to learn page.");
+        // System.out.println("You've clicked the learn button. Switching to learn page."); debug
         LearnController lc = new LearnController();
         lc.setLanguage(cc.getLanguage());
-        System.out.println("Set lc's language to " + cc.getLanguage());
+        // System.out.println("Set lc's language to " + cc.getLanguage()); debug
         App.setRoot("learn");
     }
 

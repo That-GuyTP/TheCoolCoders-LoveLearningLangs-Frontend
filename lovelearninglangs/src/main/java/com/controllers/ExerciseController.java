@@ -27,6 +27,7 @@ public class ExerciseController {
     private int progressLabelValue;
     private int score = 0;
     private int scoreLabelValue;
+    private int currentQuestionIndex;
     private static ExerciseController instance;
     private com.controllers.FillInTheBlankController fitb;
     //private com.controllers.Matching mtch;
@@ -55,6 +56,9 @@ public class ExerciseController {
      */
     public ArrayList<Question> generateQuestions() {
         questions = exercise.generateQuestions();
+        if (questions == null || questions.isEmpty()) {
+            System.out.println("No questions were generated.");
+        }
         return questions;
     }
 
@@ -65,30 +69,40 @@ public class ExerciseController {
      * @return double Arruracy
      * @throws IOException 
      */
-        public void startExercise(int level) throws IOException {
+    public void startExercise(int level) throws IOException {
         questions = exercise.generateQuestions();
         if (questions == null || questions.isEmpty()) { // DEBUG
             System.out.println("No questions were generated.");
             return;
         }
+        currentQuestionIndex = 0;
+        loadQuestion(currentQuestionIndex);
+    }
+    private void loadQuestion(int index) throws IOException {
+        System.out.println("Current question index: " + currentQuestionIndex);
+        System.out.println("Total questions: " + questions.size());
+        if (index >= questions.size()) { // If no more questions, finish exercise.
+            exerciseComplete();
+            return;
+        }
         for (int i = 0; i < questions.size(); i++) {
             Question question = questions.get(i);
             if(question instanceof trueOrFalse) {
-                App.setRoot("trueorfalse");
+                //App.setRoot("trueorfalse");
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("trueorfalse.fxml"));
                 Parent root = loader.load();
                 tof = loader.getController();
                 App.scene.setRoot(root);
                 tof.setQuestion((trueOrFalse) question, i, questions.size());
             } else if (question instanceof MultipleChoice) {
-                App.setRoot("multiplechoice");
+                //App.setRoot("multiplechoice");
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("multiplechoice.fxml"));
                 Parent root = loader.load();
                 mc = loader.getController();
                 App.scene.setRoot(root);
                 mc.setQuestion((MultipleChoice) question, i, questions.size());
             } else if (question instanceof FillInTheBlank) {
-                App.setRoot("fillintheblank");
+                //App.setRoot("fillintheblank");
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("fillintheblank.fxml"));
                 Parent root = loader.load();
                 fitb = loader.getController();
@@ -101,11 +115,19 @@ public class ExerciseController {
             */
             }
         }
-        exerciseComplete();
+    }
+
+    public void loadNextQuestion() throws IOException {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.size()) {
+            loadQuestion(currentQuestionIndex);
+        } else {
+            exerciseComplete();
+        } 
     }
 
     public void exerciseComplete() throws IOException {
-        double accuracy = (double) score / 10.0 * 100.0;
+        double accuracy = (double) score / questions.size() * 100.0;
         if (accuracy >= 70.0) {
             System.out.println("Score above 70%. Updating progress...");
             User currentUser = cc.getUser();

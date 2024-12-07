@@ -147,7 +147,7 @@ public class Word {
      * @return Word in the chosen language (EX: Hello -> Hola)
      */
     public String getTranslation(Language language){
-        System.out.println("In Word.java getTranslation - Language: " + language);
+        // System.out.println("In Word.java getTranslation - Language: " + language); DEBUG
         if (translations.containsKey(language)) {
             return translations.get(language);
         } else {

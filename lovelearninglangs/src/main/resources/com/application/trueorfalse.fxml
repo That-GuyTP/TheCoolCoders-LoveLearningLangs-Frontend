@@ -35,8 +35,8 @@
             <Image url="@images/back_image.png" />
          </image>
       </ImageView>
-        <Label fx:id="progressLabel" />
-        <Label fx:id="scoreLabel" />
+        <Label fx:id="progressLabel" text="" />
+        <Label fx:id="scoreLabel" text="" />
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

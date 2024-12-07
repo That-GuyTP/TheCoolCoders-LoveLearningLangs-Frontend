@@ -39,7 +39,7 @@
             <Font size="24.0" />
          </font></Text>
       <Line endX="185.69288635253906" endY="0.7999183535575867" startX="-100.0" stroke="#4b0808" strokeWidth="2.0" />
-      <Label prefHeight="27.0" prefWidth="354.0" style="-fx-alignment: left;" text="Multiple Choice" textFill="#e30220">
+      <Label prefHeight="27.0" prefWidth="354.0" style="-fx-alignment: CENTER_LEFT;" text="Multiple Choice" textFill="#e30220">
          <font>
             <Font size="24.0" />
          </font></Label>
