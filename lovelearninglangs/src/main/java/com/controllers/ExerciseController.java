@@ -26,7 +26,7 @@ public class ExerciseController {
     private int score = 0;
     private int scoreLabelValue;
     private static ExerciseController instance;
-    private com.controllers.FillInTheBlank fitb;
+    //private com.controllers.FillInTheBlank fitb;
     //private com.controllers.Matching mtch;
     private com.controllers.MultipleChoiceController mc;
     private com.controllers.TrueFalseController tof;

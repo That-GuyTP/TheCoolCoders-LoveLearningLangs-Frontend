@@ -1,41 +1,46 @@
 package com.controllers;
+
 import java.io.IOException;
 
 import com.application.App;
-import com.model.trueOrFalse;
+import com.controllers.ExerciseController;
+import com.model.FillInTheBlank;
+import com.model.Language;
+import com.model.Question;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
-public class TrueFalseController {
+public class FillInTheBlankController {
 
     @FXML
     private Label questionLabel;
 
     @FXML
-    private Button trueButton;
+    private TextField answerField;
 
     @FXML
-    private Button falseButton;
+    private Button submitButton;
 
     @FXML
     private Label progressLabel;
 
-    @FXML
+    @FXML 
     private Label scoreLabel;
 
-    private trueOrFalse currentQuestion;
+    private FillInTheBlank currentQuestion;
     private int currentQuestionIndex;
     private int correctAnswers;
     private int totalQuestions;
-    private ExerciseController exerciseController;
+    private ExerciseController ec;
 
-    public void TrueFalseController() {
-        exerciseController = ExerciseController.getInstance();
+    public FillInTheBlankController() {
+        ec = ExerciseController.getInstance();
     }
 
-    public void setQuestion(trueOrFalse question, int currentIndex, int total) {
+    public void setQuestion(FillInTheBlank question, int currentIndex, int total) {
         this.currentQuestion = question;
         this.currentQuestionIndex = currentIndex;
         this.totalQuestions = total;
@@ -50,26 +55,27 @@ public class TrueFalseController {
         }
         questionLabel.setText("Q" + (currentQuestionIndex + 1) + ": " + currentQuestion.getQuestion());
 
-        trueButton.setText("True");
-        falseButton.setText("False");
-
-        trueButton.setOnAction(event -> checkAnswer(true));
-        falseButton.setOnAction(event -> checkAnswer(false));
-
+        submitButton.setOnAction(event -> checkAnswer());
         updateProgressLabel();
     }
 
-    private void checkAnswer(boolean selectedAnswer) {
-        boolean isCorrect = currentQuestion.checkAnswer(selectedAnswer ? 1 : 0);
+    private void checkAnswer() {
+        String userAnswer = answerField.getText().trim();
+        boolean isCorrect = currentQuestion.checkAnswer(userAnswer);
+        
         if (isCorrect) {
             correctAnswers++;
             System.out.println("Correct!");
+            ec.incrementScore();
+            ec.setExerciseScore(Integer.parseInt(userAnswer));
         } else {
             System.out.println("Incorrect! The correct answer was: " + currentQuestion.getAnswer());
         }
+
+        // Notify the ExerciseController and move to the next question
         if (currentQuestionIndex + 1 < totalQuestions) {
             try {
-                App.setRoot("exercise"); 
+                App.setRoot("exercise"); // Move to the next question
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -82,13 +88,8 @@ public class TrueFalseController {
         }
     }
 
-
-    
-
-
-    
     private void updateProgressLabel() {
-        progressLabel.setText("Question " + (currentQuestionIndex + 1) + "/" + totalQuestions);
+        progressLabel.setText("Question " + (currentQuestionIndex + 1 ) + "/" + totalQuestions);
         scoreLabel.setText("Score: " + correctAnswers);
     }
 
