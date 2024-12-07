@@ -29,7 +29,7 @@
             <Image url="@images/LLL_Logo.png" />
          </image>
       </ImageView>
-      <Text fx:id="learnText" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+      <Text fx:id="learnText" strokeType="OUTSIDE" strokeWidth="0.0" text="Click the next button to load a practice word!" />
       <Button mnemonicParsing="false" onAction="#playSound" text="Play Sound" />
       <Button mnemonicParsing="false" onAction="#generateNewText" text="Next" />
       <!-- <Button mnemonicParsing="false" onAction="#back" text="BACK" /> -->
