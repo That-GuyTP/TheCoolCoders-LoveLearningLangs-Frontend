@@ -38,10 +38,10 @@ public class MultipleChoiceController {
     private int currentQuestionIndex;
     private int correctAnswers;
     private int totalQuestions;
-    private ExerciseController exerciseController;
+    private ExerciseController ec;
 
     public void MultipleChoice(){
-        exerciseController = ExerciseController.getInstance();
+        ec = ExerciseController.getInstance();
     }
 
     public void setQuestion(MultipleChoice question, int currentIndex, int total) {
@@ -77,15 +77,25 @@ public class MultipleChoiceController {
         if (isCorrect) {
             correctAnswers++;
             System.out.println("Correct!");
+            ec.incrementScore();
+            ec.setExerciseScore(selectedIndex);
         } else {
             System.out.println("Incorrect! The correct answer was: " + currentQuestion.getAnswer());
         }
 
         // Notify the ExerciseController and move to the next question
-        try {
-            App.setRoot("exercise"); // Return control to ExerciseController for the next question
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (currentQuestionIndex + 1 < totalQuestions) {
+            try {
+                App.setRoot("exercise"); // Move to the next question
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                ExerciseController.getInstance().exerciseComplete();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

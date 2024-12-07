@@ -1,6 +1,9 @@
 package com.controllers;
 
 import java.io.IOException;
+
+import org.junit.internal.ExactComparisonCriteria;
+
 import com.application.App;
 import javafx.fxml.FXML;
 import com.model.Language;
@@ -66,6 +69,7 @@ public class CourseController {
         }
         return prog;
     }
+
     
     //Switch to Home
     @FXML
@@ -88,30 +92,29 @@ public class CourseController {
     //Switch to Level 1
     @FXML 
     private void switchToLevel1() throws IOException {
-        System.out.println("This is the level 1 button");
-        App.setRoot("exercise"); 
-        App.launch("exercise");
+        ExerciseController ec = ExerciseController.getInstance();
+        ec.startExercise(1);
     }
 
     //Switch to Level 2
     @FXML
     private void switchToLevel2() throws IOException {
-        System.out.println("This is the level 2 button");
         if (lll.getCurrentUser().getLangProgress(language) < 2.0) {
             System.out.println("You're not ready for this course yet. Try exercising some more.");
         } else {
-
+            ExerciseController ec = ExerciseController.getInstance();
+            ec.startExercise(2);
         }
     }
 
     //Switch to Level 3
     @FXML
     private void switchToLevel3() throws IOException {
-        System.out.println("This is the level 3 button");
         if (lll.getCurrentUser().getLangProgress(language) < 3.0) {
             System.out.println("You're not ready for this course yet. Try exercising some more.");
         } else {
-            App.setRoot(null /* INSERT EXERCISE PATH HERE */);      
+            ExerciseController ec = ExerciseController.getInstance();
+            ec.startExercise(3);    
         }
     }
 
