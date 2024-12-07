@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<!-- 
+This is the fxml for the startup page of our app. It will connect to the login button and (in the future) the register button.
+Currently when the login button is clicked it runs Login.java and switches to login.fxml.
+The register button does not work.
+ -->
+
+<VBox alignment="CENTER" prefHeight="369.0" prefWidth="349.0" spacing="20.0" styleClass="styles.css" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.Startup">
+   <children>
+      <ImageView fitHeight="58.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/LLL_Logo.png" />
+         </image>
+      </ImageView>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Love Learning Langs">
+      </Text>
+      <Label text="Click this button to play a sound and go to the login page" />
+      <Button fx:id="loginButton" onAction="#switchToLogin" text="Login" />
+      <Button fx:id="registerButton" onAction="#switchToRegister" text="Register" />
+      <Button fx:id="soundTest" onAction="#playASound" text="Test Narrator" />
+      <BorderPane prefHeight="200.0" prefWidth="200.0" stylesheets="@styles.css" />
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+
+
+
+</VBox>

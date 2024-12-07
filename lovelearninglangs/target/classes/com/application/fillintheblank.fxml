@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<!-- This is the fill in the blank question field.-->
+
+<VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #FCE6E9;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.FillInTheBlankController">
+    <children>
+      
+      <!-- Added by Aashish Jayapuram-->
+        <HBox alignment="TOP_LEFT" >
+          <Button fx:id="backButton" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="38.0" style="-fx-background-color: white;">
+            <graphic>
+                <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@images/back_image.png" />
+                  </image>
+                </ImageView>
+            </graphic>
+          </Button>
+        </HBox>
+      
+      <Text fill="#4b0808" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-font-family: family;" wrappingWidth="109.3363037109375">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Text>
+          <ImageView fitHeight="58.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/LLL_Logo.png" />
+         </image>
+      </ImageView>
+        <Label prefHeight="27.0" prefWidth="186.0" style="-fx-text-alignment: left;" text="Fill in the blank." textFill="#e30220">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font></Label>
+      <Label fx:id="questionLabel" text=""/>
+        <TextField fx:id="answerField" promptText="Answer" />
+      <Button fx:id="submitButton" mnemonicParsing="false" style="-fx-background-color: #e30220;" text="Submit" />
+      <Label text="Progress:" />
+      <Label fx:id="progressLabel" />
+      <Label fx:id="scoreLabel" />
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>
