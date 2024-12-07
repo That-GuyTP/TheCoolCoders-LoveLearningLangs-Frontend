@@ -68,13 +68,13 @@ public class ExerciseController {
         for (int i = 0; i < 10; i++) {
             Question question = questions.get(i);
             if(question instanceof trueOrFalse) {
+                App.setRoot("trueorfalse");
                 tof = new TrueFalseController();
                 tof.setQuestion((trueOrFalse) question, i, questions.size());
-                App.setRoot("trueorfalse");
             } else if (question instanceof MultipleChoice) {
+                App.setRoot("multiplechoice");
                 mc = new MultipleChoiceController();
                 mc.setQuestion((MultipleChoice) question, i, questions.size());
-                App.setRoot("multiplechoice");
             /*
             } else if (question instanceof FillInTheBlank) {
                 // fitb = new com.controllers.FillInTheBlankController();
