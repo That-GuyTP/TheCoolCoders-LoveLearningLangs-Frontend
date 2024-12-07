@@ -14,6 +14,9 @@ public class FillInTheBlank implements Question {
     public FillInTheBlank(Language language, double progress) {
         this.phrases = DataLoader.getPhrases();
         selectedPhrase = selectRandomPhrase(progress);
+        if (selectedPhrase == null) {
+            throw new IllegalArgumentException("No phrases available for the given progress: " + progress);
+        }
         this.question = generateQuestion(selectedPhrase, language);
         this.rand = new Random();
     }
@@ -21,16 +24,17 @@ public class FillInTheBlank implements Question {
     private Phrase selectRandomPhrase(double progress) {
         ArrayList<Phrase> filteredPhrases = new ArrayList<>();
         for (Phrase phrase : phrases) {
-            if (Math.floor(phrase.getId() % 10) == Math.floor(progress % 10)) {
+            if (Math.floor(phrase.getId()) == Math.floor(progress)) {
                 filteredPhrases.add(phrase);
             }
         }
         if (filteredPhrases.isEmpty()) {
-            System.out.println("No phrases found for the given progress.");
+            System.out.println("No phrases found for the given progress: " + progress);
             return null;
         }
-        System.out.println("Selected phrase for progress " + progress + ": " + selectedPhrase.getPhrase()); // Debug
-        return filteredPhrases.get(rand.nextInt(filteredPhrases.size()));
+        Phrase selectedPhrase = filteredPhrases.get(rand.nextInt(filteredPhrases.size()));
+        System.out.println("Selected phrase for progress " + progress + ": " + selectedPhrase.getPhrase());
+        return selectedPhrase;
     }
     
     private String generateQuestion(Phrase phrase, Language language) {
