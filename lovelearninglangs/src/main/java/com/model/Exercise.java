@@ -50,13 +50,13 @@ public class Exercise {
             switch (randomType) {
                 case 1:
                     //Multiple Choice
-                    questions.add(new MultipleChoice(language, 1.0));
+                    questions.add(new MultipleChoice(language, progress));
                     break;
                 case 2:
-                    questions.add(new FillInTheBlank(language, 1.0));
+                    questions.add(new FillInTheBlank(language, progress));
                     break;
                 case 3:
-                    questions.add(new trueOrFalse(language, 1.0));
+                    questions.add(new trueOrFalse(language, progress));
                     break;
                 default:
                     System.out.println("Error! Questions could not be generated!");

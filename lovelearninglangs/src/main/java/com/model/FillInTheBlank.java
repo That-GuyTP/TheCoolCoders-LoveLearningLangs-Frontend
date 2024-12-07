@@ -21,7 +21,7 @@ public class FillInTheBlank implements Question {
     private Phrase selectRandomPhrase(double progress) {
         ArrayList<Phrase> filteredPhrases = new ArrayList<>();
         for (Phrase phrase : phrases) {
-            if ((int)(phrase.getId() % 10) == (int)(progress % 10)) {
+            if (Math.floor(phrase.getId() % 10) == Math.floor(progress % 10)) {
                 filteredPhrases.add(phrase);
             }
         }
@@ -29,8 +29,7 @@ public class FillInTheBlank implements Question {
             System.out.println("No phrases found for the given progress.");
             return null;
         }
-        int randomIndex = (int) (Math.random() * filteredPhrases.size());
-        return filteredPhrases.get(randomIndex);
+        return filteredPhrases.get(rand.nextInt(filteredPhrases.size()));
     }
     
     private String generateQuestion(Phrase phrase, Language language) {
@@ -67,7 +66,7 @@ public class FillInTheBlank implements Question {
     }
 
     public boolean checkAnswer(String userAnswer){
-        System.out.println("In model trueOrFalse.java the correct answer for this question is set to: " + this.answer);
+        System.out.println("In model FillInTheBlank.java the correct answer for this question is set to: " + this.answer);
         return userAnswer.trim().toLowerCase().equalsIgnoreCase(this.answer);
     }
 }
