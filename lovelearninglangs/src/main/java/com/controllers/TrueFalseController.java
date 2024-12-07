@@ -11,6 +11,9 @@ import javafx.scene.control.Label;
 public class TrueFalseController {
 
     @FXML
+    private Label Qheader;
+
+    @FXML
     private Label questionLabel;
 
     @FXML
@@ -89,8 +92,8 @@ public class TrueFalseController {
     }
     
     private void updateProgressLabel() {
-        progressLabel.setText("Question " + (currentQuestionIndex + 1) + "/" + totalQuestions);
-        scoreLabel.setText("Score: " + correctAnswers);
+        Qheader.setText("Level " + ec.getProgressValue() + "\n" 
+                        + (currentQuestionIndex + 1) + "/" + totalQuestions);
     }
 
     @FXML

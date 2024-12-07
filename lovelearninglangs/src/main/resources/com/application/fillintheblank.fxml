@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
 <!-- This is the fill in the blank question field.-->
@@ -38,14 +39,20 @@
             <Image url="@images/LLL_Logo.png" />
          </image>
       </ImageView>
+      <Label fx:id="Qheader" text="Level" textFill="#4b0808">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Line endX="185.69288635253906" endY="0.7999183535575867" startX="-100.0" stroke="#4b0808" strokeWidth="2.0" />
         <Label prefHeight="27.0" prefWidth="186.0" style="-fx-text-alignment: left;" text="Fill in the blank." textFill="#e30220">
          <font>
-            <Font name="Arial Bold" size="24.0" />
+            <Font size="24.0" />
          </font></Label>
       <Label fx:id="questionLabel" text=""/>
         <TextField fx:id="answerField" promptText="Answer" />
       <Button fx:id="submitButton" mnemonicParsing="false" style="-fx-background-color: #e30220;" text="Submit" />
-      <Label text="Progress:" />
+      <Label text="" />
       <Label fx:id="progressLabel" />
       <Label fx:id="scoreLabel" />
     </children>

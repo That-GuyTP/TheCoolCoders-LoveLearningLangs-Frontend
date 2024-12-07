@@ -11,8 +11,12 @@ import com.model.Question;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 
 public class MultipleChoiceController {
+
+    @FXML
+    private Label Qheader;
 
     @FXML
     private Label questionLabel;
@@ -32,7 +36,8 @@ public class MultipleChoiceController {
     @FXML
     private Label progressLabel;
 
-    @FXML Label scoreLabel;
+    @FXML
+    private Label scoreLabel;
 
     private MultipleChoice currentQuestion;
     private int currentQuestionIndex;
@@ -52,15 +57,14 @@ public class MultipleChoiceController {
         this.currentQuestionIndex = currentIndex;
         this.totalQuestions = total;
         System.out.println("Loading question " + currentIndex + " of " + totalQuestions);
-        displayQuestion();
-        
-    }
-
-    private void displayQuestion() {
         if (currentQuestion == null) {
             System.out.println("Error: There is no question to display!");
             return;
         }
+        displayQuestion();
+    }
+
+    private void displayQuestion() {
         questionLabel.setText("Q" + (currentQuestionIndex + 1) + ": " + currentQuestion.getQuestion());
         List<String> options = currentQuestion.getChoices();
         optionA.setText("A. " + options.get(0));
@@ -96,8 +100,8 @@ public class MultipleChoiceController {
     }
 
     private void updateProgressLabel() {
-        progressLabel.setText("Question " + (currentQuestionIndex + 1 ) + "/" + totalQuestions);
-        scoreLabel.setText("Score: " + correctAnswers);
+        Qheader.setText("Level " + ec.getProgressValue() + "\n" 
+                        + (currentQuestionIndex + 1) + "/" + totalQuestions);
     }
 
     @FXML

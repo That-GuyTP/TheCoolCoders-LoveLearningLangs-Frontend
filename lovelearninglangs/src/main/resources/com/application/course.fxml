@@ -38,12 +38,11 @@ It handles the following features
           </image>
         </ImageView>      
         
-        <Button mnemonicParsing="false" onAction="#switchToUserHome" onMouseClicked="#switchToUserHome" text="Change Langauge" />
+        <Button mnemonicParsing="false" onAction="#switchToUserHome" onMouseClicked="#switchToUserHome" text="Change Language" />
         <Button mnemonicParsing="false" onAction="#switchToLearn" styleClass="circle" text="Learn" />
         <Button fx:id="exitButton" accessibleText="Level 1 button" ellipsisString="" onAction="#switchToLevel1" style="-fx-background-radius: 100; -fx-background-size: 150;" styleClass="circle" text="Level 1" />
         <Button fx:id="exitButton1" onAction="#switchToLevel2" styleClass="circle" text="Level 2" />
         <Button fx:id="exitButton11" onAction="#switchToLevel3" styleClass="circle" text="Level 3" />
-        <Button fx:id="exitButton" onAction="#exitApp" text="Exit App" />
     
     </children>
 

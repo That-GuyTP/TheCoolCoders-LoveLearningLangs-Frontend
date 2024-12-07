@@ -16,6 +16,8 @@ import com.application.App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class ExerciseController {
 
@@ -124,6 +126,7 @@ public class ExerciseController {
         if (currentQuestionIndex < questions.size()) {
             loadQuestion(currentQuestionIndex);
         } else {
+            showScore();
             exerciseComplete();
         } 
     }
@@ -173,6 +176,21 @@ public class ExerciseController {
     public void incrementScore() {
         score++;
         System.out.println("Scre incremented to: " + score);
+    }
+
+    public Double getProgressValue() {
+        return this.progress;
+    }
+    private void showScore() {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        double accuracy = (double) score / questions.size() * 100.0;
+        if (accuracy >= 70.0) {
+            alert.setContentText("Exercise Completed! Your accuracy was over 70%. You have moved up to the next level!");
+
+        } else {
+            alert.setContentText("Exercise Completed! Your accuracy was below 70%. Continue practicing to get better!");
+        }
+        alert.showAndWait();
     }
 
     @FXML

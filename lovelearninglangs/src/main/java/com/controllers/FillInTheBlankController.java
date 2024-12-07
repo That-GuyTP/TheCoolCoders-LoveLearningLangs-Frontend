@@ -13,6 +13,9 @@ import javafx.scene.control.TextField;
 public class FillInTheBlankController {
 
     @FXML
+    private Label Qheader;
+
+    @FXML
     private Label questionLabel;
 
     @FXML
@@ -59,10 +62,9 @@ public class FillInTheBlankController {
             return;
         }
         questionLabel.setText("Q" + (currentQuestionIndex + 1) + ": " + currentQuestion.getQuestion());
+        updateProgressLabel();
         submitButton.setOnAction(event -> {
             checkAnswer();
-            progressLabel.setText("Question " + (currentQuestionIndex + 1) + "/" + totalQuestions);
-            scoreLabel.setText("Score: " + correctAnswers);
         });
     }
 
@@ -82,9 +84,7 @@ public class FillInTheBlankController {
         } else {
             System.out.println("Incorrect! The correct answer was: " + currentQuestion.getAnswer());
         }
-        progressLabel.setText("Question " + (currentQuestionIndex + 1) + "/" + totalQuestions);
-        scoreLabel.setText("Score: " + correctAnswers);
-        
+
         // Notify the ExerciseController and move to the next question
         try {
             System.out.println("Loading ec.loadNextQuestion: ");
@@ -96,8 +96,8 @@ public class FillInTheBlankController {
     }
 
     private void updateProgressLabel() {
-        progressLabel.setText("Question " + (currentQuestionIndex + 1 ) + "/" + totalQuestions);
-        scoreLabel.setText("Score: " + correctAnswers);
+        Qheader.setText("Level " + ec.getProgressValue() + "\n" 
+                        + (currentQuestionIndex + 1) + "/" + totalQuestions);
     }
 
     // added by Aashish Jayapuram
