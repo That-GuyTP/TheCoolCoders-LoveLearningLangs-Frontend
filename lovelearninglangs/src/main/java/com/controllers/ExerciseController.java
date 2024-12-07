@@ -28,7 +28,7 @@ public class ExerciseController {
     private int score = 0;
     private int scoreLabelValue;
     private static ExerciseController instance;
-    //private com.controllers.FillInTheBlank fitb;
+    private com.controllers.FillInTheBlankController fitb;
     //private com.controllers.Matching mtch;
     private com.controllers.MultipleChoiceController mc;
     private com.controllers.TrueFalseController tof;
@@ -83,11 +83,14 @@ public class ExerciseController {
                 tof = loader.getController();
                 App.scene.setRoot(root);
                 mc.setQuestion((MultipleChoice) question, i, questions.size());
-            /*
             } else if (question instanceof FillInTheBlank) {
-                // fitb = new com.controllers.FillInTheBlankController();
-                // fitb.setQuestion((FillInTheBlank) question, i, questions.size());
                 App.setRoot("fillintheblank");
+                FXMLLoader loader = new FXMLLoader(App.class.getResource("fillintheblank.fxml"));
+                Parent root = loader.load();
+                tof = loader.getController();
+                App.scene.setRoot(root);
+                fitb.setQuestion((FillInTheBlank) question, i, questions.size());
+            /*
             } else if (question instanceof Matching) {
                 mtch = (Matching) question;
                 App.launch("matching"); 
