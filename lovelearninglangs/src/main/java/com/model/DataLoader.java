@@ -18,13 +18,13 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants {
+
     private static DataLoader dataLoader;
 
     public static void main(String[] args) {
-        ArrayList<Phrase> phrases = DataLoader.getPhrases();
-        for (Phrase phrase : phrases) {
-            System.out.println(phrase.getPhrase());
-            System.out.println(phrase.getTranslatedPhrase(Language.SPANISH));
+        ArrayList<User> users = DataLoader.getUsers();
+        for (User user : users) {
+            System.out.println(user.viewAccount());
         }
     }
 
@@ -45,46 +45,40 @@ public class DataLoader extends DataConstants {
             InputStream in = Files.newInputStream(Paths.get(USERS_JSON_FILE));
             InputStreamReader inputStreamReader = new InputStreamReader(in, StandardCharsets.UTF_8);
             BufferedReader reader = new BufferedReader(inputStreamReader);
-
+    
             JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
-            for (int i = 0; i < usersJSON.size(); i++) {
-                JSONObject userJSON = (JSONObject) usersJSON.get(i);
+            for (Object obj : usersJSON) {
+                JSONObject userJSON = (JSONObject) obj;
                 String username = (String) userJSON.get(USER);
                 String email = (String) userJSON.get(USER_EMAIL);
                 String firstName = (String) userJSON.get(USER_FIRST_NAME);
                 String lastName = (String) userJSON.get(USER_LAST_NAME);
+                
+                HashMap<Language, Double> progress = new HashMap<>();
                 JSONObject progressJSON = (JSONObject) userJSON.get(USER_PROGRESS);
-                HashMap<Language, Double> progress = new HashMap<Language, Double>();
                 if (progressJSON != null) {
                     for (Object key : progressJSON.keySet()) {
-                        Language language = Language.valueOf((String) key);
-                        Double progression = (Double) progressJSON.get(key);
+                        System.out.println(progressJSON.get(key));
+                        Language language = Language.valueOf(((String) key));
+                        Double progression = ((Number) progressJSON.get(key)).doubleValue();
                         progress.put(language, progression);
+                        System.out.println(progress.toString());
                     }
                 }
+                
                 String password = (String) userJSON.get(USER_PASSWORD);
                 String uuidStr = (String) userJSON.get(USER_UUID);
-                UUID id = null;
-                try {
-                    id = UUID.fromString(uuidStr);
-                } catch (IllegalArgumentException e) {
-                    System.err.printf("Invalid UUID format");
-                    continue;
-                }
-
-                // //Debugging Section
-                // System.out.println(id);
-                // System.out.println(firstName + " " + lastName);
-
+                UUID id = UUID.fromString(uuidStr);
+    
                 users.add(new User(username, password, firstName, lastName, progress, email, id));
             }
-
+    
             return users;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return new ArrayList<User>();
-    }
+        return new ArrayList<>();
+    }    
 
     public static ArrayList<Word> getWords() {
         // Only Reading in WORDS from json file
