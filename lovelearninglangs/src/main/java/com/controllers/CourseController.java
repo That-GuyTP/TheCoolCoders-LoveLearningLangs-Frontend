@@ -14,6 +14,7 @@ public class CourseController {
     private Language language;
     public LikeLearningLangs lll = LikeLearningLangs.getInstance();
     public Course c = new Course();
+    public User currentuser = new User();
 
     //Default Constructor
     public CourseController() {
@@ -42,7 +43,12 @@ public class CourseController {
 
     //Get Language Progress
     public Double getProgress() {
-        return c.getCourseProg(language);
+        currentuser = lll.getCurrentUser();
+        Double prog = currentuser.getLangProgress(language);
+        if (prog == null || prog < 1.0) {
+            prog = 1.0;
+        }
+        return prog;
     }
     
     //Switch to Home

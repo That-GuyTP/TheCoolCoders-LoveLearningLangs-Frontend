@@ -32,6 +32,7 @@ public class LearnController {
     public LearnController() {
         lll = LikeLearningLangs.getInstance();
         language = cc.getLanguage();
+        progress = cc.getProgress();
     }
 
     //Get Progress
@@ -42,6 +43,7 @@ public class LearnController {
     //Get Review Phrases
     public HashMap<String, String> getReviewPhrases() {
         phrases = Phrases.getPhrases(Math.floor(cc.getProgress()));
+        System.out.println(phrases); // DEBUG
         HashMap<String, String> reviewPhrases = new HashMap<>();
         if (phrases.isEmpty()) {
             System.out.println("No Phrases available for review.");
@@ -56,16 +58,19 @@ public class LearnController {
 
     //Pick a random phrase
     public void setPhrase() {
-        int index = random.nextInt(phrases.size() + 1);
-        boolean pause = false;
-        while (pause != true) {
-            if (temp != index) {
-                english = phrases.get(index).getPhrase();
-                translation = phrases.get(index).getTranslatedPhrase(cc.getLanguage());
-            } else {
-                pause = true;
-            }
+        if (phrases.isEmpty()) {
+            System.out.println("No phrases available.");
+            return;
         }
+        int index;
+        do {
+            index = random.nextInt(phrases.size());
+        } while (index == temp);
+        temp = index;
+    
+        Phrase selectedPhrase = phrases.get(index);
+        english = selectedPhrase.getPhrase();
+        translation = selectedPhrase.getTranslatedPhrase(cc.getLanguage());
     }
 
     @FXML

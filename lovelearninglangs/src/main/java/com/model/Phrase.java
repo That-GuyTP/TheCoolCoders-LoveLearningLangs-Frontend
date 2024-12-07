@@ -109,6 +109,7 @@ public class Phrase {
                 }
             } else {
                 System.out.println("Translation not found");
+                System.out.println("This is the phrase " + translation);
             }
         }
         return translatedPhrase.toString().trim(); // Remove trailing space
