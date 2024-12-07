@@ -43,7 +43,7 @@ public class User {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.progress = new HashMap<>(); // Added by Aashish Jayapuram
+        this.progress = progress;
         this.password = password;
         this.id = id;
     }
@@ -65,7 +65,7 @@ public class User {
      * @param language
      */
     public void addLanguage(Language language){
-        progress.putIfAbsent(language, 1.0);
+        progress.put(language, 1.0);
     }
 
     /**
@@ -80,12 +80,12 @@ public class User {
     /**
      * viewAccount method that shows all associated values of the user object currently. Mostly used for debugging.
      */
-    public void viewAccount(){
-        System.out.println("User name: " + this.getUsername());
-        System.out.println("Name: " + this.getFirstName() + "" + this.getLastName());
-        System.out.println("Email: " + this.getEmail());
-        System.out.println("Courses enrolled:");
-        this.getProgress();
+    public String viewAccount(){
+        StringBuilder accountInfo = new StringBuilder();
+        accountInfo.append("User name: ").append(username).append("\n") .append("Name: ").
+        append(firstName).append(" ").append(lastName).append("\n") .append("Email: ")
+        .append(email).append("\n") .append("Courses enrolled: ").append(progress.toString())
+        .append("\n"); return accountInfo.toString();
     }
 
     /**

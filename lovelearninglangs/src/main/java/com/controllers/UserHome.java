@@ -9,7 +9,6 @@ import com.application.App;
 import com.model.Language;
 import com.model.LikeLearningLangs;
 import com.model.User;
-import com.controllers.CourseController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,6 +39,7 @@ public class UserHome implements Initializable {
         }
         currentUser = lll.getCurrentUser();
         welcomeLabel.setText("Lets get Started, " + currentUser.getFirstName());
+        System.out.println(currentUser.viewAccount());
         displayUserItems();
     }
 
@@ -48,6 +48,7 @@ public class UserHome implements Initializable {
 
         userLanguageList.getChildren().clear();
         for (Language language : userProgress.keySet()) {
+            System.out.println(language.label);
             HBox hBox = new HBox();
             // Image image = new Image(getClass().getResourceAsStream("/images/language_flags/" + language.label.toLowerCase() + ".png"));
             // ImageView languageImage = new ImageView(image);
