@@ -6,6 +6,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
+
+
 <!--
 this is the course fxml of the app.
 It handles the following features
@@ -15,17 +17,20 @@ It handles the following features
 
 <VBox alignment="CENTER" prefHeight="412.0" prefWidth="222.0" spacing="20.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.CourseController">
     <children>
+
       <ImageView fitHeight="58.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/LLL_Logo.png" />
          </image>
-      </ImageView>
+      </ImageView>      
+      
       <Button mnemonicParsing="false" onAction="#switchToUserHome" onMouseClicked="#switchToUserHome" text="Change Langauge" />
       <Button mnemonicParsing="false" onAction="#switchToLearn" styleClass="circle" text="Learn" />
-        <Button fx:id="exitButton" accessibleText="Level 1 button" ellipsisString="" onAction="#switchToLevel1" style="-fx-background-radius: 100; -fx-background-size: 150;" styleClass="circle" text="Level 1" />
+      <Button fx:id="exitButton" accessibleText="Level 1 button" ellipsisString="" onAction="#switchToLevel1" style="-fx-background-radius: 100; -fx-background-size: 150;" styleClass="circle" text="Level 1" />
       <Button fx:id="exitButton1" onAction="#switchToLevel2" styleClass="circle" text="Level 2" />
       <Button fx:id="exitButton11" onAction="#switchToLevel3" styleClass="circle" text="Level 3" />
-        <Button fx:id="exitButton" onAction="#exitApp" text="Exit App" />
+      <Button fx:id="exitButton" onAction="#exitApp" text="Exit App" />
+  
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

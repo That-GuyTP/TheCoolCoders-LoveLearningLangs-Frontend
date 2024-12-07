@@ -30,6 +30,11 @@
          <font>
             <Font size="24.0" />
          </font></Label>
+      <ImageView fitHeight="30.0" fitWidth="22.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/back_image.png" />
+         </image>
+      </ImageView>
         <Label fx:id="progressLabel" />
         <Label fx:id="scoreLabel" />
     </children>
