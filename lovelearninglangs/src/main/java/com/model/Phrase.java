@@ -97,6 +97,10 @@ public class Phrase {
         if (wordList == null) {
             return "Error: wordList is null";
         }
+        if(language == null) {
+            System.out.println("Error: Language is null.");
+            return "[No language selected]";
+        }
         StringBuilder translatedPhrase = new StringBuilder();
         boolean isFirstWord = true;
         for (Word word : wordList) {

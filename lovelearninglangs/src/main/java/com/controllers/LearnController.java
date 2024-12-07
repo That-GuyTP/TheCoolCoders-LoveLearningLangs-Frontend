@@ -19,10 +19,10 @@ public class LearnController {
     
     //Instance Variables
     LikeLearningLangs lll = new LikeLearningLangs();
-    CourseController cc = new CourseController();
+    CourseController cc = CourseController.getInstance();
     Random random = new Random();
-    Language language = null;
-    Double progress = 0.0;
+    Language language = cc.getLanguage();
+    Double progress = cc.getProgress();
     String english = "";
     String translation = "";
     int temp = 0;
@@ -32,6 +32,9 @@ public class LearnController {
     public LearnController() {
         lll = LikeLearningLangs.getInstance();
         language = cc.getLanguage();
+        if (language == null) { // DEBUG
+            System.out.println("Error: Language is not set in CourseController.");
+        }
         progress = cc.getProgress();
     }
 
@@ -74,6 +77,12 @@ public class LearnController {
         System.out.println("Selected phrase: " + english + " with translation: " + translation); // Debug
     }
 
+    //Set Language Backup
+    public void setLanguage(Language language) {
+        this.language = language;
+        System.out.println("Language set in LearnController: " + language);
+    }
+
     @FXML
     private Text learnText;
 
@@ -90,6 +99,7 @@ public class LearnController {
 
     @FXML
     private void generateNewText() throws IOException {
+        System.out.println("In LearnController.java - Current Language: " + language);
         getReviewPhrases();
         setPhrase();
         learnText.setText("\"" + english + "\" is pronounced, \"" + translation + "\"");
