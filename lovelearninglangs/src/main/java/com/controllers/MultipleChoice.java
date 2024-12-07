@@ -31,18 +31,18 @@ public class MultipleChoice {
     @FXML Label scoreLabel;
 
     private int correctAnswer;
-    private int progress = 0;
+    private double progress = 0;
     private int current = 0;
     private int total = 10;
 
     public void MultipleChoice(){
         
     }
-     public void setQuestion(String question, List<String> options, int correctIndex, double progress, Language language) {
+     public void setQuestion(String question, List<String> options, int correctIndex, double progress) {
         questionLabel.setText(question);
         correctAnswer = correctIndex;
         current++;
-
+        setProgress(progress);
         optionA.setText("A. " + options.get(0));
         optionB.setText("B. " + options.get(1));
         optionC.setText("C. " + options.get(2));
@@ -61,10 +61,10 @@ public class MultipleChoice {
         } else {
             System.out.println("Incorrect!");
         }
-        setProgress(current,total);
+        setProgressLabel(current,total);
     }
 
-    private void setProgress(int current, int total) {
+    private void setProgressLabel(int current, int total) {
         progressLabel.setText("Question " + current + " of " + total);
         scoreLabel.setText("Score: " + progress + "/" + current);
         
@@ -74,7 +74,7 @@ public class MultipleChoice {
         App.setRoot("startup");
     }
 
-    public void setProgress(int progress) {
+    public void setProgress(double progress) {
         this.progress = progress;
     }
 
@@ -90,7 +90,7 @@ public class MultipleChoice {
         this.correctAnswer = correctAnswer;
     }
 
-    public int getProgress() {
+    public double getProgress() {
         return progress;
     }
 
