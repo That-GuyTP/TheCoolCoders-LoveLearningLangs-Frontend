@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.io.IOException;
 import com.application.App;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 
 public class ExerciseController {
 
@@ -69,11 +71,17 @@ public class ExerciseController {
             Question question = questions.get(i);
             if(question instanceof trueOrFalse) {
                 App.setRoot("trueorfalse");
-                tof = new TrueFalseController();
+                FXMLLoader loader = new FXMLLoader(App.class.getResource("trueorfalse.fxml"));
+                Parent root = loader.load();
+                tof = loader.getController();
+                App.scene.setRoot(root);
                 tof.setQuestion((trueOrFalse) question, i, questions.size());
             } else if (question instanceof MultipleChoice) {
                 App.setRoot("multiplechoice");
-                mc = new MultipleChoiceController();
+                FXMLLoader loader = new FXMLLoader(App.class.getResource("multiplechoice.fxml"));
+                Parent root = loader.load();
+                tof = loader.getController();
+                App.scene.setRoot(root);
                 mc.setQuestion((MultipleChoice) question, i, questions.size());
             /*
             } else if (question instanceof FillInTheBlank) {

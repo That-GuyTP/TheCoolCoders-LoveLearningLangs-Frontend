@@ -81,11 +81,6 @@ public class TrueFalseController {
             }
         }
     }
-
-
-    
-
-
     
     private void updateProgressLabel() {
         progressLabel.setText("Question " + (currentQuestionIndex + 1) + "/" + totalQuestions);
