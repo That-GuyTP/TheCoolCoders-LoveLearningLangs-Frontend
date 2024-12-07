@@ -27,7 +27,7 @@
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font></Label>
-      <Label fx:id="fillInTheBlankQ" />
+      <Label fx:id="questionLabel" text=""/>
         <TextField fx:id="fillInField" promptText="Answer" />
       <Button id="submitButton" mnemonicParsing="false" style="-fx-background-color: #e30220;" text="submit" />
       <Label text="Progress:" />

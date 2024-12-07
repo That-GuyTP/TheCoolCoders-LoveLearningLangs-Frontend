@@ -28,7 +28,7 @@
          <font>
             <Font size="24.0" />
          </font></Label>
-      <Label fx:id="questionLabel" />
+      <Label fx:id="questionLabel" text=""/>
       <Button fx:id="optionA" style="-fx-background-color: #e30220;" text="A. Example" />
       <Button fx:id="optionB" style="-fx-background-color: #e30220;" text="B. Example" />
       <Button fx:id="optionC" style="-fx-background-color: #e30220;" text="C. Example" />
