@@ -13,7 +13,7 @@ It's where the user will input their information (username and password) before 
 Currently it's set to #switchToLogin
 -->
 
-<VBox alignment="CENTER" spacing="20.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LanguageSelector">
+<VBox alignment="CENTER" spacing="20.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LanguageSelector" style="-fx-background-color: #FCE6E9">
     <children>
       <ImageView fitHeight="58.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
          <image>
