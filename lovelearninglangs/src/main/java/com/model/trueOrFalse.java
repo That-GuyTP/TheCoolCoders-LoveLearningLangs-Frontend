@@ -103,24 +103,14 @@ public class trueOrFalse implements Question {
         boolean isWord = rand.nextBoolean();
         if (isWord) {
             word = getRandomWord();
-            if(word != null){
-                wordTranslation = getWordTranslation();
-                if (wordTranslation == word.getTranslation(language)) {
-                    correctAnswer = 1;
-                } else {
-                    correctAnswer = 2;
-                }
-            }
+            wordTranslation = getWordTranslation();
+            correctAnswer = wordTranslation.equals(word.getTranslation(language)) ? 1 : 2;
+            System.out.println("Generated word question: " + word.getWord() + ", Translation: " + wordTranslation + ", Correct answer: " + correctAnswer); // DEBUG
         } else {
             phrase = getRandomPhrase();
-            if(phrase != null){
-                phraseTranslation = getPhraseTranslation();
-                if (phraseTranslation == phrase.getTranslatedPhrase(language)) {
-                    correctAnswer = 1;
-                } else {
-                    correctAnswer = 2;
-                }
-            }
+            phraseTranslation = getPhraseTranslation();
+            correctAnswer = phraseTranslation.equals(phrase.getTranslatedPhrase(language)) ? 1 : 2;
+            System.out.println("Generated phrase question: " + phrase.getPhrase() + ", Translation: " + phraseTranslation + ", Correct answer: " + correctAnswer); // DEbug
         }
     }
 
@@ -139,7 +129,7 @@ public class trueOrFalse implements Question {
         ArrayList<Word> filteredWords = new ArrayList<>();
         for (Word word : words) {
             // Progress comparison using the ones place of the word's ID (UUID based in the real system)
-            if (Math.floor(word.getId() % 10) == this.progress.intValue()) {
+            if (Math.floor(word.getId() % 10) == Math.floor(progress % 10)) {
                 filteredWords.add(word);
             }
         }
@@ -148,25 +138,27 @@ public class trueOrFalse implements Question {
         if (filteredWords.isEmpty()) {
             return null;  // Handle case where no words match the progress level
         }
-
-        return filteredWords.get(rand.nextInt(filteredWords.size()));
+        Word selectedWord = filteredWords.get(rand.nextInt(filteredWords.size()));
+        System.out.println("Selected word: " + selectedWord.getWord()); // Debug
+        return selectedWord;
     }
 
     private Phrase getRandomPhrase() {
         ArrayList<Phrase> filteredPhrases = new ArrayList<>();
         for (Phrase phrase : phrases) {
             // Progress comparison using the ones place of the phrase's ID
-            if (Math.floor(phrase.getId() % 10) == this.progress.intValue()) {
+            if (Math.floor(phrase.getId() % 10) == Math.floor(progress % 10)) {
                 filteredPhrases.add(phrase);
             }
         }
-
         // Ensure there are phrases to choose from
         if (filteredPhrases.isEmpty()) {
+            System.out.println("No phrases found for the given progress.");
             return null;  // Handle case where no phrases match the progress level
         }
-
-        return filteredPhrases.get(rand.nextInt(filteredPhrases.size()));
+        Phrase selectedPhrase = filteredPhrases.get(rand.nextInt(filteredPhrases.size()));
+        System.out.println("Selected phrase: " + selectedPhrase.getPhrase()); // Debug
+        return selectedPhrase;
     }
 
     public ArrayList<String> getChoices(){
@@ -191,10 +183,7 @@ public class trueOrFalse implements Question {
     }
 
     public boolean checkAnswer(int userAnswer) {
+        System.out.println("User's answer: " + userAnswer + ", Correct answer: " + correctAnswer); // Debugging
         return userAnswer == correctAnswer;
     }
-    
-
-
-
 }

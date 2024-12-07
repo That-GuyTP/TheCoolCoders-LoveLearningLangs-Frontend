@@ -79,7 +79,7 @@ public class UserHome implements Initializable {
         userLanguageList.getChildren().add(addLanguageButton);
         addLanguageButton.setOnAction(event -> {
             try {
-                System.out.println("Clicked Add Language button");
+                // System.out.println("Clicked Add Language button"); debug
                 switchToAddLanguage();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -97,7 +97,7 @@ public class UserHome implements Initializable {
     private void switchToCourse(String langChoice) throws IOException {
         CourseController cc = CourseController.getInstance();
         cc.selectLangauge(langChoice);
-        System.out.println("Opening course. Language chosen is " + langChoice);
+        // System.out.println("Opening course. Language chosen is " + langChoice); dcebug
         App.setRoot("course");
     }
 

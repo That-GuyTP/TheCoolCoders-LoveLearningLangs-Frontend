@@ -81,16 +81,16 @@ public class MultipleChoice implements Question {
         ArrayList<Phrase> filteredPhrases = new ArrayList<>();
         for (Phrase phrase : phrases) {
             // Progress comparison using the ones place of the phrase's ID
-            if (Math.floor(phrase.getId() % 10) == this.progress.intValue()) {
+            if (Math.floor(phrase.getId() % 10) == Math.floor(progress % 10)) {
                 filteredPhrases.add(phrase);
             }
         }
 
         // Ensure there are phrases to choose from
         if (filteredPhrases.isEmpty()) {
+            System.out.println("No phrases found for the given progress.");
             return null;  // Handle case where no phrases match the progress level
         }
-
         return filteredPhrases.get(rand.nextInt(filteredPhrases.size()));
     }
 
@@ -98,11 +98,8 @@ public class MultipleChoice implements Question {
         choices.add(correctWord.getTranslation(lang)); // Add correct answer
         while (choices.size() < 4) {
             Word randomWord = getRandomWord();
-            if (randomWord != null) {
-                String translation = randomWord.getTranslation(lang);
-                if (!choices.contains(translation)) {
-                    choices.add(translation);  // Add incorrect option
-                }
+            if (randomWord != null && !choices.contains(randomWord.getTranslation(lang))) {
+                choices.add(randomWord.getTranslation(lang));
             }
         }
         shuffleChoices();
@@ -113,12 +110,8 @@ public class MultipleChoice implements Question {
         choices.add(correctPhrase.getTranslatedPhrase(lang));  // Add correct answer
         while (choices.size() < 4) {
             Phrase randomPhrase = getRandomPhrase();
-            if (randomPhrase != null) {
-                String phrase = randomPhrase.getPhrase();
-                String phraseChoice = randomPhrase.getTranslatedPhrase(lang);
-                if (!choices.contains(phraseChoice)) {
-                    choices.add(phraseChoice);  // Add incorrect option
-                }
+            if (randomPhrase != null && !choices.contains(randomPhrase.getTranslatedPhrase(lang))) {
+                choices.add(randomPhrase.getTranslatedPhrase(lang));  // Add incorrect option
             }
         }
         shuffleChoices();
@@ -157,7 +150,8 @@ public class MultipleChoice implements Question {
     }
 
     public boolean checkAnswer(int userAnswer) {
-        return userAnswer - 1 == correctAnswerIndex;
+        System.out.println("In model MultipleChoice.java the correct answer for this question is set to: " + correctAnswerIndex);
+        return userAnswer == correctAnswerIndex;
     }
 
 

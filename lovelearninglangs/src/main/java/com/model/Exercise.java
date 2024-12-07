@@ -45,24 +45,18 @@ public class Exercise {
      * @return ArrayList(question)
      */
     public ArrayList<Question> generateQuestions() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 10; i++) {
             int randomType = randomQuestionType();
             switch (randomType) {
                 case 1:
                     //Multiple Choice
-                    Question question = new MultipleChoice(language, progress);
-                    questions.add(question);
+                    questions.add(new MultipleChoice(language, progress));
                     break;
                 case 2:
-                    Question question2 = new FillInTheBlank(language, progress);
-                    questions.add(question2);
+                    questions.add(new FillInTheBlank(language, progress));
                     break;
                 case 3:
-                    Question question3 = new trueOrFalse(language, progress);
-                    questions.add(question3);
-                    break;
-                case 4:
-                    //Matching
+                    questions.add(new trueOrFalse(language, progress));
                     break;
                 default:
                     System.out.println("Error! Questions could not be generated!");

@@ -46,42 +46,52 @@ public class FillInTheBlankController {
     }
 
     private void displayQuestion() {
-        if (currentQuestion == null) {
+        if (currentQuestion == null) { // DEBUG
             System.out.println("Error: There is no question to display!");
             return;
         }
+        if (submitButton == null) { // Debug
+            System.out.println("Error: submitButton is not initialized!");
+            return;
+        }
+        if (answerField == null) { // Debug
+            System.out.println("Error: answerField is not initialized!"); 
+            return;
+        }
         questionLabel.setText("Q" + (currentQuestionIndex + 1) + ": " + currentQuestion.getQuestion());
-
-        submitButton.setOnAction(event -> checkAnswer());
-        updateProgressLabel();
+        submitButton.setOnAction(event -> {
+            checkAnswer();
+            progressLabel.setText("Question " + (currentQuestionIndex + 1) + "/" + totalQuestions);
+            scoreLabel.setText("Score: " + correctAnswers);
+        });
     }
 
     private void checkAnswer() {
         String userAnswer = answerField.getText().trim();
-        boolean isCorrect = currentQuestion.checkAnswer(userAnswer);
+        if (userAnswer.isEmpty()) { // Debug
+            System.out.println("Error: No answer provided!");
+            return;
+        }
+        boolean isCorrect = currentQuestion.getAnswer().equalsIgnoreCase(userAnswer);
         
         if (isCorrect) {
             correctAnswers++;
             System.out.println("Correct!");
             ec.incrementScore();
-            ec.setExerciseScore(Integer.parseInt(userAnswer));
+            //ec.setExerciseScore(Integer.parseInt(userAnswer));
         } else {
             System.out.println("Incorrect! The correct answer was: " + currentQuestion.getAnswer());
         }
-
+        progressLabel.setText("Question " + (currentQuestionIndex + 1) + "/" + totalQuestions);
+        scoreLabel.setText("Score: " + correctAnswers);
+        
         // Notify the ExerciseController and move to the next question
-        if (currentQuestionIndex + 1 < totalQuestions) {
-            try {
-                App.setRoot("exercise"); // Move to the next question
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                ExerciseController.getInstance().exerciseComplete();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            System.out.println("Loading ec.loadNextQuestion: ");
+            ec.loadNextQuestion();
+        } catch (IOException e) {
+            System.out.println("Error! couldn't process ec.loadNextQuestion: ");
+            e.printStackTrace();
         }
     }
 

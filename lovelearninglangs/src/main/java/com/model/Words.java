@@ -30,9 +30,9 @@ public class Words {
         ArrayList<Word> filteredWords = new ArrayList<>();
         Double tolerance = 0.5;
         for (Word word : words) {
-            System.out.println("Word ID: " + word.getId() + " | User Progress: " + progress);
+            //System.out.println("Word ID: " + word.getId() + " | User Progress: " + progress); DEBUG
             if (Math.abs(word.getId() - progress) < tolerance) {
-                System.out.println("Adding word: " + word.getWord());
+                //System.out.println("Adding word: " + word.getWord()); DEBUG
                 filteredWords.add(word);
             }
         }

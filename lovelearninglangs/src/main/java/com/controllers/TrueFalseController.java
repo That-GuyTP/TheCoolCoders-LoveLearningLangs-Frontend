@@ -29,10 +29,10 @@ public class TrueFalseController {
     private int currentQuestionIndex;
     private int correctAnswers;
     private int totalQuestions;
-    private ExerciseController exerciseController;
+    private ExerciseController ec;
 
-    public void TrueFalseController() {
-        exerciseController = ExerciseController.getInstance();
+    public TrueFalseController() {
+        ec = ExerciseController.getInstance();
     }
 
     public void setQuestion(trueOrFalse question, int currentIndex, int total) {
@@ -53,32 +53,38 @@ public class TrueFalseController {
         trueButton.setText("True");
         falseButton.setText("False");
 
-        trueButton.setOnAction(event -> checkAnswer(true));
-        falseButton.setOnAction(event -> checkAnswer(false));
+        trueButton.setOnAction(event -> {
+            System.out.println("True button clicked"); // Debug
+            checkAnswer(1);
+        });
+        falseButton.setOnAction(event -> {
+            System.out.println("False button clicked"); // Debug
+            checkAnswer(2);
+        });
 
         updateProgressLabel();
     }
 
-    private void checkAnswer(boolean selectedAnswer) {
-        boolean isCorrect = currentQuestion.checkAnswer(selectedAnswer ? 1 : 0);
+    private void checkAnswer(int selectedAnswer) {
+        if (currentQuestion == null) {
+            System.out.println("Error: No question is set!");
+            return;
+        }
+        System.out.println("Current question is set to: " + currentQuestion.toString());
+        System.out.println("This is the selected answer " + selectedAnswer);
+        boolean isCorrect = currentQuestion.checkAnswer(selectedAnswer);
         if (isCorrect) {
             correctAnswers++;
             System.out.println("Correct!");
+            ec.incrementScore();
         } else {
-            System.out.println("Incorrect! The correct answer was: " + currentQuestion.getAnswer());
+            System.out.println("Incorrect! The correct answer was: " + currentQuestion.getCorrectAnswer());
         }
-        if (currentQuestionIndex + 1 < totalQuestions) {
-            try {
-                App.setRoot("exercise"); 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                ExerciseController.getInstance().exerciseComplete();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        // Notify the ExerciseController and move to the next question
+        try {
+            ec.loadNextQuestion();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     
@@ -87,6 +93,7 @@ public class TrueFalseController {
         scoreLabel.setText("Score: " + correctAnswers);
     }
 
+    @FXML
     private void back() throws IOException {
         App.setRoot("course");
     }
