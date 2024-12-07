@@ -12,7 +12,7 @@
 
 <!-- This is the fill in the blank question field.-->
 
-<VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #FCE6E9;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.FillInTheBlank">
+<VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #FCE6E9;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.FillInTheBlankController">
     <children>
       <Text fill="#4b0808" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-font-family: family;" wrappingWidth="109.3363037109375">
          <font>
