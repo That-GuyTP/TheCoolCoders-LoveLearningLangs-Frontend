@@ -13,6 +13,7 @@ import com.model.LikeLearningLangs;
 import com.model.Phrase;
 import com.model.Phrases;
 import com.narration.*;
+import com.model.Language;
 
 public class LearnController {
     
@@ -20,6 +21,7 @@ public class LearnController {
     LikeLearningLangs lll = new LikeLearningLangs();
     CourseController cc = new CourseController();
     Random random = new Random();
+    Language language = null;
     Double progress = 0.0;
     String english = "";
     String translation = "";
@@ -29,7 +31,7 @@ public class LearnController {
     //Default Const
     public LearnController() {
         lll = LikeLearningLangs.getInstance();
-        progress = 0.0;
+        language = cc.getLanguage();
     }
 
     //Get Progress
@@ -71,13 +73,20 @@ public class LearnController {
 
     @FXML
     private void setText() throws IOException {
-        learnText.setText(("\"" + english + "\" is pronounced, \"" + translation + "\""));
+        learnText.setText("\"" + english + "\" is pronounced, \"" + translation + "\"");
     }
 
     @FXML
     private void playSound() throws IOException {
         System.out.println("You clicked the playASound button!");
         Narrator.playSound(learnText.toString());
+    }
+
+    @FXML
+    private void generateNewText() throws IOException {
+        getReviewPhrases();
+        setPhrase();
+        learnText.setText("\"" + english + "\" is pronounced, \"" + translation + "\"");
     }
 
     @FXML

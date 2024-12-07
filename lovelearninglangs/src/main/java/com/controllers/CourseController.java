@@ -12,22 +12,22 @@ public class CourseController {
 
     //Instance Variables
     private Language language;
-    public LikeLearningLangs langs = LikeLearningLangs.getInstance();
+    public LikeLearningLangs lll = LikeLearningLangs.getInstance();
     public Course c = new Course();
 
     //Default Constructor
     public CourseController() {
-        c = new Course(langs.getCurrentUser());
+        c = new Course(lll.getCurrentUser());
     }
 
     //Select a Language
-    public void selectLangauge(Language languageInput) {
-        language = languageInput;
+    public void selectLangauge(String languageInput) {
+        language = Language.valueOf(languageInput.toUpperCase());
     }
 
     //Get Course Value
     public void getCourse() throws IOException {
-        langs.getCourse(language);
+        lll.getCourse(language);
     }
 
     //Get Selected Language
@@ -37,7 +37,7 @@ public class CourseController {
 
     //Get Current User
     public User getUser() {
-        return langs.getCurrentUser();
+        return lll.getCurrentUser();
     }
 
     //Get Language Progress
@@ -47,7 +47,7 @@ public class CourseController {
     
     //Switch to Home
     @FXML
-    private void switchToHome() throws IOException {
+    private void switchToUserHome() throws IOException {
         System.out.println("You clicked the icon. Switching to user home");
         App.setRoot("userhome");
     }
@@ -56,7 +56,7 @@ public class CourseController {
     @FXML
     private void switchToLearn() throws IOException {
         System.out.println("You've clicked the learn button. Switching to learn page.");
-        App.launch("learn");
+        App.setRoot("learn");
     }
 
     //Switch to Level 1
@@ -71,7 +71,7 @@ public class CourseController {
     @FXML
     private void switchToLevel2() throws IOException {
         System.out.println("This is the level 2 button");
-        if (langs.getCurrentUser().getLangProgress(language) < 2.0) {
+        if (lll.getCurrentUser().getLangProgress(language) < 2.0) {
             System.out.println("You're not ready for this course yet. Try exercising some more.");
         } else {
 
@@ -82,7 +82,7 @@ public class CourseController {
     @FXML
     private void switchToLevel3() throws IOException {
         System.out.println("This is the level 3 button");
-        if (langs.getCurrentUser().getLangProgress(language) < 3.0) {
+        if (lll.getCurrentUser().getLangProgress(language) < 3.0) {
             System.out.println("You're not ready for this course yet. Try exercising some more.");
         } else {
             App.setRoot(null /* INSERT EXERCISE PATH HERE */);      
