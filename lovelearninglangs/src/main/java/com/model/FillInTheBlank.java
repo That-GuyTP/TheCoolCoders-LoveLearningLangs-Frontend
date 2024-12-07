@@ -29,6 +29,7 @@ public class FillInTheBlank implements Question {
             System.out.println("No phrases found for the given progress.");
             return null;
         }
+        System.out.println("Selected phrase for progress " + progress + ": " + selectedPhrase.getPhrase()); // Debug
         return filteredPhrases.get(rand.nextInt(filteredPhrases.size()));
     }
     

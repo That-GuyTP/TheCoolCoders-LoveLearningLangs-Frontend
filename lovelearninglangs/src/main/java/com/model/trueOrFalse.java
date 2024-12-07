@@ -186,8 +186,4 @@ public class trueOrFalse implements Question {
         System.out.println("User's answer: " + userAnswer + ", Correct answer: " + correctAnswer); // Debugging
         return userAnswer == correctAnswer;
     }
-    
-
-
-
 }

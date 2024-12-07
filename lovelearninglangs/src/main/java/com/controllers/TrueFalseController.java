@@ -55,30 +55,30 @@ public class TrueFalseController {
 
         trueButton.setOnAction(event -> {
             System.out.println("True button clicked"); // Debug
-            checkAnswer(true);
+            checkAnswer(1);
         });
         falseButton.setOnAction(event -> {
             System.out.println("False button clicked"); // Debug
-            checkAnswer(false);
+            checkAnswer(2);
         });
 
         updateProgressLabel();
     }
 
-    private void checkAnswer(boolean selectedAnswer) {
+    private void checkAnswer(int selectedAnswer) {
         if (currentQuestion == null) {
             System.out.println("Error: No question is set!");
             return;
         }
         System.out.println("Current question is set to: " + currentQuestion.toString());
         System.out.println("This is the selected answer " + selectedAnswer);
-        boolean isCorrect = currentQuestion.checkAnswer(selectedAnswer ? 1 : 0);
+        boolean isCorrect = currentQuestion.checkAnswer(selectedAnswer);
         if (isCorrect) {
             correctAnswers++;
             System.out.println("Correct!");
             ec.incrementScore();
         } else {
-            System.out.println("Incorrect! The correct answer was: " + currentQuestion.getAnswer());
+            System.out.println("Incorrect! The correct answer was: " + currentQuestion.getCorrectAnswer());
         }
         // Notify the ExerciseController and move to the next question
         try {
