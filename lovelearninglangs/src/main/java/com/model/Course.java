@@ -122,8 +122,8 @@ public class Course {
      * @return Double progress
      */
     public double getCourseProg(Language lang) {
-        HashMap<Language, Double> prog = user.getProgress();
-        return prog.get(lang);
+        Double prog = user.getLangProgress(lang);
+        return prog;
     }
 
     public void updateScore(User user, Double accuracy){

@@ -27,7 +27,7 @@ public class TrueOrFalse {
     private Label scoreLabel;
 
     private int correctAnswer;
-    private double progress = 0;
+    private int progress = 0;
     private int current = 0;
     private int total = 10;
     HashMap<String, String> easyWords = new HashMap<>();
@@ -55,6 +55,7 @@ public class TrueOrFalse {
         hardWords.put("revolucion", "revolution");
         hardWords.put("desafio", "challenge");
     }
+<<<<<<< HEAD
 
        
    
@@ -64,12 +65,21 @@ public class TrueOrFalse {
       
         
         trueOrFalseQ.setText("Does " + wordVariable + " mean " + wordVariable2 + "?");
+=======
+     public void setQuestion(String question, List<String> options, int correctIndex) {
+        trueOrFalseQ.setText(question);
+        correctAnswer = correctIndex;
+        current++;
+>>>>>>> 56cc8d7d6e68bfe2e58da99c604238f7336e00a8
 
         trueButton.setText("True");
         falseButton.setText("False");
 
+<<<<<<< HEAD
         setProgress(progress);
 
+=======
+>>>>>>> 56cc8d7d6e68bfe2e58da99c604238f7336e00a8
         trueButton.setOnAction(event -> checkAnswer(0));
         falseButton.setOnAction(event -> checkAnswer(1));
     }  
@@ -99,7 +109,7 @@ public class TrueOrFalse {
         scoreLabel.setText("Score: " + progress);
     }
 
-    public void setProgress(double progress) {
+    public void setProgress(int progress) {
         this.progress = progress;
     }
 
@@ -115,7 +125,7 @@ public class TrueOrFalse {
         this.correctAnswer = correctAnswer;
     }
 
-    public double getProgress() {
+    public int getProgress() {
         return progress;
     }
 

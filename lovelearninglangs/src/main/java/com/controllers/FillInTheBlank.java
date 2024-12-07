@@ -27,18 +27,18 @@ public class FillInTheBlank {
     private Label scoreLabel;
 
     private String correctAnswer;
-    private double progress = 0;
+    private int progress = 0;
     private int current = 0;
     private int total = 10;
 
     public void FillInTheBlank(){
         
     }
-     public void setQuestion(String question, String correctAnswer,double progress) {
+     public void setQuestion(String question, String correctAnswer) {
         fillInTheBlankQ.setText(question);
         this.correctAnswer = correctAnswer;
         current++;
-        setProgress(progress);
+
         submitButton.setOnAction(event -> checkAnswer());
     }
 
@@ -61,7 +61,7 @@ public class FillInTheBlank {
         scoreLabel.setText("Score: " + progress + "/" + total);
     }
 
-    public void setProgress(double progress) {
+    public void setProgress(int progress) {
         this.progress = progress;
     }
 
@@ -77,7 +77,7 @@ public class FillInTheBlank {
         this.correctAnswer = correctAnswer;
     }
 
-    public double getProgress() {
+    public int getProgress() {
         return progress;
     }
 

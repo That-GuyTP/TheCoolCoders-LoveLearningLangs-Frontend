@@ -65,7 +65,7 @@ public class UserHome implements Initializable {
 
             languageButton.setOnAction(event -> {
                 try {
-                    switchToCourse(language.toString());
+                    switchToCourse(language.toString().toUpperCase());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -95,9 +95,9 @@ public class UserHome implements Initializable {
 
     @FXML
     private void switchToCourse(String langChoice) throws IOException {
-        CourseController cc = new CourseController();
+        CourseController cc = CourseController.getInstance();
         cc.selectLangauge(langChoice);
-        System.out.print("Opening course. Language chosen is " + langChoice);
+        System.out.println("Opening course. Language chosen is " + langChoice);
         App.setRoot("course");
     }
 

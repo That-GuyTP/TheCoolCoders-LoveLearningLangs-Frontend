@@ -13,16 +13,30 @@ public class CourseController {
     //Instance Variables
     private Language language;
     public LikeLearningLangs lll = LikeLearningLangs.getInstance();
+    private static CourseController instance;
     public Course c = new Course();
+    public User currentuser = new User();
 
     //Default Constructor
     public CourseController() {
         c = new Course(lll.getCurrentUser());
     }
 
+    public static CourseController getInstance() {
+        if (instance == null) {
+            instance = new CourseController();
+        }
+        return instance;
+    }
+
     //Select a Language
     public void selectLangauge(String languageInput) {
-        language = Language.valueOf(languageInput.toUpperCase());
+        try {
+            language = Language.valueOf(languageInput.toUpperCase());
+            System.out.println("Language successfully set to: " + language);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: Invalid language input.");
+        }
     }
 
     //Get Course Value
@@ -32,6 +46,9 @@ public class CourseController {
 
     //Get Selected Language
     public Language getLanguage() {
+        if (language == null) {
+            System.out.println("Error: No language selected.");
+        }
         return language;
     }
 
@@ -42,7 +59,12 @@ public class CourseController {
 
     //Get Language Progress
     public Double getProgress() {
-        return c.getCourseProg(language);
+        currentuser = lll.getCurrentUser();
+        Double prog = currentuser.getLangProgress(language);
+        if (prog == null || prog < 1.0) {
+            prog = 1.0;
+        }
+        return prog;
     }
     
     //Switch to Home
@@ -55,7 +77,11 @@ public class CourseController {
     //Switch to Learn
     @FXML
     private void switchToLearn() throws IOException {
+        CourseController cc = CourseController.getInstance();
         System.out.println("You've clicked the learn button. Switching to learn page.");
+        LearnController lc = new LearnController();
+        lc.setLanguage(cc.getLanguage());
+        System.out.println("Set lc's language to " + cc.getLanguage());
         App.setRoot("learn");
     }
 
