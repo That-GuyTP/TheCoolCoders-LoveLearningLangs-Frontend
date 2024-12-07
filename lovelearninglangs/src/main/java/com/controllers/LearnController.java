@@ -71,6 +71,7 @@ public class LearnController {
         Phrase selectedPhrase = phrases.get(index);
         english = selectedPhrase.getPhrase();
         translation = selectedPhrase.getTranslatedPhrase(cc.getLanguage());
+        System.out.println("Selected phrase: " + english + " with translation: " + translation); // Debug
     }
 
     @FXML
@@ -92,6 +93,7 @@ public class LearnController {
         getReviewPhrases();
         setPhrase();
         learnText.setText("\"" + english + "\" is pronounced, \"" + translation + "\"");
+        System.out.println("Displayed phrase: \"" + english + "\" translated as \"" + translation + "\"");
     }
 
     @FXML

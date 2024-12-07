@@ -58,7 +58,9 @@ public class Phrases {
         Double tolerance = 0.0001;
         ArrayList<Phrase> returnPhrases = new ArrayList<>();
         for(Phrase phrase: phrases){
+            System.out.println("Checking phrase with ID: " + phrase.getId());
             if(Math.abs(phrase.getId() - id) < tolerance){ // Checks for tolerances
+                System.out.println("Adding phrase: " + phrase.getPhrase()); // Debug
                 returnPhrases.add(phrase);
             }
         }

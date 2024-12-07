@@ -19,7 +19,8 @@ public class Phrase {
     public Phrase() {
         this.translations = new HashMap<>();
         wordList = filterWordsByUUID(wordUUIDList);
-        if (wordList == null) {
+        if (wordList == null || wordUUIDList.isEmpty()) {
+            System.out.println("wordUUIDList is null or empty for phrase: " + phrase);
             wordList = new ArrayList<>();
             System.out.println("DEBUG WARNING WORDLIST IS NULL!");
         }
@@ -110,6 +111,7 @@ public class Phrase {
             } else {
                 System.out.println("Translation not found");
                 System.out.println("This is the phrase " + translation);
+                System.out.println("This is the wordlist" + wordList);
             }
         }
         return translatedPhrase.toString().trim(); // Remove trailing space
