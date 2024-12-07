@@ -67,7 +67,11 @@ public class ExerciseController {
      */
         public void startExercise(int level) throws IOException {
         questions = exercise.generateQuestions();
-        for (int i = 0; i < 10; i++) {
+        if (questions == null || questions.isEmpty()) { // DEBUG
+            System.out.println("No questions were generated.");
+            return;
+        }
+        for (int i = 0; i < questions.size(); i++) {
             Question question = questions.get(i);
             if(question instanceof trueOrFalse) {
                 App.setRoot("trueorfalse");
@@ -80,14 +84,14 @@ public class ExerciseController {
                 App.setRoot("multiplechoice");
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("multiplechoice.fxml"));
                 Parent root = loader.load();
-                tof = loader.getController();
+                mc = loader.getController();
                 App.scene.setRoot(root);
                 mc.setQuestion((MultipleChoice) question, i, questions.size());
             } else if (question instanceof FillInTheBlank) {
                 App.setRoot("fillintheblank");
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("fillintheblank.fxml"));
                 Parent root = loader.load();
-                tof = loader.getController();
+                fitb = loader.getController();
                 App.scene.setRoot(root);
                 fitb.setQuestion((FillInTheBlank) question, i, questions.size());
             /*

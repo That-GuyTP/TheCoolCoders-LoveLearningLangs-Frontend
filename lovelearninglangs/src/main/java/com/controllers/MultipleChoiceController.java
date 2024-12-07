@@ -104,6 +104,7 @@ public class MultipleChoiceController {
         scoreLabel.setText("Score: " + correctAnswers);
     }
 
+    @FXML
     private void back() throws IOException {
         App.setRoot("course");
     }
