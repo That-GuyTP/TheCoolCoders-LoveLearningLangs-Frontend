@@ -12,7 +12,7 @@
 
 <!-- This is the multiple choice page of the app.-->
 
-<VBox alignment="CENTER" prefHeight="369.0" prefWidth="349.0" spacing="20.0" style="-fx-background-color: #FCE6E9;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.MultipleChoice">
+<VBox alignment="CENTER" prefHeight="369.0" prefWidth="349.0" spacing="20.0" style="-fx-background-color: #FCE6E9;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.MultipleChoiceController">
    <children>
       <ImageView fitHeight="58.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
          <image>

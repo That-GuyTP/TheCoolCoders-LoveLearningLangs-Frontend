@@ -3,10 +3,7 @@ package com.controllers;
 import java.io.IOException;
 
 import com.application.App;
-import com.controllers.ExerciseController;
 import com.model.FillInTheBlank;
-import com.model.Language;
-import com.model.Question;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

@@ -8,9 +8,7 @@
 
 <VBox alignment="CENTER" prefHeight="412.0" prefWidth="222.0" spacing="20.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LearnController">
    <children>
-
-      
-      <ImageView fitHeight="58.0" fitWidth="79.0" onMouseClicked="#switchToHome" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="58.0" fitWidth="79.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/LLL_Logo.png" />
          </image>
