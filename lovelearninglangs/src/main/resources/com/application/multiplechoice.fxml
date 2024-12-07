@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -14,6 +15,20 @@
 
 <VBox alignment="CENTER" prefHeight="369.0" prefWidth="349.0" spacing="20.0" style="-fx-background-color: #FCE6E9;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.MultipleChoiceController">
    <children>
+
+   <!-- Added by Aashish Jayapuram-->
+        <HBox alignment="TOP_LEFT" >
+          <Button fx:id="backButton" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="38.0" style="-fx-background-color: white;">
+            <graphic>
+                <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@images/back_image.png" />
+                  </image>
+                </ImageView>
+            </graphic>
+          </Button>
+        </HBox>
+
       <ImageView fitHeight="58.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/LLL_Logo.png" />

@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -14,6 +15,20 @@
 
 <VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #FCE6E9;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.FillInTheBlankController">
     <children>
+      
+      <!-- Added by Aashish Jayapuram-->
+        <HBox alignment="TOP_LEFT" >
+          <Button fx:id="backButton" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="38.0" style="-fx-background-color: white;">
+            <graphic>
+                <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@images/back_image.png" />
+                  </image>
+                </ImageView>
+            </graphic>
+          </Button>
+        </HBox>
+      
       <Text fill="#4b0808" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-font-family: family;" wrappingWidth="109.3363037109375">
          <font>
             <Font name="System Bold" size="24.0" />

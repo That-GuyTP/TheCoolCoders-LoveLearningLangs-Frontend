@@ -90,6 +90,7 @@ public class FillInTheBlankController {
         scoreLabel.setText("Score: " + correctAnswers);
     }
 
+    // added by Aashish Jayapuram
     @FXML
     private void back() throws IOException {
         App.setRoot("course");
