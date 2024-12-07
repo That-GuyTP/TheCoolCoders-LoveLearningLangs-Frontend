@@ -24,7 +24,7 @@ The register button does not work.
       </ImageView>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Love Learning Langs">
       </Text>
-      <Label text="Click this button to play a sound and go to the login page" />
+      <Label text="" />
       <Button fx:id="loginButton" onAction="#switchToLogin" text="Login" />
       <Button fx:id="registerButton" onAction="#switchToRegister" text="Register" />
       <Button fx:id="soundTest" onAction="#playASound" text="Test Narrator" />
