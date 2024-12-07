@@ -65,4 +65,8 @@ public class FillInTheBlank implements Question {
     public String getAnswer() {
         return this.answer;
     }
+
+    public boolean checkAnswer(String userAnswer){
+        return userAnswer.toLowerCase().equals(this.answer.toLowerCase());
+    }
 }
