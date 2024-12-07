@@ -2,11 +2,13 @@ package com.controllers;
 
 import com.model.Exercise;
 import com.model.Language;
+import com.model.LikeLearningLangs;
 import com.model.Question;
 import com.model.FillInTheBlank;
 import com.model.Matching;
 import com.model.MultipleChoice;
 import com.model.trueOrFalse;
+import com.model.User;
 
 import java.util.ArrayList;
 import java.io.IOException;
@@ -27,14 +29,14 @@ public class ExerciseController {
     private com.controllers.FillInTheBlank fitb;
     //private com.controllers.Matching mtch;
     private com.controllers.MultipleChoiceController mc;
-    private com.controllers.TrueOrFalse tof;
+    private com.controllers.TrueFalseController tof;
 
 
 
     //Constructor
     public ExerciseController() {
-        exercise = new Exercise(cc.getLanguage(), cc.getProgress());
-        progress = cc.getProgress();
+        this.exercise = new Exercise(cc.getLanguage(), cc.getProgress());
+        this.progress = cc.getProgress();
     }
 
     public static ExerciseController getInstance() {
@@ -62,17 +64,21 @@ public class ExerciseController {
      * @throws IOException 
      */
         public void startExercise(int level) throws IOException {
-        questions = exercise.generateQuestions(level, 10);
+        questions = exercise.generateQuestions();
         for (int i = 0; i < 10; i++) {
             Question question = questions.get(i);
             if(question instanceof trueOrFalse) {
+                tof = new TrueFalseController();
+                tof.setQuestion((trueOrFalse) question, i, questions.size());
                 App.setRoot("trueorfalse");
             } else if (question instanceof FillInTheBlank) {
+                // fitb = new com.controllers.FillInTheBlankController();
+                // fitb.setQuestion((FillInTheBlank) question, i, questions.size());
                 App.setRoot("fillintheblank");
             } else if (question instanceof MultipleChoice) {
-                App.setRoot("multiplechoice");
                 mc = new MultipleChoiceController();
                 mc.setQuestion((MultipleChoice) question, i, questions.size());
+                App.setRoot("multiplechoice");
             /*} else if (question instanceof Matching) {
                 mtch = (Matching) question;
                 App.launch("matching"); */
@@ -86,7 +92,14 @@ public class ExerciseController {
         double accuracy = (double) score / 10.0 * 100.0;
         if (accuracy >= 70.0) {
             System.out.println("Score above 70%. Updating progress...");
-            cc.getUser().(cc.getLanguage(), cc.getProgress() + 1);
+            User currentUser = cc.getUser();
+            Language currentLanguage = cc.getLanguage();
+            Double currentProgress = currentUser.getLangProgress(currentLanguage);
+            if (currentProgress == null) {
+                currentProgress = 1.0;
+            }
+            currentUser.getProgress().put(currentLanguage, currentProgress + 1.0);
+            LikeLearningLangs.getInstance().saveProgress();
         } else {
             System.out.println("Score below 70%. Progress not updated.");
         }
