@@ -18,19 +18,29 @@ public class ExerciseController {
     //Instance variables
     private Exercise exercise;
     private ArrayList<Question> questions;
-    private Double currentProgress;
+    private Double progress;
+    CourseController cc = CourseController.getInstance();
+    private static ExerciseController instance;
     private com.controllers.FillInTheBlank fitb;
     //private com.controllers.Matching mtch;
     private com.controllers.MultipleChoice mc;
     private com.controllers.TrueOrFalse tof;
 
+
+
     //Constructor
-    public ExerciseController(Language language, Double progress) {
-        exercise = new Exercise(language, progress);
-        currentProgress = progress;
-        startExercise();
+    private ExerciseController() {
+        exercise = new Exercise(cc.getLanguage(), cc.getProgress());
+        progress = cc.getProgress();
     }
 
+    public static ExerciseController getInstance() {
+        if (instance == null) {
+            instance = new ExerciseController();
+        }
+        return instance;
+    }
+    
     /**
      * calls the generateQuestions method from our exercise model and creates a list of questions based off that.
      * 
@@ -46,32 +56,24 @@ public class ExerciseController {
      * a question type based off the type. It also sets the values of each questions' question string, correct answer, and a progress value.
      * 
      * @return double Arruracy
+     * @throws IOException 
      */
-    public double startExercise() {
+        public double startExercise() throws IOException {
         generateQuestions();
-        for (int i = 0; i < questions.size(); i++) {
+        for (int i = 0; i < 10; i++) {
             Question question = questions.get(i);
             if(question instanceof trueOrFalse) {
-                tof.setQuestion(question.getQuestion(), null, i);
-                if (question.getAnswer() == "true") {
-                    tof.setCorrectAnswer(0);
-                } else if (question.getAnswer() == "false") {
-                    tof.setCorrectAnswer(1);
-                }
-                tof.setProgress(currentProgress.intValue());
                 App.setRoot("trueorfalse");
             } else if (question instanceof FillInTheBlank) {
-                fitb.setQuestion(null, null);
-                fitb.setCorrectAnswer(question.getAnswer());
-                fitb.setProgress(currentProgress.intValue());
-                //fitb.FillInTheBlank(question.getQuestion(), question.getAnswer(), currentProgress.intValue()) - Based of current para const for fitb
                 App.setRoot("fillintheblank");
             } else if (question instanceof MultipleChoice) {
-                mc.setQuestion(question.getQuestion());
-                mc.setCorrectAnswer(question.getAnswer());
-                mc.setProgress(currentProgress.intValue());
-                //mc.MultipleChoice(question.getQuestion(), question.getAnswer(), currentProgress.intValue()) - Based of current para const for mc
                 App.setRoot("multiplechoice");
+                mc = new MultipleChoice();
+                mc.setQuestion(question.getQuestion(), 
+                              ((MultipleChoice) question).getChoices(),
+                              ((MultipleChoice) question).getCorrectAnswerIndex(), 
+                              progress,
+                              cc.getLanguage());
             /*} else if (question instanceof Matching) {
                 mtch = (Matching) question;
                 App.launch("matching"); */

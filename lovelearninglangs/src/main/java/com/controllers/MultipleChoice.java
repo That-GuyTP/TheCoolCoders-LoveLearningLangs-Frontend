@@ -3,6 +3,10 @@ import java.io.IOException;
 import java.util.List;
 
 import com.application.App;
+import com.controllers.ExerciseController;
+import com.model.FillInTheBlank;
+import com.model.Language;
+import com.model.Question;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -30,15 +34,16 @@ public class MultipleChoice {
 
     @FXML Label scoreLabel;
 
-    private int correctAnswer;
-    private int progress = 0;
-    private int current = 0;
-    private int total = 10;
+    private List<Question> questions;
+    private int currentQuestionIndex = 0;
+    private int correctAnswers = 0;
+    private ExerciseController exerciseController;
 
     public void MultipleChoice(){
-        
+        exerciseController = ExerciseController.getInstance();
     }
-     public void setQuestion(String question, List<String> options, int correctIndex, double progress, Language language) {
+
+    public void setQuestion(String question, List<String> options, int correctIndex, double progress, Language language) {
         questionLabel.setText(question);
         correctAnswer = correctIndex;
         current++;
