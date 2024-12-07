@@ -1,5 +1,6 @@
 package com.controllers;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import com.application.App;
@@ -29,31 +30,75 @@ public class TrueOrFalse {
     private int progress = 0;
     private int current = 0;
     private int total = 10;
-
-    public void TrueOrFalse(){
+    HashMap<String, String> easyWords = new HashMap<>();
+    HashMap<String, String> mediumWords = new HashMap<>();
+    HashMap<String, String> hardWords = new HashMap<>();
+    
+    public TrueOrFalse() {
         
+
+        easyWords.put("perro", "dog");
+        easyWords.put("gato", "cat");
+        easyWords.put("correr", "run");
+        easyWords.put("bueno", "good");
+        easyWords.put("mal", "bad");
+
+        mediumWords.put("rapido", "fast");
+        mediumWords.put("nombre", "name");
+        mediumWords.put("que", "what");
+        mediumWords.put("donde", "where");
+        mediumWords.put("como", "how");
+
+        hardWords.put("filosofia", "philosophy");
+        hardWords.put("constitucion", "constitution");
+        hardWords.put("sostenibilidad", "sustainability");
+        hardWords.put("revolucion", "revolution");
+        hardWords.put("desafio", "challenge");
     }
+<<<<<<< HEAD
+
+       
+   
+     public void setQuestion(List<String> options, int correctIndex,double progress) {
+        String wordVariable = generateRandomWord();
+        String wordVariable2 = generateRandomWord2();
+      
+        
+        trueOrFalseQ.setText("Does " + wordVariable + " mean " + wordVariable2 + "?");
+=======
      public void setQuestion(String question, List<String> options, int correctIndex) {
         trueOrFalseQ.setText(question);
         correctAnswer = correctIndex;
         current++;
+>>>>>>> 56cc8d7d6e68bfe2e58da99c604238f7336e00a8
 
         trueButton.setText("True");
         falseButton.setText("False");
 
+<<<<<<< HEAD
+        setProgress(progress);
+
+=======
+>>>>>>> 56cc8d7d6e68bfe2e58da99c604238f7336e00a8
         trueButton.setOnAction(event -> checkAnswer(0));
         falseButton.setOnAction(event -> checkAnswer(1));
     }  
     
-    private void checkAnswer(int selectedIndex) {
-        if (selectedIndex == correctAnswer) {
-            System.out.println("Correct!");
-            progress++;
-        } else {
-            System.out.println("Incorrect!");
-        }
-        setProgressLabel();
-    }
+    public String generateRandomWord(){
+       
+        String[] keys = easyWords.keySet().toArray(new String[0]);
+        String randomKey = keys[(int) (Math.random() * keys.length)];
+        return randomKey;
+        
+    };
+
+    public String generateRandomWord2(){
+        String[] values = easyWords.values().toArray(new String[0]);
+        String randomValue = values[(int) (Math.random() * values.length)];
+        return randomValue;
+    };
+
+    
 
     public void setProgressLabel() {
         progressLabel.setText("Question " + current + " of " + total);
