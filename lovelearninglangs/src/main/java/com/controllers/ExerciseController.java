@@ -71,21 +71,22 @@ public class ExerciseController {
                 tof = new TrueFalseController();
                 tof.setQuestion((trueOrFalse) question, i, questions.size());
                 App.setRoot("trueorfalse");
-            } else if (question instanceof FillInTheBlank) {
-                // fitb = new com.controllers.FillInTheBlankController();
-                // fitb.setQuestion((FillInTheBlank) question, i, questions.size());
-                App.setRoot("fillintheblank");
             } else if (question instanceof MultipleChoice) {
                 mc = new MultipleChoiceController();
                 mc.setQuestion((MultipleChoice) question, i, questions.size());
                 App.setRoot("multiplechoice");
-            /*} else if (question instanceof Matching) {
+            /*
+            } else if (question instanceof FillInTheBlank) {
+                // fitb = new com.controllers.FillInTheBlankController();
+                // fitb.setQuestion((FillInTheBlank) question, i, questions.size());
+                App.setRoot("fillintheblank");
+            } else if (question instanceof Matching) {
                 mtch = (Matching) question;
-                App.launch("matching"); */
+                App.launch("matching"); 
+            */
             }
         }
         exerciseComplete();
-        
     }
 
     public void exerciseComplete() throws IOException {
@@ -96,15 +97,13 @@ public class ExerciseController {
             Language currentLanguage = cc.getLanguage();
             Double currentProgress = currentUser.getLangProgress(currentLanguage);
             if (currentProgress == null) {
-                currentProgress = 1.0;
+                currentProgress = 1.0; // Just in case.
             }
             currentUser.getProgress().put(currentLanguage, currentProgress + 1.0);
             LikeLearningLangs.getInstance().saveProgress();
         } else {
             System.out.println("Score below 70%. Progress not updated.");
         }
-
-        // Navigate back to the course page
         App.setRoot("course");
     }
 
