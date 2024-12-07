@@ -14,6 +14,8 @@ import com.model.Phrase;
 import com.model.Phrases;
 import com.narration.*;
 import com.model.Language;
+import com.model.Word;
+import com.model.Words;
 
 public class LearnController {
     
@@ -27,14 +29,12 @@ public class LearnController {
     String translation = "";
     int temp = 0;
     private ArrayList<Phrase> phrases;
+    private ArrayList<Word> words;
 
     //Default Const
     public LearnController() {
         lll = LikeLearningLangs.getInstance();
         language = cc.getLanguage();
-        if (language == null) { // DEBUG
-            System.out.println("Error: Language is not set in CourseController.");
-        }
         progress = cc.getProgress();
     }
 
@@ -74,13 +74,36 @@ public class LearnController {
         Phrase selectedPhrase = phrases.get(index);
         english = selectedPhrase.getPhrase();
         translation = selectedPhrase.getTranslatedPhrase(cc.getLanguage());
-        System.out.println("Selected phrase: " + english + " with translation: " + translation); // Debug
+    }
+
+    public HashMap<String, String> getReviewWords() {
+        words = Words.getWords(Math.floor(cc.getProgress()));
+        HashMap<String, String> reviewWords = new HashMap<>();
+        if (reviewWords.isEmpty()) {
+            System.out.println("No Words available for review.");
+            return reviewWords;
+        }
+        for (int i = 0; i < words.size(); i++) {
+            Word reviewWord = words.get(i);
+            reviewWords.putIfAbsent(reviewWord.getWord(), reviewWord.getTranslation(cc.getLanguage()));
+        }
+        return reviewWords;
+    }
+
+    public void setWord() {
+        if (words.isEmpty()) {
+            System.out.println("No words available.");
+            return;
+        }
+        int index = random.nextInt(words.size());
+        Word selectedWord = words.get(index);
+        english = selectedWord.getWord();
+        translation = selectedWord.getTranslation(language);
     }
 
     //Set Language Backup
     public void setLanguage(Language language) {
         this.language = language;
-        System.out.println("Language set in LearnController: " + language);
     }
 
     @FXML
@@ -94,16 +117,23 @@ public class LearnController {
     @FXML
     private void playSound() throws IOException {
         System.out.println("You clicked the playASound button!");
-        Narrator.playSound(learnText.toString());
+        String textText = learnText.getText();
+        Narrator.playSound(textText);
     }
 
     @FXML
     private void generateNewText() throws IOException {
         System.out.println("In LearnController.java - Current Language: " + language);
-        getReviewPhrases();
-        setPhrase();
+        int choice = random.nextInt(2) + 1;
+        if (choice == 1) {
+            getReviewPhrases();
+            setPhrase();
+        } else if (choice == 2) {
+            getReviewWords();
+            setWord();
+        }
+        
         learnText.setText("\"" + english + "\" is pronounced, \"" + translation + "\"");
-        System.out.println("Displayed phrase: \"" + english + "\" translated as \"" + translation + "\"");
     }
 
     @FXML
