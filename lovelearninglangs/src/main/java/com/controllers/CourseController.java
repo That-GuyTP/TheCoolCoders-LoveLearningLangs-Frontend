@@ -75,8 +75,8 @@ public class CourseController implements Initializable {
 
     //Get Language Progress
     public Double getProgress() {
-        currentuser = lll.getCurrentUser();
-        Double prog = currentuser.getLangProgress(language);
+        CourseController cc = CourseController.getInstance();
+        Double prog = lll.getCurrentUser().getLangProgress(cc.getLanguage());
         if (prog == null || prog < 1.0) {
             prog = 1.0;
         }
@@ -111,7 +111,7 @@ public class CourseController implements Initializable {
     //Switch to Level 2
     @FXML
     private void switchToLevel2() throws IOException {
-        if (lll.getCurrentUser().getLangProgress(language) < 2.0) {
+        if (lll.getCurrentUser().getLangProgress(language) <= 2.0) {
             System.out.println("You're not ready for this course yet. Try exercising some more.");
         } else {
             ExerciseController ec = ExerciseController.getInstance();
@@ -122,7 +122,7 @@ public class CourseController implements Initializable {
     //Switch to Level 3
     @FXML
     private void switchToLevel3() throws IOException {
-        if (lll.getCurrentUser().getLangProgress(language) < 3.0) {
+        if (getProgress() < 3.0) {
             System.out.println("You're not ready for this course yet. Try exercising some more.");
         } else {
             ExerciseController ec = ExerciseController.getInstance();
