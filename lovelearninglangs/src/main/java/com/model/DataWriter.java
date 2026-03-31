@@ -4,20 +4,20 @@
 
 package com.model;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.ArrayList;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
-
-
-public class DataWriter extends DataConstants{
+public class DataWriter extends DataConstants {
 
     private static DataWriter dataWriter;
 
-    private DataWriter(){
-        this.dataWriter = dataWriter;
+    private DataWriter() {
+        dataWriter = this;
     }
 
     public static void main(String[] args) {
@@ -30,16 +30,13 @@ public class DataWriter extends DataConstants{
         ArrayList<User> userList = users.getUsers();
         JSONArray jsonUsers = new JSONArray();
 
-        //Creating all the JSON objects
-        for(int i=0; i<userList.size(); i++) {
+        for (int i = 0; i < userList.size(); i++) {
             jsonUsers.add(getUserJSON(userList.get(i)));
         }
-        
-       
 
-        try (FileWriter file = new FileWriter(USERS_JSON_FILE)){
-            file.write(jsonUsers.toJSONString());
-            file.flush();
+        try (BufferedWriter writer = Files.newBufferedWriter(getUsersFilePath(), StandardCharsets.UTF_8)) {
+            writer.write(jsonUsers.toJSONString());
+            writer.flush();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,26 +45,25 @@ public class DataWriter extends DataConstants{
 
     @SuppressWarnings("unchecked")
     public static JSONObject getUserJSON(User user) {
-       JSONObject userDetails = new JSONObject();
-       userDetails.put(USER, user.getUsername());
-       userDetails.put(USER_FIRST_NAME, user.getFirstName());
-       userDetails.put(USER_LAST_NAME, user.getLastName());
-       userDetails.put(USER_EMAIL, user.getEmail());
-       userDetails.put(USER_PROGRESS, user.getProgress());
-       userDetails.put(USER_PROGRESS_LANGUAGE, user.getProgress());
-       userDetails.put(USER_PASSWORD, user.getPassword());
-       userDetails.put(USER_UUID, user.getUUID().toString());
-       return userDetails;
+        JSONObject userDetails = new JSONObject();
+        userDetails.put(USER, user.getUsername());
+        userDetails.put(USER_FIRST_NAME, user.getFirstName());
+        userDetails.put(USER_LAST_NAME, user.getLastName());
+        userDetails.put(USER_EMAIL, user.getEmail());
+        userDetails.put(USER_PROGRESS, user.getProgress());
+        userDetails.put(USER_PROGRESS_LANGUAGE, user.getProgress());
+        userDetails.put(USER_PASSWORD, user.getPassword());
+        userDetails.put(USER_UUID, user.getUUID().toString());
+        return userDetails;
 
     }
 
     @SuppressWarnings("unchecked")
     public static void saveWords() {
-       //Word word = Word.getInstance();
-       ArrayList<Word> existingWord = DataLoader.getWords();
-       JSONArray jsonWord = new JSONArray();
+        ArrayList<Word> existingWord = DataLoader.getWords();
+        JSONArray jsonWord = new JSONArray();
 
-        for (Word word: existingWord) {
+        for (Word word : existingWord) {
             jsonWord.add(getWordJSON(word));
         }
 
@@ -76,12 +72,12 @@ public class DataWriter extends DataConstants{
             jsonWord.add(getWordJSON(word));
         }
 
-       try (FileWriter file = new FileWriter(WORDS_JSON_FILE)){
-            file.write(jsonWord.toJSONString());
-            file.flush();
-       } catch (Exception e) {
+        try (BufferedWriter writer = Files.newBufferedWriter(getWordsFilePath(), StandardCharsets.UTF_8)) {
+            writer.write(jsonWord.toJSONString());
+            writer.flush();
+        } catch (Exception e) {
             e.printStackTrace();
-       }
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -102,10 +98,8 @@ public class DataWriter extends DataConstants{
         return wordDetails;
     }
 
-
     @SuppressWarnings("unchecked")
     public static void savePhrase() {
-        //Phrase phrase = Phrase.getInstance();
         ArrayList<Phrase> existingPhrases = DataLoader.getPhrases();
         JSONArray jsonPhrases = new JSONArray();
 
@@ -113,13 +107,13 @@ public class DataWriter extends DataConstants{
             jsonPhrases.add(getPhraseJSON(phrase));
         }
 
-        try (FileWriter file = new FileWriter(PHRASES_JSON_FILE)){
-            file.write(jsonPhrases.toJSONString());
-            file.flush();
+        try (BufferedWriter writer = Files.newBufferedWriter(getPhrasesFilePath(), StandardCharsets.UTF_8)) {
+            writer.write(jsonPhrases.toJSONString());
+            writer.flush();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -130,20 +124,11 @@ public class DataWriter extends DataConstants{
         phraseDetails.put(PHRASE_WORDS, phrase.getwordUUIDLists().toString());
         return phraseDetails;
 
-
     }
 
-    public static void saveAll(){
+    public static void saveAll() {
         savePhrase();
         saveUsers();
         saveWords();
     }
-
-
 }
- 
-
-
-
-    
-

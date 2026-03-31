@@ -11,6 +11,7 @@ import com.model.User;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -39,11 +40,13 @@ public class AddLanguageController implements Initializable {
 
 
     private void displayAddableLanguages() {
+        addableLanguages.setAlignment(Pos.TOP_CENTER);
         for (Language language : Language.values()) {
             if (currentUser.getProgress().containsKey(language)) {
                 continue;
             }
             HBox hBox = new HBox();
+            hBox.setAlignment(Pos.CENTER);
             // System.out.println();
             // InputStream imageStream = getClass().getResourceAsStream("/images/language_flags/" + language.label.toLowerCase() + ".png");
             // if (imageStream == null) {

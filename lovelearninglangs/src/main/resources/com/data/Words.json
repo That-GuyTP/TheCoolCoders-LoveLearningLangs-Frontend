@@ -1,0 +1,314 @@
+[
+    {
+        "gender": "neutral",
+        "partOfSpeech": "ARTICLE",
+        "language": {
+            "ENGLISH": "A",
+            "SPANISH": "Un",
+            "GERMAN": "Ein"
+        },
+        "id": "1.1",
+        "uuid": "1a2b3c4d-1234-5678-9abc-123def456abc",
+        "word": "A"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "ARTICLE",
+        "language": {
+            "ENGLISH": "The",
+            "SPANISH": "El",
+            "GERMAN": "Der"
+        },
+        "id": "1.2",
+        "uuid": "a99d33d7-1c3c-45b2-b8c3-40b04507b9ed",
+        "word": "The"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "PREPOSITION",
+        "language": {
+            "ENGLISH": "Of",
+            "SPANISH": "De",
+            "GERMAN": "Von"
+        },
+        "id": "1.3",
+        "uuid": "70b8a885-65a3-4db2-b74f-5b9de8b1df48",
+        "word": "Of"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "NOUN",
+        "language": {
+            "ENGLISH": "Dog",
+            "SPANISH": "Perro",
+            "GERMAN": "Hund"
+        },
+        "id": "1.4",
+        "uuid": "9a1e1e92-0a88-44a0-a046-c49c67b1ff6c",
+        "word": "Dog"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "NOUN",
+        "language": {
+            "ENGLISH": "Cat",
+            "SPANISH": "Gato",
+            "GERMAN": "Katze"
+        },
+        "id": "1.5",
+        "uuid": "9a1e1e92-0a88-44a0-a046-c38c67b1ab6c",
+        "word": "Cat"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "VERB",
+        "language": {
+            "ENGLISH": "Run",
+            "SPANISH": "Correr",
+            "GERMAN": "Laufen"
+        },
+        "id": "1.6",
+        "uuid": "3a1e1e92-0a88-44a0-a046-c38c67b1ff6c",
+        "word": "Run"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "ADJECTIVE",
+        "language": {
+            "ENGLISH": "Good",
+            "SPANISH": "Bueno",
+            "GERMAN": "Gut"
+        },
+        "id": "1.7",
+        "uuid": "0b1e1e92-0a88-44a0-a046-c38c67b1ff6c",
+        "word": "Good"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "CONJUNCTION",
+        "language": {
+            "ENGLISH": "And",
+            "SPANISH": "Y",
+            "GERMAN": "Und"
+        },
+        "id": "1.8",
+        "uuid": "9a1e1e92-0a99-44a0-a046-c38c67b1ff6c",
+        "word": "And"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "ADJECTIVE",
+        "language": {
+            "ENGLISH": "Fast",
+            "SPANISH": "Rápido",
+            "GERMAN": "Schnell"
+        },
+        "id": "1.9",
+        "uuid": "c65e3df8-93bc-4cb9-b55f-9c834eab63f7",
+        "word": "Fast"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "NOUN",
+        "language": {
+            "ENGLISH": "Name",
+            "SPANISH": "Nombre",
+            "GERMAN": "Name"
+        },
+        "id": "1.1",
+        "uuid": "b65e3df8-93bc-4cb9-b55f-9c834eab63f7",
+        "word": "Name"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "PRONOUN",
+        "language": {
+            "ENGLISH": "What",
+            "SPANISH": "Qué",
+            "GERMAN": "Was"
+        },
+        "id": "2.1",
+        "uuid": "9a3e1e92-0a88-44a0-a046-c38c67b1ff6c",
+        "word": "What"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "ADVERB",
+        "language": {
+            "ENGLISH": "Where",
+            "SPANISH": "Dónde",
+            "GERMAN": "Wo"
+        },
+        "id": "2.2",
+        "uuid": "9a1e1e92-0a88-44a0-a056-c38c67b1ff6c",
+        "word": "Where"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "ADVERB",
+        "language": {
+            "ENGLISH": "How",
+            "SPANISH": "Cómo",
+            "GERMAN": "Wie"
+        },
+        "id": "2.3",
+        "uuid": "9a1e1e92-0a88-44a0-a046-c39c67b1ff6c",
+        "word": "How"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "VERB",
+        "language": {
+            "ENGLISH": "Is",
+            "SPANISH": "Es",
+            "GERMAN": "Ist"
+        },
+        "id": "2.4",
+        "uuid": "9a1e1e92-0a88-44a0-a046-c38c67c1ff6c",
+        "word": "Is"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "PRONOUN",
+        "language": {
+            "ENGLISH": "Your",
+            "SPANISH": "Tu",
+            "GERMAN": "Dein"
+        },
+        "id": "2.5",
+        "uuid": "9a1e1e92-0a88-44a0-a046-c38c67b1ff6d",
+        "word": "Your"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "PRONOUN",
+        "language": {
+            "ENGLISH": "You",
+            "SPANISH": "Tú",
+            "GERMAN": "Du"
+        },
+        "id": "2.6",
+        "uuid": "9a1e1e92-0a88-44a0-a046-c38c67b2ff6c",
+        "word": "You"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "VERB",
+        "language": {
+            "ENGLISH": "Are",
+            "SPANISH": "Son",
+            "GERMAN": "Sein"
+        },
+        "id": "2.7",
+        "uuid": "9a1e1e92-0a88-44a0-a047-c38c67b1ff6c",
+        "word": "Are"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "NOUN",
+        "language": {
+            "ENGLISH": "Philosophy",
+            "SPANISH": "Filosofía",
+            "GERMAN": "Philosophie"
+        },
+        "id": "3.1",
+        "uuid": "f2b84df3-6340-4199-8a1f-f4c774391e02",
+        "word": "Philosophy"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "NOUN",
+        "language": {
+            "ENGLISH": "Constitution",
+            "SPANISH": "Constitución",
+            "GERMAN": "Verfassung"
+        },
+        "id": "3.2",
+        "uuid": "a2b84df3-6340-4199-8a4f-f4c774391e02",
+        "word": "Constitution"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "NOUN",
+        "language": {
+            "ENGLISH": "Sustainability",
+            "SPANISH": "Sostenibilidad",
+            "GERMAN": "Nachhaltigkeit"
+        },
+        "id": "3.3",
+        "uuid": "f2b84df3-6340-4199-8a1f-f4c794391e02",
+        "word": "Sustainability"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "NOUN",
+        "language": {
+            "ENGLISH": "Revolution",
+            "SPANISH": "Revolución",
+            "GERMAN": "Revolution"
+        },
+        "id": "3.4",
+        "uuid": "5e8dc4e3-289b-4f74-9e4a-9c6c3d4e367f",
+        "word": "Revolution"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "NOUN",
+        "language": {
+            "ENGLISH": "Innovation",
+            "SPANISH": "Innovación",
+            "GERMAN": "Innovation"
+        },
+        "id": "3.5",
+        "uuid": "c1ea9a7e-5886-4810-9a72-cb7934e8f43a",
+        "word": "Innovation"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "NOUN",
+        "language": {
+            "ENGLISH": "Technology",
+            "SPANISH": "Tecnología",
+            "GERMAN": "Technologie"
+        },
+        "id": "3.6",
+        "uuid": "e0c45a14-1a06-4c2f-a5c1-fbc82523d8ab",
+        "word": "Technology"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "NOUN",
+        "language": {
+            "ENGLISH": "Society",
+            "SPANISH": "Sociedad",
+            "GERMAN": "Gesellschaft"
+        },
+        "id": "3.7",
+        "uuid": "3eae4fd3-4c95-4c51-9a5e-183ae9fa2722",
+        "word": "Society"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "NOUN",
+        "language": {
+            "ENGLISH": "Environment",
+            "SPANISH": "Medio ambiente",
+            "GERMAN": "Umwelt"
+        },
+        "id": "3.8",
+        "uuid": "3ebe4fd3-4c85-4c51-9a5e-183ae9fa2722",
+        "word": "Environment"
+    },
+    {
+        "gender": "neutral",
+        "partOfSpeech": "NOUN",
+        "language": {
+            "ENGLISH": "Challenge",
+            "SPANISH": "Desafío",
+            "GERMAN": "Herausforderung"
+        },
+        "id": "3.9",
+        "uuid": "f5e7f0be-1295-41f8-8d2f-05a43fcbe1d1",
+        "word": "Challenge"
+    }
+]

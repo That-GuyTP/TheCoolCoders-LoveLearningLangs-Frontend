@@ -13,6 +13,7 @@ import com.controllers.CourseController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -47,8 +48,10 @@ public class UserHome implements Initializable {
         HashMap<Language, Double> userProgress = currentUser.getProgress();
 
         userLanguageList.getChildren().clear();
+        userLanguageList.setAlignment(Pos.TOP_CENTER);
         for (Language language : userProgress.keySet()) {
             HBox hBox = new HBox();
+            hBox.setAlignment(Pos.CENTER);
             // Image image = new Image(getClass().getResourceAsStream("/images/language_flags/" + language.label.toLowerCase() + ".png"));
             // ImageView languageImage = new ImageView(image);
             // languageImage.setFitHeight(50);
@@ -76,7 +79,6 @@ public class UserHome implements Initializable {
         addLanguageButton.setFont(new Font(18));
         addLanguageButton.setPrefHeight(50);
 
-        userLanguageList.getChildren().add(addLanguageButton);
         addLanguageButton.setOnAction(event -> {
             try {
                 // System.out.println("Clicked Add Language button"); debug
@@ -87,6 +89,7 @@ public class UserHome implements Initializable {
         });
 
         HBox addLanguageHBox = new HBox();
+        addLanguageHBox.setAlignment(Pos.CENTER);
         addLanguageHBox.setSpacing(10);
         addLanguageHBox.getChildren().add(addLanguageButton);
 

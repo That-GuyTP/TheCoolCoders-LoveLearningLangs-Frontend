@@ -4,15 +4,14 @@
 package com.model;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -41,10 +40,9 @@ public class DataLoader extends DataConstants {
 
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
-        try {
-            InputStream in = Files.newInputStream(Paths.get(USERS_JSON_FILE));
-            InputStreamReader inputStreamReader = new InputStreamReader(in, StandardCharsets.UTF_8);
-            BufferedReader reader = new BufferedReader(inputStreamReader);
+        try (InputStream in = Files.newInputStream(getUsersFilePath());
+             InputStreamReader inputStreamReader = new InputStreamReader(in, StandardCharsets.UTF_8);
+             BufferedReader reader = new BufferedReader(inputStreamReader)) {
 
             JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
             for (int i = 0; i < usersJSON.size(); i++) {
@@ -58,8 +56,8 @@ public class DataLoader extends DataConstants {
                 if (progressJSON != null) {
                     for (Object key : progressJSON.keySet()) {
                         Language language = Language.valueOf((String) key);
-                        Double progression = (Double) progressJSON.get(key);
-                        progress.put(language, progression);
+                        Number progression = (Number) progressJSON.get(key);
+                        progress.put(language, progression.doubleValue());
                     }
                 }
                 String password = (String) userJSON.get(USER_PASSWORD);
@@ -72,10 +70,6 @@ public class DataLoader extends DataConstants {
                     continue;
                 }
 
-                // //Debugging Section
-                // System.out.println(id);
-                // System.out.println(firstName + " " + lastName);
-
                 users.add(new User(username, password, firstName, lastName, progress, email, id));
             }
 
@@ -87,12 +81,11 @@ public class DataLoader extends DataConstants {
     }
 
     public static ArrayList<Word> getWords() {
-        // Only Reading in WORDS from json file
         ArrayList<Word> words = new ArrayList<>();
-        try {
-            InputStream in = Files.newInputStream(Paths.get(WORDS_JSON_FILE));
-            InputStreamReader inputStreamReader = new InputStreamReader(in, StandardCharsets.UTF_8);
-            BufferedReader reader = new BufferedReader(inputStreamReader);
+        try (InputStream in = Files.newInputStream(getWordsFilePath());
+             InputStreamReader inputStreamReader = new InputStreamReader(in, StandardCharsets.UTF_8);
+             BufferedReader reader = new BufferedReader(inputStreamReader)) {
+
             JSONArray wordsJSON = (JSONArray) new JSONParser().parse(reader);
 
             for (int i = 0; i < wordsJSON.size(); i++) {
@@ -136,10 +129,10 @@ public class DataLoader extends DataConstants {
 
     public static ArrayList<Phrase> getPhrases() {
         ArrayList<Phrase> phrases = new ArrayList<>();
-        try {
-            InputStream in = Files.newInputStream(Paths.get(PHRASES_JSON_FILE));
-            InputStreamReader inputStreamReader = new InputStreamReader(in, StandardCharsets.UTF_8);
-            BufferedReader reader = new BufferedReader(inputStreamReader);
+        try (InputStream in = Files.newInputStream(getPhrasesFilePath());
+             InputStreamReader inputStreamReader = new InputStreamReader(in, StandardCharsets.UTF_8);
+             BufferedReader reader = new BufferedReader(inputStreamReader)) {
+
             JSONArray phrasesJSON = (JSONArray) new JSONParser().parse(reader);
 
             for (int i = 0; i < phrasesJSON.size(); i++) {
@@ -150,7 +143,7 @@ public class DataLoader extends DataConstants {
 
                 ArrayList<UUID> wordUUIDs = new ArrayList<>();
                 String wordArrayStr = (String) phraseJSON.get(PHRASE_WORDS);
-                wordArrayStr = wordArrayStr.substring(1, wordArrayStr.length() - 1); // Remove brackets
+                wordArrayStr = wordArrayStr.substring(1, wordArrayStr.length() - 1);
                 String[] wordArray = wordArrayStr.split(", ");
 
                 for (String wordIDStr : wordArray) {

@@ -96,21 +96,21 @@ public class ExerciseController {
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("trueorfalse.fxml"));
                 Parent root = loader.load();
                 tof = loader.getController();
-                App.scene.setRoot(root);
+                App.setRoot(root);
                 tof.setQuestion((trueOrFalse) question, currentQuestionIndex, questions.size());
             } else if (question instanceof MultipleChoice) {
                 //App.setRoot("multiplechoice");
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("multiplechoice.fxml"));
                 Parent root = loader.load();
                 mc = loader.getController();
-                App.scene.setRoot(root);
+                App.setRoot(root);
                 mc.setQuestion((MultipleChoice) question, currentQuestionIndex, questions.size());
             } else if (question instanceof FillInTheBlank) {
                 //App.setRoot("fillintheblank");
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("fillintheblank.fxml"));
                 Parent root = loader.load();
                 fitb = loader.getController();
-                App.scene.setRoot(root);
+                App.setRoot(root);
                 fitb.setQuestion((FillInTheBlank) question, currentQuestionIndex, questions.size());
             /*
             } else if (question instanceof Matching) {
