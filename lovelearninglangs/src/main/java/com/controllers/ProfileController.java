@@ -75,6 +75,7 @@ public class ProfileController implements Initializable {
     @FXML
     private void signOut() throws IOException {
         App.setRoot("login");
+        lll.updateUser(currentUser);
         lll.setCurrentUser(null);
     }
 

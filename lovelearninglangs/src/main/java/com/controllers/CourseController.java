@@ -1,17 +1,20 @@
 package com.controllers;
 
 import java.io.IOException;
-
-import org.junit.internal.ExactComparisonCriteria;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import com.application.App;
-import javafx.fxml.FXML;
+import com.model.Course;
 import com.model.Language;
 import com.model.LikeLearningLangs;
-import com.model.Course;
 import com.model.User;
 
-public class CourseController {
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+
+public class CourseController implements Initializable {
 
     //Instance Variables
     private Language language;
@@ -19,6 +22,8 @@ public class CourseController {
     private static CourseController instance;
     public Course c = new Course();
     public User currentuser = new User();
+    @FXML
+    private Label userProgressLabel;
 
     //Default Constructor
     public CourseController() {
@@ -32,6 +37,13 @@ public class CourseController {
         return instance;
     }
 
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        c = new Course(lll.getCurrentUser());
+        CourseController cc = CourseController.getInstance();
+        userProgressLabel.setText(cc.getLanguage() + ": " + lll.getCurrentUser().getLangProgress(cc.getLanguage()));
+
+    }
 
     //Select a Language
     public void selectLangauge(String languageInput) {
@@ -63,15 +75,14 @@ public class CourseController {
 
     //Get Language Progress
     public Double getProgress() {
-        currentuser = lll.getCurrentUser();
-        Double prog = currentuser.getLangProgress(language);
+        CourseController cc = CourseController.getInstance();
+        Double prog = lll.getCurrentUser().getLangProgress(cc.getLanguage());
         if (prog == null || prog < 1.0) {
             prog = 1.0;
         }
         return prog;
     }
 
-    
     //Switch to Home
     @FXML
     private void switchToUserHome() throws IOException {
@@ -91,7 +102,7 @@ public class CourseController {
     }
 
     //Switch to Level 1
-    @FXML 
+    @FXML
     private void switchToLevel1() throws IOException {
         ExerciseController ec = ExerciseController.getInstance();
         ec.startExercise(1);
@@ -100,7 +111,7 @@ public class CourseController {
     //Switch to Level 2
     @FXML
     private void switchToLevel2() throws IOException {
-        if (lll.getCurrentUser().getLangProgress(language) < 2.0) {
+        if (lll.getCurrentUser().getLangProgress(language) <= 2.0) {
             System.out.println("You're not ready for this course yet. Try exercising some more.");
         } else {
             ExerciseController ec = ExerciseController.getInstance();
@@ -111,11 +122,11 @@ public class CourseController {
     //Switch to Level 3
     @FXML
     private void switchToLevel3() throws IOException {
-        if (lll.getCurrentUser().getLangProgress(language) < 3.0) {
+        if (getProgress() < 3.0) {
             System.out.println("You're not ready for this course yet. Try exercising some more.");
         } else {
             ExerciseController ec = ExerciseController.getInstance();
-            ec.startExercise(3);    
+            ec.startExercise(3);
         }
     }
 
